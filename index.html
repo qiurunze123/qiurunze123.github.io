@@ -18,7 +18,7 @@
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.266c1c.css">
   <style type="text/css">
@@ -151,39 +151,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-GeekQ博客添加相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git命令与使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/14/GeekQ博客添加相册功能/">GeekQ博客添加相册功能</a>
+      <a class="article-title" href="/2017/07/17/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a>
     </h1>
   
 
         
-        <a href="/2017/07/14/GeekQ博客添加相册功能/" class="archive-article-date">
-  	<time datetime="2017-07-14T08:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
+        <a href="/2017/07/17/git命令与使用/" class="archive-article-date">
+  	<time datetime="2017-07-17T00:40:45.134Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="GeekQ博客添加相册功能"><a href="#GeekQ博客添加相册功能" class="headerlink" title="GeekQ博客添加相册功能"></a>GeekQ博客添加相册功能</h1><p>基本上所有的GeekQ主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟GeekQ主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：</p>
-<ul>
-<li><p>图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢</p>
-</li>
-<li><p>怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url</p>
-</li>
-<li><p>等等</p>
-</li>
-</ul>
-<p>所以需要找到一个好的解决方法。</p>
-<p>注意：本博客使用的是spfk(也是yilia主题的另一种表现方式)主题，该主题作者<a href="https://github.com/litten" target="_blank" rel="external">litten大牛</a>有实现了相册功能，但他是同步<code>instagram</code>的图片，我会用不同的方法实现一个相册功能。</p>
+        <h1 id="git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><a href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）" class="headerlink" title="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）"></a>git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</h1><h3 id="1-git-添加命令（提交的文件信息进入索引库）"><a href="#1-git-添加命令（提交的文件信息进入索引库）" class="headerlink" title="1.git 添加命令（提交的文件信息进入索引库）"></a>1.git 添加命令（提交的文件信息进入索引库）</h3><pre><code>git add . 将修改的工作文件全部提交到暂存区
+git add -u 把当前目录下的traceked文件修改信息添加到索引库
+git add -i 命令查看&lt;path&gt;中被所有修改过或已删除文件但没有提交的文件，
+并通过其revert子命令可以查看&lt;path&gt;中所有untracted的文件，同时进入一个子命令系统。
+git add -h  查看git add 帮助文档
+</code></pre>
         
-          <a class="article-more-a" href="/2017/07/14/GeekQ博客添加相册功能/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/17/git命令与使用/#more">more >></a>
         
       
 
@@ -197,7 +192,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GeekQ博客添加相册功能</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git命令与使用</a>
         		</li>
       		
 		</ul>
@@ -207,7 +202,93 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/14/GeekQ博客添加相册功能/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/17/git命令与使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hexo博客添加相册功能" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/14/Hexo博客添加相册功能/">Hexo博客添加相册功能</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/14/Hexo博客添加相册功能/" class="archive-article-date">
+  	<time datetime="2017-07-14T08:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo博客添加相册功能"><a href="#Hexo博客添加相册功能" class="headerlink" title="Hexo博客添加相册功能"></a>Hexo博客添加相册功能</h1><p>基本上所有的hexo主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟hexo主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：</p>
+<ul>
+<li><p>图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢</p>
+</li>
+<li><p>怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url</p>
+</li>
+<li><p>等等</p>
+</li>
+</ul>
+<p>所以需要找到一个好的解决方法。</p>
+<p>注意：本博客使用的是spfk(也是yilia主题的另一种表现方式)主题，该主题作者<a href="https://github.com/litten" target="_blank" rel="external">litten大牛</a>有实现了相册功能，但他是同步<code>instagram</code>的图片，我会用不同的方法实现一个相册功能。</p>
+        
+          <a class="article-more-a" href="/2017/07/14/Hexo博客添加相册功能/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Hexo博客添加相册功能</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/14/Hexo博客添加相册功能/">展开全文 >></a>
         </p>
       
 
@@ -244,7 +325,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/14/first_blog/">第一篇献给怎么用GeekQ</a>
+      <a class="article-title" href="/2017/07/14/first_blog/">第一篇献给怎么用hexo</a>
     </h1>
   
 
@@ -270,7 +351,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">第一篇献给怎么用GeekQ</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">第一篇献给怎么用hexo</a>
         		</li>
       		
 		</ul>
@@ -400,7 +481,7 @@
     		&copy; 2017 GeekQ
     	</div>
       	<div class="footer-right">
-      		<a href="http://GeekQ.io/" target="_blank">GeekQ</a>  Theme <a href="https://github.com/litten/GeekQ-theme-yilia" target="_blank">Yilia</a> by Litten
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
@@ -480,11 +561,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GeekQ博客添加相册功能</a>
+                <a href="javascript:void(0)" class="js-tag color3">第一篇献给怎么用hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">第一篇献给怎么用GeekQ</a>
+                <a href="javascript:void(0)" class="js-tag color4">git命令与使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Hexo博客添加相册功能</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,7 +581,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i GeekQ-generator-json-content --save<br/><br/>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
