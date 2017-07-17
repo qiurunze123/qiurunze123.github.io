@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Hexo</title>
+  <title>git命令与使用（团队workfolw的分布使用） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
+<meta name="keywords" content="git命令与使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git命令与使用（团队workfolw的分布使用）">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/git命令与使用/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
+<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
+<meta property="og:updated_time" content="2017-07-17T02:26:25.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="git命令与使用（团队workfolw的分布使用）">
+<meta name="twitter:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
+<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,36 +156,152 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-git命令与使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/git命令与使用/" class="archive-article-date">
-  	<time datetime="2017-07-17T00:40:45.134Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a>
+    <h1 class="article-title" itemprop="name">
+      git命令与使用（团队workfolw的分布使用）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/17/git命令与使用/" class="archive-article-date">
+  	<time datetime="2017-07-17T00:40:45.134Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><a href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）" class="headerlink" title="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）"></a>git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</h1><h3 id="1-git-添加命令（提交的文件信息进入索引库）"><a href="#1-git-添加命令（提交的文件信息进入索引库）" class="headerlink" title="1.git 添加命令（提交的文件信息进入索引库）"></a>1.git 添加命令（提交的文件信息进入索引库）</h3><pre><code>git add . 将修改的工作文件全部提交到暂存区
+git add -u 把当前目录下的traceked文件修改信息添加到索引库
+git add -i 命令查看&lt;path&gt;中被所有修改过或已删除文件但没有提交的文件，
+并通过其revert子命令可以查看&lt;path&gt;中所有untracted的文件，同时进入一个子命令系统。
+git add -h  查看git add 帮助文档
+</code></pre><a id="more"></a>
+<h3 id="git-提交命令"><a href="#git-提交命令" class="headerlink" title="git 提交命令"></a>git 提交命令</h3><pre><code>git commit -m &quot;fiirst  commit &quot; 提交暂存的文件到本地仓库
+git commit 会提交所有文件但是也会在git bash 输入提交信息
+git commit --amend  修改上一次提交内容或提交说明
+</code></pre><h3 id="git-暂存储藏命令（stash）"><a href="#git-暂存储藏命令（stash）" class="headerlink" title="git 暂存储藏命令（stash）"></a>git 暂存储藏命令（stash）</h3><pre><code>git stash 将自己的工作仓储起来
+git stash list 查看自己的stash（你可能有多个）
+git stash show 查看自己未提交的修改有哪些
+git stash apply stash@&lt;0&gt;等 你可以恢复你想恢复的stash 版本
+git stash clear 清楚git栈stash记录
+</code></pre><font color="blue">使用git的时候，我们往往使用branch解决任务切换问题，<br>例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用’git stash’就可以将你当前未提交到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用’git stash apply’将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，’git stash list’命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用’git stash apply stash@{1}’就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’git stash clear’来将栈清空。</font>
+
+<h3 id="git-删除命令"><a href="#git-删除命令" class="headerlink" title="git 删除命令"></a>git 删除命令</h3><pre><code>git rm -f 文件名称  删除commit过的文件
+git rm -r 文件或者文件夹 删除commit过的文件或者文件夹(本地仓库)
+git rm -h 删除帮助文档
+git rm -r -n --cached &quot;bin/&quot; //-n 执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。（本地仓库）
+-n, --dry-run 演习（不删除列出列表）
+-q, --quiet 不列出删除的文件
+--cached 只从索引区删除
+-f, --force 忽略文件更新状态检查
+-r 允许递归删除
+</code></pre><h3 id="git-推送将本地分支推送至远程主机"><a href="#git-推送将本地分支推送至远程主机" class="headerlink" title="git 推送将本地分支推送至远程主机"></a>git 推送将本地分支推送至远程主机</h3><pre><code>git push origin master 将本地master分支推送至origin主机的master分支如果master 不在则会被重建
+git push origin :master 表示删除origin主机的master 分支
+git push origin --tags 推送tag分支
+git push origin 分支名称 推送你的本地分支到远程
+git push origin :分支名称  删除远程分支 
+</code></pre><h3 id="git-拉分支的命令"><a href="#git-拉分支的命令" class="headerlink" title="git 拉分支的命令"></a>git 拉分支的命令</h3><pre><code>git branch  -a 查看远程分支
+git branch 分支名称 创建一个分支
+git checkout 分支名称  切换一个分支名称
+git fetch origin branchname:branchname 
+远程某各分支拉去到本地的branchname下，如果没有branchname，则会在本地新建branchname 
+git checkout -b 分支名称 创建分支并且切换到分支名称
+git push  origin 本地分支名称：远程分支名称 如果远程分支不在则在远程创建新的分支（中间没有空格）
+</code></pre><h3 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h3><pre><code>git tag#列出现有标签    
+git tag v0.1#新建标签
+git tag -a v0.1 -m &amp;#039;my version 1.4&amp;#039;#新建带注释标签
+git checkout tagname#切换到标签
+git push origin v1.5#推送分支到源上
+git push origin --tags#一次性推送所有分支
+git tag -d v0.1#删除标签
+git push origin :refs/tags/v0.1#删除远程标签
+</code></pre><h3 id="git合并与解决冲突"><a href="#git合并与解决冲突" class="headerlink" title="git合并与解决冲突"></a>git合并与解决冲突</h3><pre><code>如果团队其他成员提交到了远程.首先你要先把你的修改文件提交到本地仓库
+git commit  -m &quot;说明 &quot;
+git pull 更新新的提交
+git status  查看冲突文件
+看下有多少文件冲突。
+ 对每个冲突文件：
+ 在编辑器中打开文件（比如 IntelliJ 或 Vim ）
+ 看看每个被冲突标记（“&gt;&gt;&gt;&gt;”和“&lt;&lt;&lt;&lt;”）围绕的区块。
+ 看看（被冲突标记的区块）是否有意义，每个作者的意图是什么，如果能弄清楚就解决掉。
+ 如果冲突标记无法理解，通常是这些文件改动很大，运行下面的命令：
+ Shell
+ git diff HEAD...the/other/branch -- path/to/conflicting/file
+ git diff the/other/branch...HEAD -- path/to/conflicting/file
+ 这样做是为了看哪边改动较小
+ 修改冲突完成后(可以用合并工具一类的.在网上找个就行)
+ git  add file 将文件添加索引
+ git commit  -m &quot;说明 &quot; 
+ git  push  origin master 提交到主干或者git push origin 本地分支名称   提交到分支
+
+ 如果是合并分支
+ 1. git  checkout  master 切换到主干
+ 2. git status 查看状态
+ 3. gitgit merge --no-ff branch（分支名称） 合并分支 --no-ff 会产生一个新的提交节点保证版本清晰
+ 4. git status 查看冲突文件
+ 5. git diff  文件名称  （冲突发生在哪里）
+ 6. 打开文件修改冲突
+ 7. git add 文件  将文件提价到索引
+ 8. git commit -m “提交说明” 
+ 9. git push origin  master 推送到远程分支
+</code></pre><h3 id="git-reset-撤销命令"><a href="#git-reset-撤销命令" class="headerlink" title="git reset 撤销命令"></a>git reset 撤销命令</h3><pre><code>git reset –mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+git reset –soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+git reset –hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容
+#回退所有内容到上一个版本 
+git reset HEAD^ 
+#回退a.py这个文件的版本到上一个版本 
+git reset HEAD^ a.py 
+#向前回退到第3个版本 
+git reset –soft HEAD~3 
+#将本地的状态回退到和远程的一样 
+git reset –hard origin/master 
+#回退到某个版本 
+ git reset 057d 
+#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit 
+git revert HEAD 
+</code></pre><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><pre><code>git  reflog 可以查看所有分支的所有操作记录（包括（包括commit和reset的操作），包括已经被删除的commit记录
+(即使你reset错误使用这个命令可以回退版本)
+git log则不能察看已经删除了的commit记录 
+git log --pretty=oneline 这个我比较常用的查看日志命令 
+</code></pre><h3 id="生成一个可供发布的压缩包"><a href="#生成一个可供发布的压缩包" class="headerlink" title="生成一个可供发布的压缩包"></a>生成一个可供发布的压缩包</h3><pre><code>git archive
+</code></pre><h3 id="最后上个图"><a href="#最后上个图" class="headerlink" title="最后上个图"></a>最后上个图</h3><p><img src="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png" alt=""></p>
+<p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
+<p> 下次写下  git工作流的使用！！！  感谢大家指出错误！！可以发我邮箱</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,133 +313,104 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/17/git命令与使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/14/Hexo博客添加相册功能/" class="archive-article-date">
-  	<time datetime="2017-07-14T08:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/14/Hexo博客添加相册功能/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo博客添加相册功能</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/14/Hexo博客添加相册功能/">Hexo博客添加相册功能</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Hexo博客添加相册功能</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/14/first_blog/" class="archive-article-date">
-  	<time datetime="2017-07-14T02:16:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/14/first_blog/">第一篇献给怎么用hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">第一篇献给怎么用hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/06/good/" class="archive-article-date">
-  	<time datetime="2017-04-06T06:26:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/06/good/">详解如何使用github与git命令11</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">详解如何使用github与git命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -339,8 +433,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
