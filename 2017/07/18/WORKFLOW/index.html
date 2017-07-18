@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>团队workfolw的分布使用 | GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
+<meta name="keywords" content="git命令与使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="团队workfolw的分布使用">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/WORKFLOW/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
+<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
+<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/main-branch.png">
+<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/feature-branch.png">
+<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/merge-no-ff.png">
+<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/hotfix-branch.png">
+<meta property="og:updated_time" content="2017-07-18T00:58:23.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="团队workfolw的分布使用">
+<meta name="twitter:description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
+<meta name="twitter:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Hexo博客添加相册功能/" style="font-size: 10px;">Hexo博客添加相册功能</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.     繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-WORKFLOW" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/18/WORKFLOW/" class="article-date">
+      <time datetime="2017-07-18T00:55:23.715Z" itemprop="datePublished">2017-07-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      团队workfolw的分布使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><a href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章" class="headerlink" title="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章"></a>1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">地址</a>。引用此人文章</h3><a id="more"></a>
+<p><img src="http://legendtkl.com/img/uploads/2016/git-model.png" alt=""></p>
+<h3 id="从上图可以看到主要包含下面几个分支："><a href="#从上图可以看到主要包含下面几个分支：" class="headerlink" title="从上图可以看到主要包含下面几个分支："></a>从上图可以看到主要包含下面几个分支：</h3><pre><code>master: 主分支，主要用来版本发布。
+develop：日常开发分支，该分支正常保存了开发的最新代码。
+feature：具体的功能开发分支，只与 develop 分支交互。
+release：release 分支可以认为是 master 分支的未测试版。比如说某一期的功能全部开发完成，那么就将 develop 分支合并到 release 分支，
+测试没有问题并且到了发布日期就合并到 master 分支，进行发布。
+hotfix：线上 bug 修复分支。
+除此之后还可以有 fast-track 等分支。
+</code></pre><h3 id="主分支"><a href="#主分支" class="headerlink" title="主分支"></a>主分支</h3><pre><code>主分支包括 master 分支和 develop 分支。master 分支用来发布，
+HEAD 就是当前线上的运行代码。develop 分支就是我们的日常开发。
+使用这两个分支就具有了最简单的开发模式：develop 分支用来开发功能，
+开发完成并且测试没有问题则将 develop 分支的代码合并到 master 分支并发布。
+</code></pre><p><img src="http://legendtkl.com/img/uploads/2016/main-branch.png" alt=""></p>
+<p>这引入了几个问题：</p>
+<p>develop 分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。<br>线上代码出现 bug 如何进行 bug 修复。<br>带着这两个问题往下看。</p>
+<h3 id="辅助分支"><a href="#辅助分支" class="headerlink" title="辅助分支"></a>辅助分支</h3><ul>
+<li>feature 分支</li>
+<li>release 分支</li>
+<li>hotfix 分支</li>
+<li>通过这些分支，我们可以做到：团队成员之间并行开发，feature track 更加容易，开发和发布并行以及线上问题修复。</li>
+</ul>
+<h3 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h3><pre><code> feature 分支用来开发具体的功能，一般 fork 自 develop 分支，
+ 最终可能会合并到 develop 分支。比如我们要在下一个版本增加功能1、功能2、功能3。
+ 那么我们就可以起三个feature 分支：feature1，feature2，feature3。
+（feature 分支命名最好能够自解释，这并不是一种好的命名。）
+ 随着我们开发，功能1和功能2都被完成了，而功能3因为某些原因完成不了，
+ 那么最终 feature1 和 feature2 分支将被合并到 develop 分支，而 feature3 分支将被干掉。
+</code></pre><p><img src="http://legendtkl.com/img/uploads/2016/feature-branch.png" alt=""></p>
+<p>我们来看几个相关的命令。</p>
+<p>从 develop 分支建一个 feature 分支，并切换到 feature 分支</p>
+<pre><code>git checkout -b myfeature develop
+git checkout -b myfeature develop
+
+* 合并feature 分支到 develop
+
+
+git checkout develop  
+git merge --no-ff myfeature
+git branch -d myfeature
+Deleted branch myfeature
+git push origin develop
+</code></pre><p>上面我们 merge 分支的时候使用了参数 –no-ff<br>ff 是fast-forward 的意思，–no-ff就是禁用fast-forward。<br>关于这两种模式的区别如下图。（可以使用 sourceTree 或者命令git log –graph查看。）</p>
+<p><img src="http://legendtkl.com/img/uploads/2016/merge-no-ff.png" alt=""></p>
+<p>看了上面的图，那么使用非fast-forward模式来 merge 的好处就不言而喻了：<br>我们知道哪些 commit 是某些 feature 相关的。<br>虽然 git merge 的时候会自动判断是否使用fast-farward模式，<br>但是有时候为了更明确，我们还是要加参数–no-ff或者–ff。</p>
+<h3 id="git-Release-分支"><a href="#git-Release-分支" class="headerlink" title="git Release 分支"></a>git Release 分支</h3><p>git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好，地址在参考[1]。我这里主要就是参考他的文章。</p>
+<ol>
+<li>总览<br>git 的分支整体预览图如下。<br>从上图可以看到主要包含下面几个分支：</li>
+</ol>
+<p>master: 主分支，主要用来版本发布。<br>develop：日常开发分支，该分支正常保存了开发的最新代码。<br>feature：具体的功能开发分支，只与 develop 分支交互。<br>release：release 分支可以认为是 master 分支的未测试版。比如说某一期的功能全部开发完成，那么就将 develop 分支合并到 release 分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。<br>hotfix：线上 bug 修复分支。<br>除此之后还可以有 fast-track 等分支。</p>
+<ol>
+<li>主分支</li>
+</ol>
+<p>主分支包括 master 分支和 develop 分支。master 分支用来发布，HEAD 就是当前线上的运行代码。develop 分支就是我们的日常开发。使用这两个分支就具有了最简单的开发模式：develop 分支用来开发功能，开发完成并且测试没有问题则将 develop 分支的代码合并到 master 分支并发布。</p>
+<p>这引入了几个问题：</p>
+<p>develop 分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。<br>线上代码出现 bug 如何进行 bug 修复。<br>带着这两个问题往下看。</p>
+<ol>
+<li>辅助分支</li>
+</ol>
+<p>主要介绍的辅助分支如下：</p>
+<p>feature 分支<br>release 分支<br>hotfix 分支<br>通过这些分支，我们可以做到：团队成员之间并行开发，feature track 更加容易，开发和发布并行以及线上问题修复。</p>
+<p>4.1 Feature 分支</p>
+<p>feature 分支用来开发具体的功能，一般 fork 自 develop 分支，最终可能会合并到 develop 分支。比如我们要在下一个版本增加功能1、功能2、功能3。那么我们就可以起三个feature 分支：feature1，feature2，feature3。（feature 分支命名最好能够自解释，这并不是一种好的命名。）随着我们开发，功能1和功能2都被完成了，而功能3因为某些原因完成不了，那么最终 feature1 和 feature2 分支将被合并到 develop 分支，而 feature3 分支将被干掉。</p>
+<p>我们来看几个相关的命令。</p>
+<p>从 develop 分支建一个 feature 分支，并切换到 feature 分支<br>    git checkout -b myfeature develop<br>    git checkout -b myfeature develop<br>    合并feature 分支到 develop<br>    git checkout develop<br>    git merge –no-ff myfeature<br>    git branch -d myfeature<br>    git push origin develop<br>    git checkout develop<br>    git merge –no-ff myfeature<br>    git branch -d myfeature<br>    git push origin develop<br>上面我们 merge 分支的时候使用了参数 –no-ff，ff 是fast-forward 的意思，–no-ff就是禁用fast-forward。关于这两种模式的区别如下图。（可以使用 sourceTree 或者命令git log –graph查看。）</p>
+<p>看了上面的图，那么使用非fast-forward模式来 merge 的好处就不言而喻了：我们知道哪些 commit 是某些 feature 相关的。虽然 git merge 的时候会自动判断是否使用fast-farward模式，但是有时候为了更明确，我们还是要加参数–no-ff或者–ff。</p>
+<p>4.2 Release 分支</p>
+<p>release 分支在我看来是 pre-master。release 分支从 develop 分支 fork 出来，最终会合并到 develop 分支和 master 分支。合并到 master 分支上就是可以发布的代码了。有人可能会问那为什么合并回 develop 分支呢？很简单，有了 release 分支，那么相关的代码修复就只会在 release 分支上改动了，最后必然要合并到 develop 分支。下面细说。</p>
+<p>我们最初所有的开发工作都在 develop 分支上，当我们这一期的功能开发完毕的时候，我们基于 develop 分支开一个新的 release 分支。这个时候我们就可以对 release 分支做统一的测试了，另外做一些发布准备工作：比如版本号之类的。</p>
+<p>如果测试工作或者发布准备工作和具体的开发工作由不同人来做，比如国内的 RD 和 QA，这个 RD 就可以继续基于 develop 分支继续开发了。再或者说公司对于发布有严格的时间控制，开发工作提前并且完美的完成了，这个时候我们就可以在 develop 分支上继续我们下一期的开发了。同时如果测试有问题的话，我们将直接在 release 分支上修改，然后将修改合并到 develop 分支上。</p>
+<p>待所有的测试和准备工作做完之后，我们就可以将 release 分支合并到 master 分支上，并进行发布了。</p>
+<p>一些相关命令如下。</p>
+<h3 id="新建-release-分支"><a href="#新建-release-分支" class="headerlink" title="新建 release 分支"></a>新建 release 分支</h3><pre><code> 新建 release 分支
+
+git checkout -b release-1.2 develop
+git commit -a -m &quot;Bumped version number to 1.2&quot;
+</code></pre><h3 id="release-分支合并到-master-分支"><a href="#release-分支合并到-master-分支" class="headerlink" title="release 分支合并到 master 分支"></a>release 分支合并到 master 分支</h3><pre><code>git checkout master
+git merge --no-ff release-1.2
+git tag -a 1.2
+</code></pre><h3 id="release-分支合并到-develop-分支"><a href="#release-分支合并到-develop-分支" class="headerlink" title="release 分支合并到 develop 分支"></a>release 分支合并到 develop 分支</h3><pre><code>git checkout develop
+git merge --no-ff release-1.
+</code></pre><h3 id="最后，删除-release-分支"><a href="#最后，删除-release-分支" class="headerlink" title="最后，删除 release 分支"></a>最后，删除 release 分支</h3><pre><code>git branch -d release-1.2
+</code></pre><h2 id="Hotfix-分支"><a href="#Hotfix-分支" class="headerlink" title="Hotfix 分支"></a>Hotfix 分支</h2><p>顾名思义，hotfix 分支用来修复线上 bug。当线上代码出现 bug 时，我们基于 master 分支开一个 hotfix 分支，修复 bug 之后再将 hotfix 分支合并到 master 分支并进行发布，同时 develop 分支作为最新最全的代码分支，hotfix 分支也需要合并到 develop 分支上去。仔细想一想，其实 hotfix 分支和 release 分支功能类似。hotfix 的好处是不打断 develop 分支正常进行，同时对于现实代码的修复貌似也没有更好的方法了（总不能直接修改 master 代码吧:D）。</p>
+<p><img src="http://legendtkl.com/img/uploads/2016/hotfix-branch.png" alt=""></p>
+<h3 id="新建-hotfix-分支"><a href="#新建-hotfix-分支" class="headerlink" title="新建 hotfix 分支"></a>新建 hotfix 分支</h3><pre><code>git checkout -b hotfix-1.2.1 master
+git commit -a -m &quot;Bumped version number to 1.2.1&quot;
+</code></pre><h3 id="新建-Fix-bug"><a href="#新建-Fix-bug" class="headerlink" title="新建 Fix bug"></a>新建 Fix bug</h3><pre><code>git commit -m &quot;Fixed severe production problem&quot;
+</code></pre><h3 id="新建-buf-fix-之后，hotfix-合并到-master"><a href="#新建-buf-fix-之后，hotfix-合并到-master" class="headerlink" title="新建 buf fix 之后，hotfix 合并到 master"></a>新建 buf fix 之后，hotfix 合并到 master</h3><pre><code>git checkout master
+git merge --no-ff hotfix-1.2.1 
+git tag -a 1.2.1
+</code></pre><h3 id="新建-hotfix-合并到-develop-分支"><a href="#新建-hotfix-合并到-develop-分支" class="headerlink" title="新建 hotfix 合并到 develop 分支"></a>新建 hotfix 合并到 develop 分支</h3><pre><code>git checkout develop
+git merge --no-ff hotfix-1.2.1
+</code></pre><h3 id="删除-hotfix-分支"><a href="#删除-hotfix-分支" class="headerlink" title="删除 hotfix 分支"></a>删除 hotfix 分支</h3><pre><code>git branch -d hotfix-1.2.1
+</code></pre>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/07/18/WORKFLOW/">团队workfolw的分布使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2017年07月18日 - 08时55分</p>
+        <p><span>最后更新:</span>2017年07月18日 - 08时58分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/18/WORKFLOW/" title="团队workfolw的分布使用">http://yoursite.com/2017/07/18/WORKFLOW/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/18/WORKFLOW/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/17/git命令与使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git命令与使用（团队workfolw的分布使用）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><span class="toc-number">1.</span> <span class="toc-text">1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从上图可以看到主要包含下面几个分支："><span class="toc-number">2.</span> <span class="toc-text">从上图可以看到主要包含下面几个分支：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主分支"><span class="toc-number">3.</span> <span class="toc-text">主分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助分支"><span class="toc-number">4.</span> <span class="toc-text">辅助分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature-分支"><span class="toc-number">5.</span> <span class="toc-text">Feature 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-Release-分支"><span class="toc-number">6.</span> <span class="toc-text">git Release 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-release-分支"><span class="toc-number">7.</span> <span class="toc-text">新建 release 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release-分支合并到-master-分支"><span class="toc-number">8.</span> <span class="toc-text">release 分支合并到 master 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release-分支合并到-develop-分支"><span class="toc-number">9.</span> <span class="toc-text">release 分支合并到 develop 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后，删除-release-分支"><span class="toc-number">10.</span> <span class="toc-text">最后，删除 release 分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hotfix-分支"><span class="toc-number"></span> <span class="toc-text">Hotfix 分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-hotfix-分支"><span class="toc-number">1.</span> <span class="toc-text">新建 hotfix 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-Fix-bug"><span class="toc-number">2.</span> <span class="toc-text">新建 Fix bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-buf-fix-之后，hotfix-合并到-master"><span class="toc-number">3.</span> <span class="toc-text">新建 buf fix 之后，hotfix 合并到 master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-hotfix-合并到-develop-分支"><span class="toc-number">4.</span> <span class="toc-text">新建 hotfix 合并到 develop 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除-hotfix-分支"><span class="toc-number">5.</span> <span class="toc-text">删除 hotfix 分支</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'GeekQ',
+      repo: 'qiurunze123.github.io',
+      oauth: {
+        client_id: 'null',
+        client_secret: 'null',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/07/17/git命令与使用/" title="下一篇: git命令与使用（团队workfolw的分布使用）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/18/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/17/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/14/Hexo博客添加相册功能/">Hexo博客添加相册功能</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
