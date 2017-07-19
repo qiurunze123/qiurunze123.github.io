@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="GeekQ">
 <meta property="og:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
 <meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
-<meta property="og:updated_time" content="2017-07-17T02:26:25.891Z">
+<meta property="og:updated_time" content="2017-07-19T01:02:10.903Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令与使用（团队workfolw的分布使用）">
 <meta name="twitter:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
@@ -259,7 +259,7 @@ git stash list 查看自己的stash（你可能有多个）
 git stash show 查看自己未提交的修改有哪些
 git stash apply stash@&lt;0&gt;等 你可以恢复你想恢复的stash 版本
 git stash clear 清楚git栈stash记录
-</code></pre><font color="blue">使用git的时候，我们往往使用branch解决任务切换问题，<br>例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用’git stash’就可以将你当前未提交到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用’git stash apply’将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，’git stash list’命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用’git stash apply stash@{1}’就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’git stash clear’来将栈清空。</font>
+</code></pre><font color="red">使用git的时候，我们往往使用branch解决任务切换问题，<br>例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用’git stash’就可以将你当前未提交到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用’git stash apply’将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，’git stash list’命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用’git stash apply stash@{1}’就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’git stash clear’来将栈清空。</font>
 
 <h3 id="git-删除命令"><a href="#git-删除命令" class="headerlink" title="git 删除命令"></a>git 删除命令</h3><pre><code>git rm -f 文件名称  删除commit过的文件
 git rm -r 文件或者文件夹 删除commit过的文件或者文件夹(本地仓库)
@@ -400,7 +400,7 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
         <p><span>本文标题:</span><a href="/2017/07/17/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
         <p><span>发布时间:</span>2017年07月17日 - 08时40分</p>
-        <p><span>最后更新:</span>2017年07月17日 - 10时26分</p>
+        <p><span>最后更新:</span>2017年07月19日 - 09时02分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/07/17/git命令与使用/" title="git命令与使用（团队workfolw的分布使用）">http://yoursite.com/2017/07/17/git命令与使用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/17/git命令与使用/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
