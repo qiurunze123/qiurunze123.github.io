@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、关键字 final static   二、Object 通用方法 概览 clone() equals()   四、继承 访问权限 抽象类与接口 super 重载与重写   五、String String, StringBuffer and StringBuilder String 不可变的原因 String.intern()   六、基本类型与运算 包装类型 switch   七、反射 八">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GeekQ">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/Java 基础/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="一、关键字 final static   二、Object 通用方法 概览 clone() equals()   四、继承 访问权限 抽象类与接口 super 重载与重写   五、String String, StringBuffer and StringBuilder String 不可变的原因 String.intern()   六、基本类型与运算 包装类型 switch   七、反射 八">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//CLone_20_281_29.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//f76067a5-7d5f-4135-9549-8199c77d8f1c.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//48f8f98e-8dfd-450d-8b5b-df4688f0d377.jpg">
+<meta property="og:updated_time" content="2018-03-28T08:47:13.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GeekQ">
+<meta name="twitter:description" content="一、关键字 final static   二、Object 通用方法 概览 clone() equals()   四、继承 访问权限 抽象类与接口 super 重载与重写   五、String String, StringBuffer and StringBuilder String 不可变的原因 String.intern()   六、基本类型与运算 包装类型 switch   七、反射 八">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/29/pics//CLone_20_281_29.png">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N">有事请发邮件</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java 基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/29/Java 基础/" class="article-date">
+      <time datetime="2018-03-29T02:30:38.319Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!-- GFM-TOC -->
+<ul>
+<li><a href="#一关键字">一、关键字</a><ul>
+<li><a href="#final">final</a></li>
+<li><a href="#static">static</a></li>
+</ul>
+</li>
+<li><a href="#二object-通用方法">二、Object 通用方法</a><ul>
+<li><a href="#概览">概览</a></li>
+<li><a href="#clone">clone()</a></li>
+<li><a href="#equals">equals()</a></li>
+</ul>
+</li>
+<li><a href="#四继承">四、继承</a><ul>
+<li><a href="#访问权限">访问权限</a></li>
+<li><a href="#抽象类与接口">抽象类与接口</a></li>
+<li><a href="#super">super</a></li>
+<li><a href="#重载与重写">重载与重写</a></li>
+</ul>
+</li>
+<li><a href="#五string">五、String</a><ul>
+<li><a href="#string,-stringbuffer-and-stringbuilder">String, StringBuffer and StringBuilder</a></li>
+<li><a href="#string-不可变的原因">String 不可变的原因</a></li>
+<li><a href="#stringintern">String.intern()</a></li>
+</ul>
+</li>
+<li><a href="#六基本类型与运算">六、基本类型与运算</a><ul>
+<li><a href="#包装类型">包装类型</a></li>
+<li><a href="#switch">switch</a></li>
+</ul>
+</li>
+<li><a href="#七反射">七、反射</a></li>
+<li><a href="#八异常">八、异常</a></li>
+<li><a href="#九泛型">九、泛型</a></li>
+<li><a href="#十注解">十、注解</a></li>
+<li><a href="#十一特性">十一、特性</a><ul>
+<li><a href="#面向对象三大特性">面向对象三大特性</a></li>
+<li><a href="#java-各版本的新特性">Java 各版本的新特性</a></li>
+<li><a href="#java-与-c++-的区别">Java 与 C++ 的区别</a></li>
+<li><a href="#jre-or-jdk">JRE or JDK</a></li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a><!-- GFM-TOC -->
+</li>
+</ul>
+<h1 id="一、关键字"><a href="#一、关键字" class="headerlink" title="一、关键字"></a>一、关键字</h1><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p><strong>1. 数据</strong> </p>
+<p>声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。</p>
+<ul>
+<li>对于基本类型，final 使数值不变；</li>
+<li>对于引用类型，final 使引用不变，也就不能引用其它对象，但是被引用的对象本身是可以修改的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> x = <span class="number">1</span>;</div><div class="line">x = <span class="number">2</span>;  <span class="comment">// cannot assign value to final variable 'x'</span></div><div class="line"><span class="keyword">final</span> A y = <span class="keyword">new</span> A();</div><div class="line">y.a = <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p><strong>2. 方法</strong>   <br></p>
+<p>声明方法不能被子类覆盖。</p>
+<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是覆盖基类方法，而是重载了。</p>
+<p><strong>3. 类</strong> </p>
+<p>声明类不允许被继承。</p>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><strong>1. 静态变量</strong> </p>
+<p>静态变量在内存中只存在一份，只在类第一次实例化时初始化一次。</p>
+<ul>
+<li>静态变量：类所有的实例都共享静态变量，可以直接通过类名来访问它；</li>
+<li>实例变量：每创建一个实例就会产生一个实例变量，它与该实例同生共死。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;        <span class="comment">// 实例变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> y;  <span class="comment">// 静态变量</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2. 静态方法</strong> </p>
+<p>静态方法在类加载的时候就存在了，它不依赖于任何实例，所以 static 方法必须实现，也就是说它不能是抽象方法（abstract）。</p>
+<p><strong>3. 静态语句块</strong> </p>
+<p>静态语句块和静态变量一样在类第一次实例化时运行一次。</p>
+<p><strong>4. 初始化顺序</strong> </p>
+<p>静态数据优先于其它数据的初始化，静态变量和静态语句块哪个先运行取决于它们在代码中的顺序。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> String staticField = <span class="string">"静态变量"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    System.out.println(<span class="string">"静态语句块"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实例变量和普通语句块的初始化在静态变量和静态语句块初始化结束之后。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> String field = <span class="string">"实例变量"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    System.out.println(<span class="string">"普通语句块"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后才是构造函数中的数据进行初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">InitialOrderTest</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"构造函数"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>存在继承的情况下，初始化顺序为：</p>
+<ol>
+<li>父类（静态变量、静态语句块块）</li>
+<li>子类（静态变量、静态语句块）</li>
+<li>父类（实例变量、普通语句块）</li>
+<li>父类（构造函数）</li>
+<li>子类（实例变量、普通语句块）</li>
+<li>子类（构造函数）</li>
+</ol>
+<h1 id="二、Object-通用方法"><a href="#二、Object-通用方法" class="headerlink" title="二、Object 通用方法"></a>二、Object 通用方法</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</div><div class="line"></div><div class="line"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</div><div class="line"></div><div class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;&#125;</div></pre></td></tr></table></figure>
+<h2 id="clone"><a href="#clone" class="headerlink" title="clone()"></a>clone()</h2><p><strong>1. cloneable</strong> </p>
+<p>clone() 是 Object 的受保护方法，这意味着，如果一个类不显式去重载 clone() 就没有这个方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CloneTest</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CloneTest x = <span class="keyword">new</span> CloneTest();</div><div class="line">CloneTest y = x.clone(); <span class="comment">// 'clone()' has protected access in 'java.lang.Object'</span></div></pre></td></tr></table></figure>
+<p>接下来重载 Object 的 clone() 得到以下实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CloneTest</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> b;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.clone();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CloneTest x = <span class="keyword">new</span> CloneTest();</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    CloneTest y = (CloneTest) x.clone();</div><div class="line">&#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.CloneNotSupportedException: CloneTest</div></pre></td></tr></table></figure>
+<p>以上抛出了 CloneNotSupportedException，这是因为 CloneTest 没有实现 Cloneable 接口。应该注意的是，clone() 方法并不是 Cloneable 接口的方法，而是 Object 的一个 protect 方法。Cloneable 接口只是规定，如果一个类没有实现 Cloneable 接口又调用了 clone() 方法，就会抛出 CloneNotSupportedException。</p>
+<p><strong>2. 深拷贝与浅拷贝</strong> </p>
+<p><div align="center"> <img src="../pics//CLone_20_281_29.png" width="800"> </div><br></p>
+<ul>
+<li>浅拷贝：拷贝对象和原对象的引用类型引用同一个对象；</li>
+<li>深拷贝：引用不同对象。</li>
+</ul>
+<p>实现深拷贝的方法：</p>
+<ul>
+<li><a href="http://www.javapractices.com/topic/TopicAction.do?Id=15" target="_blank" rel="external">Defensive copying</a></li>
+<li><a href="http://www.javapractices.com/topic/TopicAction.do?Id=12" target="_blank" rel="external">copy constructors</a></li>
+<li><a href="http://www.javapractices.com/topic/TopicAction.do?Id=21" target="_blank" rel="external">static factory methods</a>.</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/869033/how-do-i-copy-an-object-in-java" target="_blank" rel="external">How do I copy an object in Java?</a></p>
+</blockquote>
+<h2 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h2><p><strong>1. == 与 equals() 区别</strong> </p>
+<ul>
+<li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
+<li>对于引用类型，== 判断两个引用是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
+</ul>
+<p><strong>2. 等价性</strong> </p>
+<blockquote>
+<p><a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md#%E4%B8%89%E6%95%A3%E5%88%977" target="_blank" rel="external">散列</a></p>
+</blockquote>
+<h1 id="四、继承"><a href="#四、继承" class="headerlink" title="四、继承"></a>四、继承</h1><h2 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h2><p>Java 中有三个访问权限修饰符：private、protected 以及 public，如果不加访问修饰符，表示包级可见。</p>
+<p>可以对类或类中的成员（字段以及方法）加上访问修饰符。</p>
+<ul>
+<li>成员可见表示其它类可以用成员所在类的对象访问到该成员；</li>
+<li>类可见表示其它类可以用这个类创建对象。</li>
+</ul>
+<p>在理解类的可见性时，可以把类当做包中的一个成员，然后包表示一个类，那么就可以类比成员的可见性。</p>
+<p>protected 用于修饰成员，表示在继承体系中成员对于子类可见。但是这个访问修饰符对于类没有意义，因为包没有继承体系。</p>
+<blockquote>
+<p><a href="http://www.importnew.com/18097.html" target="_blank" rel="external">浅析 Java 中的访问权限控制</a></p>
+</blockquote>
+<h2 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h2><p><strong>1. 抽象类</strong> </p>
+<p>抽象类和抽象方法都使用 abstract 进行声明。抽象类一般会包含抽象方法，抽象方法一定位于抽象类中。抽象类和普通类最大的区别是，抽象类不能被实例化，需要继承抽象类才能实例化其子类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericServlet</span> <span class="keyword">implements</span> <span class="title">Servlet</span>, <span class="title">ServletConfig</span>, <span class="title">Serializable</span> </span>&#123;</div><div class="line">    <span class="comment">// abstract method</span></div><div class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// Its implementation</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">// other method related to Servlet</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://www.ibm.com/developerworks/cn/java/l-javainterface-abstract/" target="_blank" rel="external">深入理解 abstract class 和 interface</a></p>
+</blockquote>
+<p><strong>2. 接口</strong> </p>
+<p>接口是抽象类的延伸。Java 为了安全性而不支持多重继承，一个类只能有一个父类。但是接口不同，一个类可以同时实现多个接口，不管这些接口之间有没有关系，所以接口弥补不支持多重继承的缺陷。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Externalizable</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">writeExternal</span><span class="params">(ObjectOutput out)</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">readExternal</span><span class="params">(ObjectInput in)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从 Java 8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口的维护成本太高了。在 Java 8 之前，如果一个接口想要添加新的方法，那么要修改所有实现了该接口的类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InterfaceDefaultTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"default method in interface!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3. 比较</strong> </p>
+<ul>
+<li>从设计层面上看，抽象类提供了一种 IS-A 关系，那么就必须满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A 关系，它只是提供一种方法实现契约，并不要求子类和父类具有 IS-A 关系；</li>
+<li>从使用上来看，一个类可以实现多个接口，但是不能继承多个抽象类。</li>
+</ul>
+<p><strong>4. 使用选择</strong> </p>
+<p>使用抽象类：</p>
+<ul>
+<li>需要在几个相关的类中共享代码；</li>
+<li>需要能控制继承来的方法和字段的访问权限，而不是都为 public。</li>
+<li>需要继承非静态（non-static）和非常量（non-final）字段。</li>
+</ul>
+<p>使用接口：</p>
+<ul>
+<li>需要让不相关的类都实现一个方法，例如不相关的类都可以实现 Compareable 接口中的 compareTo() 方法；</li>
+<li>需要使用多重继承。</li>
+</ul>
+<blockquote>
+<p><a href="https://dzone.com/articles/when-to-use-abstract-class-and-intreface" target="_blank" rel="external">When to Use Abstract Class and Interface</a></p>
+</blockquote>
+<h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2><p><strong>1. 访问父类的成员</strong> </p>
+<p>如果子类覆盖了父类的中某个方法的实现，可以通过使用 super 关键字来引用父类的方法实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Superclass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Printed in Superclass."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subclass</span> <span class="keyword">extends</span> <span class="title">Superclass</span> </span>&#123;</div><div class="line">    <span class="comment">// Overrides printMethod in Superclass</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.printMethod();</div><div class="line">        System.out.println(<span class="string">"Printed in Subclass"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Subclass s = <span class="keyword">new</span> Subclass();</div><div class="line">        s.printMethod();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2. 访问父类的构造函数</strong> </p>
+<p>可以使用 super() 函数访问父类的构造函数，从而完成一些初始化的工作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">MountainBike</span><span class="params">(<span class="keyword">int</span> startHeight, <span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(startCadence, startSpeed, startGear);</div><div class="line">    seatHeight = startHeight;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html" target="_blank" rel="external">Using the Keyword super</a></p>
+</blockquote>
+<h2 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h2><ul>
+<li><p>重写存在于继承体系中，指子类实现了一个与父类在方法声明上完全相同的一个方法；</p>
+</li>
+<li><p>重载即存在于继承体系中，也存在于同一个类中，指一个方法与已经存在的方法或者父类的方法名称上相同，但是参数类型、个数、顺序至少有一个不同。应该注意的是，返回值不同，其它都相同不算是重载。</p>
+</li>
+</ul>
+<h1 id="五、String"><a href="#五、String" class="headerlink" title="五、String"></a>五、String</h1><h2 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h2><p><strong>1. 是否可变</strong> </p>
+<ul>
+<li>String 不可变</li>
+<li>StringBuffer 和 StringBuilder 可变</li>
+</ul>
+<p><strong>2. 是否线程安全</strong> </p>
+<ul>
+<li>String 不可变，因此是线程安全的</li>
+<li>StringBuilder 不是线程安全的</li>
+<li>StringBuffer 是线程安全的，内部使用 synchronized 来同步</li>
+</ul>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/2971315/string-stringbuffer-and-stringbuilder" target="_blank" rel="external">String, StringBuffer, and StringBuilder</a></p>
+</blockquote>
+<h2 id="String-不可变的原因"><a href="#String-不可变的原因" class="headerlink" title="String 不可变的原因"></a>String 不可变的原因</h2><p><strong>1. 可以缓存 hash 值</strong> </p>
+<p>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 等情况。不可变的特性可以使得 hash 值也不可变，因此只需要进行一次计算。</p>
+<p><strong>2. String Pool 的需要</strong> </p>
+<p>如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。</p>
+<p><div align="center"> <img src="../pics//f76067a5-7d5f-4135-9549-8199c77d8f1c.jpg"> </div><br></p>
+<p><strong>3. 安全性</strong> </p>
+<p>String 经常作为参数，String 不可变性可以保证参数不可变。例如在作为网络连接参数的情况下如果 String 是可变的，那么在网络连接过程中，String 被改变，改变 String 对象的那一方以为现在连接的是其它主机，而实际情况却不一定是。</p>
+<p><strong>4. 线程安全</strong> </p>
+<p>String 不可变性天生具备线程安全，可以在多个线程中使用。</p>
+<blockquote>
+<p><a href="https://www.programcreek.com/2013/04/why-string-is-immutable-in-java/" target="_blank" rel="external">Why String is immutable in Java?</a></p>
+</blockquote>
+<h2 id="String-intern"><a href="#String-intern" class="headerlink" title="String.intern()"></a>String.intern()</h2><p>使用 String.intern() 可以保证所有相同内容的字符串变量引用相同的内存对象。</p>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/95f516cb75ef" target="_blank" rel="external">揭开 String.intern() 那神秘的面纱</a></p>
+</blockquote>
+<h1 id="六、基本类型与运算"><a href="#六、基本类型与运算" class="headerlink" title="六、基本类型与运算"></a>六、基本类型与运算</h1><h2 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h2><p>八个基本类型：boolean/1 byte/8 char/16 short/16 int/32 float/32 long/64 double/64</p>
+<p>基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Integer x = <span class="number">2</span>;     <span class="comment">// 装箱</span></div><div class="line"><span class="keyword">int</span> y = x;         <span class="comment">// 拆箱</span></div></pre></td></tr></table></figure>
+<p>new Integer(123) 与 Integer.valueOf(123) 的区别在于，Integer.valueOf(123) 可能会使用缓存对象，因此多次使用 Integer.valueOf(123) 会取得同一个对象的引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">     Integer a = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">     Integer b = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">     System.out.println(<span class="string">"a==b? "</span> + (a == b));</div><div class="line"></div><div class="line">     Integer c = Integer.valueOf(<span class="number">1</span>);</div><div class="line">     Integer d = Integer.valueOf(<span class="number">1</span>);</div><div class="line">     System.out.println(<span class="string">"c==d? "</span> + (c == d));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a==b? false</div><div class="line">c==d? true</div></pre></td></tr></table></figure>
+<p>valueOf() 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就直接使用缓存池的内容。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> offset = <span class="number">128</span>;</div><div class="line">    <span class="keyword">if</span> (i &gt;= -<span class="number">128</span> &amp;&amp; i &lt;= <span class="number">127</span>) &#123;</div><div class="line">        <span class="keyword">return</span> IntegerCache.cache[i + offset];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>基本类型中可以使用缓存池的值如下：</p>
+<ul>
+<li>boolean values true and false</li>
+<li>all byte values</li>
+<li>short values between -128 and 127</li>
+<li>int values between -128 and 127</li>
+<li>char in the range \u0000 to \u007F</li>
+</ul>
+<p>自动装箱过程编译器会调用 valueOf() 方法，因此多个 Integer 对象使用装箱来创建并且值相同，那么就会引用相同的对象。这样做很显然是为了节省内存开销。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Integer x = <span class="number">1</span>;</div><div class="line">Integer y = <span class="number">1</span>;</div><div class="line">System.out.println(c == d); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/9030817/differences-between-new-integer123-integer-valueof123-and-just-123" target="_blank" rel="external">Differences between new Integer(123), Integer.valueOf(123) and just 123
+</a></p>
+</blockquote>
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><p>A switch works with the byte, short, char, and int primitive data types. It also works with enumerated types and a few special classes that “wrap” certain primitive types: Character, Byte, Short, and Integer.</p>
+<p>In the JDK 7 release, you can use a String object in the expression of a switch statement.</p>
+<p>switch 不支持 long，是因为 swicth 的设计初衷是为那些只需要对少数的几个值进行等值判断，如果值过于复杂，那么还是用 if 比较合适。</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/2676210/why-cant-your-switch-statement-data-type-be-long-java" target="_blank" rel="external">Why can’t your switch statement data type be long, Java?</a></p>
+</blockquote>
+<p>switch 使用查找表的方式来实现，JVM 中使用的指令是 lookupswitch。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (<span class="number">1</span>) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</div><div class="line">  Code:</div><div class="line">   Stack=<span class="number">1</span>, Locals=<span class="number">1</span>, Args_size=<span class="number">1</span></div><div class="line">   <span class="number">0</span>:   iconst_1</div><div class="line">   <span class="number">1</span>:   lookupswitch&#123; <span class="comment">//2</span></div><div class="line">                <span class="number">1</span>: <span class="number">28</span>;</div><div class="line">                <span class="number">2</span>: <span class="number">31</span>;</div><div class="line">                <span class="keyword">default</span>: <span class="number">31</span> &#125;</div><div class="line">   <span class="number">28</span>:  goto    <span class="number">31</span></div><div class="line">   <span class="number">31</span>:  <span class="keyword">return</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/12020048/how-does-javas-switch-work-under-the-hood" target="_blank" rel="external">How does Java’s switch work under the hood?</a></p>
+</blockquote>
+<h1 id="七、反射"><a href="#七、反射" class="headerlink" title="七、反射"></a>七、反射</h1><p>每个类都有一个  <strong>Class</strong>  对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。</p>
+<p>类加载相当于 Class 对象的加载。类在第一次使用时才动态加载到 JVM 中，可以使用 Class.forName(‘com.mysql.jdbc.Driver.class’) 这种方式来控制类的加载，该方法会返回一个 Class 对象。</p>
+<p>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。</p>
+<p>Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect 类库主要包含了以下三个类：</p>
+<ol>
+<li><strong>Field</strong> ：可以使用 get() 和 set() 方法读取和修改 Field 对象关联的字；</li>
+<li><strong>Method</strong> ：可以使用 invoke() 方法调用与 Method 对象关联的方法；</li>
+<li><strong>Constructor</strong> ：可以用 Constructor 创建新的对象。</li>
+</ol>
+<p>IDE 使用反射机制获取类的信息，在使用一个类的对象时，能够把类的字段、方法和构造函数等信息列出来供用户选择。</p>
+<blockquote>
+<p><a href="http://www.sczyh30.com/posts/Java/java-reflection-1/" target="_blank" rel="external">深入解析 Java 反射（1）- 基础</a></p>
+</blockquote>
+<p><strong>Advantages of Using Reflection:</strong> </p>
+<ul>
+<li><strong>Extensibility Features</strong>  : An application may make use of external, user-defined classes by creating instances of extensibility objects using their fully-qualified names.</li>
+<li><strong>Class Browsers and Visual Development Environments</strong>  :  A class browser needs to be able to enumerate the members of classes. Visual development environments can benefit from making use of type information available in reflection to aid the developer in writing correct code.</li>
+<li><strong>Debuggers and Test Tools</strong>  : Debuggers need to be able to examine private members on classes. Test harnesses can make use of reflection to systematically call a discoverable set APIs defined on a class, to insure a high level of code coverage in a test suite.</li>
+</ul>
+<p><strong>Drawbacks of Reflection:</strong> </p>
+<p>Reflection is powerful, but should not be used indiscriminately. If it is possible to perform an operation without using reflection, then it is preferable to avoid using it. The following concerns should be kept in mind when accessing code via reflection.</p>
+<ul>
+<li><strong>Performance Overhead</strong>  : Because reflection involves types that are dynamically resolved, certain Java virtual machine optimizations can not be performed. Consequently, reflective operations have slower performance than their non-reflective counterparts, and should be avoided in sections of code which are called frequently in performance-sensitive applications.</li>
+<li><strong>Security Restrictions</strong>  : Reflection requires a runtime permission which may not be present when running under a security manager. This is in an important consideration for code which has to run in a restricted security context, such as in an Applet.</li>
+<li><strong>Exposure of Internals</strong>  :Since reflection allows code to perform operations that would be illegal in non-reflective code, such as accessing private fields and methods, the use of reflection can result in unexpected side-effects, which may render code dysfunctional and may destroy portability. Reflective code breaks abstractions and therefore may change behavior with upgrades of the platform.</li>
+</ul>
+<blockquote>
+<p><a href="https://docs.oracle.com/javase/tutorial/reflect/index.html" target="_blank" rel="external">Trail: The Reflection API</a></p>
+</blockquote>
+<h1 id="八、异常"><a href="#八、异常" class="headerlink" title="八、异常"></a>八、异常</h1><p>Throwable 可以用来表示任何可以作为异常抛出的类，分为两种： <strong>Error</strong>  和 <strong>Exception</strong>，其中 Error 用来表示编译时系统错误。</p>
+<p>Exception 分为两种：</p>
+<ol>
+<li><strong>受检异常</strong> ：需要用 try…catch… 语句捕获并进行处理，并且可以从异常中恢复；</li>
+<li><strong>非受检异常</strong> ：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序奔溃并且无法恢复。</li>
+</ol>
+<p><div align="center"> <img src="../pics//48f8f98e-8dfd-450d-8b5b-df4688f0d377.jpg"> </div><br></p>
+<blockquote>
+<ul>
+<li><a href="https://www.tianmaying.com/tutorial/Java-Exception" target="_blank" rel="external">Java 入门之异常处理</a></li>
+<li><a href="http://www.importnew.com/7383.html" target="_blank" rel="external">Java 异常的面试问题及答案 -Part 1</a></li>
+</ul>
+</blockquote>
+<h1 id="九、泛型"><a href="#九、泛型" class="headerlink" title="九、泛型"></a>九、泛型</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="comment">// T stands for "Type"</span></div><div class="line">    <span class="keyword">private</span> T t;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T t)</span> </span>&#123; <span class="keyword">this</span>.t = t; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> t; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><a href="https://www.ziwenxie.site/2017/03/01/java-generic/" target="_blank" rel="external">Java 泛型详解</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1033693" target="_blank" rel="external">10 道 Java 泛型面试题</a></li>
+</ul>
+</blockquote>
+<h1 id="十、注解"><a href="#十、注解" class="headerlink" title="十、注解"></a>十、注解</h1><p>Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/acm-bingzi/p/javaAnnotation.html" target="_blank" rel="external">注解 Annotation 实现原理与自定义注解例子</a></p>
+</blockquote>
+<h1 id="十一、特性"><a href="#十一、特性" class="headerlink" title="十一、特性"></a>十一、特性</h1><h2 id="面向对象三大特性"><a href="#面向对象三大特性" class="headerlink" title="面向对象三大特性"></a>面向对象三大特性</h2><blockquote>
+<p><a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3.md#%E5%B0%81%E8%A3%85%E7%BB%A7%E6%89%BF%E5%A4%9A%E6%80%81" target="_blank" rel="external">封装、继承、多态</a></p>
+</blockquote>
+<h2 id="Java-各版本的新特性"><a href="#Java-各版本的新特性" class="headerlink" title="Java 各版本的新特性"></a>Java 各版本的新特性</h2><p><strong>New highlights in Java SE 8</strong> </p>
+<ol>
+<li>Lambda Expressions</li>
+<li>Pipelines and Streams</li>
+<li>Date and Time API</li>
+<li>Default Methods</li>
+<li>Type Annotations</li>
+<li>Nashhorn JavaScript Engine</li>
+<li>Concurrent Accumulators</li>
+<li>Parallel operations</li>
+<li>PermGen Error Removed</li>
+</ol>
+<p><strong>New highlights in Java SE 7</strong> </p>
+<ol>
+<li>Strings in Switch Statement</li>
+<li>Type Inference for Generic Instance Creation</li>
+<li>Multiple Exception Handling</li>
+<li>Support for Dynamic Languages</li>
+<li>Try with Resources</li>
+<li>Java nio Package</li>
+<li>Binary Literals, Underscore in literals</li>
+<li>Diamond Syntax</li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="http://www.selfgrowth.com/articles/difference-between-java-18-and-java-17" target="_blank" rel="external">Difference between Java 1.8 and Java 1.7?</a></li>
+<li><a href="http://www.importnew.com/19345.html" target="_blank" rel="external">Java 8 特性 </a></li>
+</ul>
+</blockquote>
+<h2 id="Java-与-C-的区别"><a href="#Java-与-C-的区别" class="headerlink" title="Java 与 C++ 的区别"></a>Java 与 C++ 的区别</h2><p>Java 是纯粹的面向对象语言，所有的对象都继承自 java.lang.Object，C++ 为了兼容 C 即支持面向对象也支持面向过程。</p>
+<table>
+<thead>
+<tr>
+<th>Java</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java does not support pointers, templates, unions, operator overloading, structures etc. The Java language promoters initially said “No pointers!”, but when many programmers questioned how you can work without pointers, the promoters began saying “Restricted pointers.” Java supports what it calls “references”. References act a lot like pointers in C++ languages but you cannot perform arithmetic on pointers in Java. References have types, and they’re type-safe. These references cannot be interpreted as raw address and unsafe conversion is not allowed.</td>
+<td>C++ supports structures, unions, templates, operator overloading, pointers and pointer arithmetic.</td>
+</tr>
+<tr>
+<td>Java support automatic garbage collection. It does not support destructors as C++ does.</td>
+<td>C++ support destructors, which is automatically invoked when the object is destroyed.</td>
+</tr>
+<tr>
+<td>Java does not support conditional compilation and inclusion.</td>
+<td>Conditional inclusion (#ifdef #ifndef type) is one of the main features of C++.</td>
+</tr>
+<tr>
+<td>Java has built in support for threads. In Java, there is a <code>Thread</code> class that you inherit to create a new thread and override the <code>run()</code> method.</td>
+<td>C++ has no built in support for threads. C++ relies on non-standard third-party libraries for thread support.</td>
+</tr>
+<tr>
+<td>Java does not support default arguments. There is no scope resolution operator (::) in Java. The method definitions must always occur within a class, so there is no need for scope resolution there either.</td>
+<td>C++ supports default arguments. C++ has scope resolution operator (::) which is used to to define a method outside a class and to access a global variable within from the scope where a local variable also exists with the same name.</td>
+</tr>
+<tr>
+<td>There is no <em>goto</em> statement in Java. The keywords <code>const</code> and <code>goto</code> are reserved, even though they are not used.</td>
+<td>C++ has <em>goto</em> statement. However, it is not considered good practice to use of <em>goto</em> statement.</td>
+</tr>
+<tr>
+<td>Java doesn’t provide multiple inheritance, at least not in the same sense that C++ does.</td>
+<td>C++ does support multiple inheritance. The keyword <code>virtual</code> is used to resolve ambiguities during multiple inheritance if there is any.</td>
+</tr>
+<tr>
+<td>Exception handling in Java is different because there are no destructors. Also, in Java, try/catch must be defined if the function declares that it may throw an exception.</td>
+<td>While in C++, you may not include the try/catch even if the function throws an exception.</td>
+</tr>
+<tr>
+<td>Java has method overloading, but no operator overloading. The <code>String</code> class does use the <code>+</code> and <code>+=</code> operators to concatenate strings and <code>String</code>expressions use automatic type conversion, but that’s a special built-in case.</td>
+<td>C++ supports both method overloading and operator overloading.</td>
+</tr>
+<tr>
+<td>Java has built-in support for documentation comments (<code>/** ... */</code>); therefore, Java source files can contain their own documentation, which is read by a separate tool usually <code>javadoc</code> and reformatted into HTML. This helps keeping documentation maintained in easy way.</td>
+<td>C++ does not support documentation comments.</td>
+</tr>
+<tr>
+<td>Java is interpreted for the most part and hence platform independent.</td>
+<td>C++ generates object code and the same code may not run on different platforms.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="http://cs-fundamentals.com/tech-interview/java/differences-between-java-and-cpp.php" target="_blank" rel="external">What are the main differences between Java and C++?</a></p>
+</blockquote>
+<h2 id="JRE-or-JDK"><a href="#JRE-or-JDK" class="headerlink" title="JRE or JDK"></a>JRE or JDK</h2><ul>
+<li>JRE is the JVM program, Java application need to run on JRE.</li>
+<li>JDK is a superset of JRE, JRE + tools for developing java programs. e.g, it provides the compiler “javac”</li>
+</ul>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>Eckel B. Java 编程思想[M]. 机械工业出版社, 2002.</li>
+<li>Bloch J. Effective java[M]. Addison-Wesley Professional, 2017.</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/03/29/Java 基础/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2018年03月29日 - 10时30分</p>
+        <p><span>最后更新:</span>2018年03月28日 - 16时47分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/29/Java 基础/" title="">http://yoursite.com/2018/03/29/Java 基础/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/Java 基础/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/03/29/Java 容器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/29/Java IO/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、关键字"><span class="toc-number">1.</span> <span class="toc-text">一、关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">1.1.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static"><span class="toc-number">1.2.</span> <span class="toc-text">static</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Object-通用方法"><span class="toc-number">2.</span> <span class="toc-text">二、Object 通用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概览"><span class="toc-number">2.1.</span> <span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">2.2.</span> <span class="toc-text">clone()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals"><span class="toc-number">2.3.</span> <span class="toc-text">equals()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、继承"><span class="toc-number">3.</span> <span class="toc-text">四、继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#访问权限"><span class="toc-number">3.1.</span> <span class="toc-text">访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽象类与接口"><span class="toc-number">3.2.</span> <span class="toc-text">抽象类与接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#super"><span class="toc-number">3.3.</span> <span class="toc-text">super</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重载与重写"><span class="toc-number">3.4.</span> <span class="toc-text">重载与重写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、String"><span class="toc-number">4.</span> <span class="toc-text">五、String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#String-StringBuffer-and-StringBuilder"><span class="toc-number">4.1.</span> <span class="toc-text">String, StringBuffer and StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-不可变的原因"><span class="toc-number">4.2.</span> <span class="toc-text">String 不可变的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-intern"><span class="toc-number">4.3.</span> <span class="toc-text">String.intern()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、基本类型与运算"><span class="toc-number">5.</span> <span class="toc-text">六、基本类型与运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#包装类型"><span class="toc-number">5.1.</span> <span class="toc-text">包装类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch"><span class="toc-number">5.2.</span> <span class="toc-text">switch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、反射"><span class="toc-number">6.</span> <span class="toc-text">七、反射</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、异常"><span class="toc-number">7.</span> <span class="toc-text">八、异常</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、泛型"><span class="toc-number">8.</span> <span class="toc-text">九、泛型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、注解"><span class="toc-number">9.</span> <span class="toc-text">十、注解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、特性"><span class="toc-number">10.</span> <span class="toc-text">十一、特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象三大特性"><span class="toc-number">10.1.</span> <span class="toc-text">面向对象三大特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-各版本的新特性"><span class="toc-number">10.2.</span> <span class="toc-text">Java 各版本的新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-与-C-的区别"><span class="toc-number">10.3.</span> <span class="toc-text">Java 与 C++ 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JRE-or-JDK"><span class="toc-number">10.4.</span> <span class="toc-text">JRE or JDK</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">11.</span> <span class="toc-text">参考资料</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/03/29/Java 容器/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/03/29/Java IO/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20187/01/28/http状态码/">http学习之状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 容器/">Java 容器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础/">Java 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java IO/">Java IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/JDK 中的设计模式/">JDK 中的设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 虚拟机/">Java 虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 并发/">Java 并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/spring实战/">java  spring的世界</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

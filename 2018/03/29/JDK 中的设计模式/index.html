@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、创建型 1. 单例模式 2. 简单工厂模式 3. 工厂方法模式 4. 抽象工厂 5. 生成器模式 6. 原型模式   二、行为型 1. 责任链 2. 命令模式 3. 解释器模式 4. 迭代器 5. 中间人模式 6. 备忘录模式 7. 观察者模式 8. 策略模式 9. 模板方法 10. 访问者模式 11. 空对象模式   三、结构型 1. 适配器 2. 桥接模式 3. 组合模式 4. 装饰者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GeekQ">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/JDK 中的设计模式/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="一、创建型 1. 单例模式 2. 简单工厂模式 3. 工厂方法模式 4. 抽象工厂 5. 生成器模式 6. 原型模式   二、行为型 1. 责任链 2. 命令模式 3. 解释器模式 4. 迭代器 5. 中间人模式 6. 备忘录模式 7. 观察者模式 8. 策略模式 9. 模板方法 10. 访问者模式 11. 空对象模式   三、结构型 1. 适配器 2. 桥接模式 3. 组合模式 4. 装饰者">
+<meta property="og:updated_time" content="2018-03-28T08:47:13.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GeekQ">
+<meta name="twitter:description" content="一、创建型 1. 单例模式 2. 简单工厂模式 3. 工厂方法模式 4. 抽象工厂 5. 生成器模式 6. 原型模式   二、行为型 1. 责任链 2. 命令模式 3. 解释器模式 4. 迭代器 5. 中间人模式 6. 备忘录模式 7. 观察者模式 8. 策略模式 9. 模板方法 10. 访问者模式 11. 空对象模式   三、结构型 1. 适配器 2. 桥接模式 3. 组合模式 4. 装饰者">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N">有事请发邮件</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-JDK 中的设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/29/JDK 中的设计模式/" class="article-date">
+      <time datetime="2018-03-29T02:30:38.288Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!-- GFM-TOC -->
+<ul>
+<li><a href="#一创建型">一、创建型</a><ul>
+<li><a href="#1-单例模式">1. 单例模式</a></li>
+<li><a href="#2-简单工厂模式">2. 简单工厂模式</a></li>
+<li><a href="#3-工厂方法模式">3. 工厂方法模式</a></li>
+<li><a href="#4-抽象工厂">4. 抽象工厂</a></li>
+<li><a href="#5-生成器模式">5. 生成器模式</a></li>
+<li><a href="#6-原型模式">6. 原型模式</a></li>
+</ul>
+</li>
+<li><a href="#二行为型">二、行为型</a><ul>
+<li><a href="#1-责任链">1. 责任链</a></li>
+<li><a href="#2-命令模式">2. 命令模式</a></li>
+<li><a href="#3-解释器模式">3. 解释器模式</a></li>
+<li><a href="#4-迭代器">4. 迭代器</a></li>
+<li><a href="#5-中间人模式">5. 中间人模式</a></li>
+<li><a href="#6-备忘录模式">6. 备忘录模式</a></li>
+<li><a href="#7-观察者模式">7. 观察者模式</a></li>
+<li><a href="#8-策略模式">8. 策略模式</a></li>
+<li><a href="#9-模板方法">9. 模板方法</a></li>
+<li><a href="#10-访问者模式">10. 访问者模式</a></li>
+<li><a href="#11-空对象模式">11. 空对象模式</a></li>
+</ul>
+</li>
+<li><a href="#三结构型">三、结构型</a><ul>
+<li><a href="#1-适配器">1. 适配器</a></li>
+<li><a href="#2-桥接模式">2. 桥接模式</a></li>
+<li><a href="#3-组合模式">3. 组合模式</a></li>
+<li><a href="#4-装饰者模式">4. 装饰者模式</a></li>
+<li><a href="#5-蝇量模式">5. 蝇量模式</a></li>
+<li><a href="#6-动态代理">6. 动态代理</a></li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a><!-- GFM-TOC -->
+</li>
+</ul>
+<h1 id="一、创建型"><a href="#一、创建型" class="headerlink" title="一、创建型"></a>一、创建型</h1><h2 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1. 单例模式"></a>1. 单例模式</h2><p>确保只实例化一个对象，并提供一个对象的全局访问点。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.lang.Runtime#getRuntime()</div><div class="line">java.awt.Toolkit#getDefaultToolkit()</div><div class="line">java.awt.GraphicsEnvironment#getLocalGraphicsEnvironment()</div><div class="line">java.awt.Desktop#getDesktop()</div></pre></td></tr></table></figure>
+<h2 id="2-简单工厂模式"><a href="#2-简单工厂模式" class="headerlink" title="2. 简单工厂模式"></a>2. 简单工厂模式</h2><p>在不对用户暴露对象内部逻辑的前提下创建对象；使用通用的接口来创建对象；</p>
+<h2 id="3-工厂方法模式"><a href="#3-工厂方法模式" class="headerlink" title="3. 工厂方法模式"></a>3. 工厂方法模式</h2><p>定义创建对象的接口，但是让子类来决定应该使用哪个类来创建；使用通用的接口来创建对象；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">java.lang.Proxy#newProxyInstance()</div><div class="line">java.lang.Object#toString()</div><div class="line">java.lang.Class#newInstance()</div><div class="line">java.lang.reflect.Array#newInstance()</div><div class="line">java.lang.reflect.Constructor#newInstance()</div><div class="line">java.lang.Boolean#valueOf(String)</div><div class="line">java.lang.Class#forName()</div></pre></td></tr></table></figure>
+<h2 id="4-抽象工厂"><a href="#4-抽象工厂" class="headerlink" title="4. 抽象工厂"></a>4. 抽象工厂</h2><p>提供一个创建相关对象家族的接口，而没有明确指明它们的类。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">java.util.Calendar#getInstance()</div><div class="line">java.util.Arrays#asList()</div><div class="line">java.util.ResourceBundle#getBundle()</div><div class="line">java.sql.DriverManager#getConnection()</div><div class="line">java.sql.Connection#createStatement()</div><div class="line">java.sql.Statement#executeQuery()</div><div class="line">java.text.NumberFormat#getInstance()</div><div class="line">javax.xml.transform.TransformerFactory#newInstance()</div></pre></td></tr></table></figure>
+<h2 id="5-生成器模式"><a href="#5-生成器模式" class="headerlink" title="5. 生成器模式"></a>5. 生成器模式</h2><p>定义一个新的类来构造另一个类的实例，以创建一个复杂的对象。</p>
+<p>它可以封装一个对象的构造过程，并允许按步骤构造。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.lang.StringBuilder#append()</div><div class="line">java.lang.StringBuffer#append()</div><div class="line">java.sql.PreparedStatement</div><div class="line">javax.swing.GroupLayout.Group#addComponent()</div></pre></td></tr></table></figure>
+<h2 id="6-原型模式"><a href="#6-原型模式" class="headerlink" title="6. 原型模式"></a>6. 原型模式</h2><p>使用原型实例指定要创建对象的类型；通过复制这个原型来创建新对象。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.lang.Object#clone()</div><div class="line">java.lang.Cloneable</div></pre></td></tr></table></figure>
+<h1 id="二、行为型"><a href="#二、行为型" class="headerlink" title="二、行为型"></a>二、行为型</h1><h2 id="1-责任链"><a href="#1-责任链" class="headerlink" title="1. 责任链"></a>1. 责任链</h2><p>避免将请求的发送者附加到其接受者，从而使其它对象也可以处理请求；将请求以对象的方式把发送到链上直到请求被处理完毕。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.util.logging.Logger#log()</div><div class="line">javax.servlet.Filter#doFilter()</div></pre></td></tr></table></figure>
+<h2 id="2-命令模式"><a href="#2-命令模式" class="headerlink" title="2. 命令模式"></a>2. 命令模式</h2><p>将命令封装进对象中；允许使用命令对象对客户对象进行参数化；允许将命令对象存放到队列中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.lang.Runnable</div><div class="line">javax.swing.Action</div></pre></td></tr></table></figure>
+<h2 id="3-解释器模式"><a href="#3-解释器模式" class="headerlink" title="3. 解释器模式"></a>3. 解释器模式</h2><p>为语言创建解释器，通常由语言的语法和语法分析来定义。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java.util.Pattern</div><div class="line">java.text.Normalizer</div><div class="line">java.text.Format</div></pre></td></tr></table></figure>
+<h2 id="4-迭代器"><a href="#4-迭代器" class="headerlink" title="4. 迭代器"></a>4. 迭代器</h2><p>提供一种一致的访问聚合对象元素的方法，并且不暴露聚合对象的内部表示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.util.Iterator</div><div class="line">java.util.Enumeration</div></pre></td></tr></table></figure>
+<h2 id="5-中间人模式"><a href="#5-中间人模式" class="headerlink" title="5. 中间人模式"></a>5. 中间人模式</h2><p>使用中间人对象来封装对象之间的交互。中间人模式可以让降低交互对象之间的耦合程度。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.util.Timer</div><div class="line">java.util.concurrent.Executor#execute()</div><div class="line">java.util.concurrent.ExecutorService#submit()</div><div class="line">java.lang.reflect.Method#invoke()</div></pre></td></tr></table></figure>
+<h2 id="6-备忘录模式"><a href="#6-备忘录模式" class="headerlink" title="6. 备忘录模式"></a>6. 备忘录模式</h2><p>在不违反封装的情况下获得对象的内部状态，从而在需要时可以将对象恢复到最初状态。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.util.Date</div><div class="line">java.io.Serializable</div></pre></td></tr></table></figure>
+<h2 id="7-观察者模式"><a href="#7-观察者模式" class="headerlink" title="7. 观察者模式"></a>7. 观察者模式</h2><p>定义对象之间的一对多依赖，当一个对象状态改变时，它的所有依赖都会收到通知并且自动更新状态。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.util.EventListener</div><div class="line">javax.servlet.http.HttpSessionBindingListener</div><div class="line">javax.servlet.http.HttpSessionAttributeListener</div><div class="line">javax.faces.event.PhaseListener</div></pre></td></tr></table></figure>
+<h2 id="8-策略模式"><a href="#8-策略模式" class="headerlink" title="8. 策略模式"></a>8. 策略模式</h2><p>定义一系列算法，封装每个算法，并使它们可以互换。策略可以让算法独立于使用它的客户端。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java.util.Comparator#compare()</div><div class="line">javax.servlet.http.HttpServlet</div><div class="line">javax.servlet.Filter#doFilter()</div></pre></td></tr></table></figure>
+<h2 id="9-模板方法"><a href="#9-模板方法" class="headerlink" title="9. 模板方法"></a>9. 模板方法</h2><p>定义算法框架，并将一些步骤的实现延迟到子类。通过模板方法，子类可以重新定义算法的某些步骤，而不用改变算法的结构。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.util.Collections#sort()</div><div class="line">java.io.InputStream#skip()</div><div class="line">java.io.InputStream#read()</div><div class="line">java.util.AbstractList#indexOf()</div></pre></td></tr></table></figure>
+<h2 id="10-访问者模式"><a href="#10-访问者模式" class="headerlink" title="10. 访问者模式"></a>10. 访问者模式</h2><p>提供便捷的维护方式来操作一组对象。它使你在不改变操作对象的前提下，可以修改或扩展对象的行为。</p>
+<p>例如集合，它可以包含不同类型的元素，访问者模式允许在不知道具体元素类型的前提下对集合元素进行一些操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">javax.lang.model.element.Element and javax.lang.model.element.ElementVisitor</div><div class="line">javax.lang.model.type.TypeMirror and javax.lang.model.type.TypeVisitor</div></pre></td></tr></table></figure>
+<h2 id="11-空对象模式"><a href="#11-空对象模式" class="headerlink" title="11. 空对象模式"></a>11. 空对象模式</h2><p>使用什么都不做的空对象来替代 NULL。</p>
+<h1 id="三、结构型"><a href="#三、结构型" class="headerlink" title="三、结构型"></a>三、结构型</h1><h2 id="1-适配器"><a href="#1-适配器" class="headerlink" title="1. 适配器"></a>1. 适配器</h2><p>把一个类接口转换成另一个用户需要的接口。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">java.util.Arrays#asList()</div><div class="line">javax.swing.JTable(TableModel)</div><div class="line">java.io.InputStreamReader(InputStream)</div><div class="line">java.io.OutputStreamWriter(OutputStream)</div><div class="line">javax.xml.bind.annotation.adapters.XmlAdapter#marshal()</div><div class="line">javax.xml.bind.annotation.adapters.XmlAdapter#unmarshal()</div></pre></td></tr></table></figure>
+<h2 id="2-桥接模式"><a href="#2-桥接模式" class="headerlink" title="2. 桥接模式"></a>2. 桥接模式</h2><p>将抽象与实现分离开来，使它们可以独立变化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AWT (It provides an abstraction layer which maps onto the <span class="keyword">native</span> OS the windowing support.)</div><div class="line">JDBC</div></pre></td></tr></table></figure>
+<h2 id="3-组合模式"><a href="#3-组合模式" class="headerlink" title="3. 组合模式"></a>3. 组合模式</h2><p>将对象组合成树形结构来表示整理-部分层次关系，允许用户以相同的方式处理单独对象和组合对象。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">javax.swing.JComponent#add(Component)</div><div class="line">java.awt.Container#add(Component)</div><div class="line">java.util.Map#putAll(Map)</div><div class="line">java.util.List#addAll(Collection)</div><div class="line">java.util.Set#addAll(Collection)</div></pre></td></tr></table></figure>
+<h2 id="4-装饰者模式"><a href="#4-装饰者模式" class="headerlink" title="4. 装饰者模式"></a>4. 装饰者模式</h2><p>为对象动态添加功能。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">java.io.BufferedInputStream(InputStream)</div><div class="line">java.io.DataInputStream(InputStream)</div><div class="line">java.io.BufferedOutputStream(OutputStream)</div><div class="line">java.util.zip.ZipOutputStream(OutputStream)</div><div class="line">java.util.Collections#checked[List|Map|Set|SortedSet|SortedMap]()</div></pre></td></tr></table></figure>
+<h2 id="5-蝇量模式"><a href="#5-蝇量模式" class="headerlink" title="5. 蝇量模式"></a>5. 蝇量模式</h2><p>利用共享的方式来支持大量的对象，这些对象一部分内部状态时相同的，而另一份状态可以变化。</p>
+<p>Java 利用缓存来加速大量小对象的访问时间。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">java.lang.Integer#valueOf(int)</div><div class="line">java.lang.Boolean#valueOf(boolean)</div><div class="line">java.lang.Byte#valueOf(byte)</div><div class="line">java.lang.Character#valueOf(char)</div></pre></td></tr></table></figure>
+<h2 id="6-动态代理"><a href="#6-动态代理" class="headerlink" title="6. 动态代理"></a>6. 动态代理</h2><p>提供一个占位符来控制对象的访问。</p>
+<p>代理可以是一些轻量级的对象，它控制者对重量级对象的访问，只有在真正实例化这些重量级对象时才会去实例化它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">java.lang.reflect.Proxy</div><div class="line">RMI</div></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://www.programering.com/a/MTNxAzMwATY.html" target="_blank" rel="external">The breakdown of design patterns in JDK</a></li>
+<li><a href="http://www.oodesign.com/" target="_blank" rel="external">Design Patterns</a></li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/03/29/JDK 中的设计模式/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2018年03月29日 - 10时30分</p>
+        <p><span>最后更新:</span>2018年03月28日 - 16时47分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/29/JDK 中的设计模式/" title="">http://yoursite.com/2018/03/29/JDK 中的设计模式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/JDK 中的设计模式/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/03/29/Java IO/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/29/Java 虚拟机/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、创建型"><span class="toc-number">1.</span> <span class="toc-text">一、创建型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-单例模式"><span class="toc-number">1.1.</span> <span class="toc-text">1. 单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-简单工厂模式"><span class="toc-number">1.2.</span> <span class="toc-text">2. 简单工厂模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-工厂方法模式"><span class="toc-number">1.3.</span> <span class="toc-text">3. 工厂方法模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-抽象工厂"><span class="toc-number">1.4.</span> <span class="toc-text">4. 抽象工厂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-生成器模式"><span class="toc-number">1.5.</span> <span class="toc-text">5. 生成器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-原型模式"><span class="toc-number">1.6.</span> <span class="toc-text">6. 原型模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、行为型"><span class="toc-number">2.</span> <span class="toc-text">二、行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-责任链"><span class="toc-number">2.1.</span> <span class="toc-text">1. 责任链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-命令模式"><span class="toc-number">2.2.</span> <span class="toc-text">2. 命令模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解释器模式"><span class="toc-number">2.3.</span> <span class="toc-text">3. 解释器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-迭代器"><span class="toc-number">2.4.</span> <span class="toc-text">4. 迭代器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-中间人模式"><span class="toc-number">2.5.</span> <span class="toc-text">5. 中间人模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-备忘录模式"><span class="toc-number">2.6.</span> <span class="toc-text">6. 备忘录模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-观察者模式"><span class="toc-number">2.7.</span> <span class="toc-text">7. 观察者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-策略模式"><span class="toc-number">2.8.</span> <span class="toc-text">8. 策略模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-模板方法"><span class="toc-number">2.9.</span> <span class="toc-text">9. 模板方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-访问者模式"><span class="toc-number">2.10.</span> <span class="toc-text">10. 访问者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-空对象模式"><span class="toc-number">2.11.</span> <span class="toc-text">11. 空对象模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、结构型"><span class="toc-number">3.</span> <span class="toc-text">三、结构型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-适配器"><span class="toc-number">3.1.</span> <span class="toc-text">1. 适配器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-桥接模式"><span class="toc-number">3.2.</span> <span class="toc-text">2. 桥接模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-组合模式"><span class="toc-number">3.3.</span> <span class="toc-text">3. 组合模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-装饰者模式"><span class="toc-number">3.4.</span> <span class="toc-text">4. 装饰者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-蝇量模式"><span class="toc-number">3.5.</span> <span class="toc-text">5. 蝇量模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-动态代理"><span class="toc-number">3.6.</span> <span class="toc-text">6. 动态代理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/03/29/Java IO/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/03/29/Java 虚拟机/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20187/01/28/http状态码/">http学习之状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 容器/">Java 容器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础/">Java 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java IO/">Java IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/JDK 中的设计模式/">JDK 中的设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 虚拟机/">Java 虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 并发/">Java 并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/spring实战/">java  spring的世界</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

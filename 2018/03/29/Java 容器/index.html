@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、概览 Collection Map   二、容器中的设计模式 迭代器模式 适配器模式   三、散列 四、源码分析 ArrayList Vector LinkedList TreeMap HashMap LinkedHashMap ConcurrentHashMap - JDK 1.7 ConcurrentHashMap - JDK 1.8   五、参考资料   一、概览容器主要包括 Col">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GeekQ">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/Java 容器/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="一、概览 Collection Map   二、容器中的设计模式 迭代器模式 适配器模式   三、散列 四、源码分析 ArrayList Vector LinkedList TreeMap HashMap LinkedHashMap ConcurrentHashMap - JDK 1.7 ConcurrentHashMap - JDK 1.8   五、参考资料   一、概览容器主要包括 Col">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//java-collections.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//java-collections1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//Iterator-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//ce039f03-6588-4f0c-b35b-a494de0eac47.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//b9a39d2a-618c-468b-86db-2e851f1a0057.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//061c29ce-e2ed-425a-911e-56fbba1efce3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//hashMap_u54C8_u5E0C_u7B97_u6CD5_u4F8B_u56FE.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//image005.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//image007.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//image008.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//image009.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//7779232-1e8ed39548081a1f.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/pics//7779232-96822582feb08651.png">
+<meta property="og:updated_time" content="2018-03-28T08:47:13.640Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GeekQ">
+<meta name="twitter:description" content="一、概览 Collection Map   二、容器中的设计模式 迭代器模式 适配器模式   三、散列 四、源码分析 ArrayList Vector LinkedList TreeMap HashMap LinkedHashMap ConcurrentHashMap - JDK 1.7 ConcurrentHashMap - JDK 1.8   五、参考资料   一、概览容器主要包括 Col">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/29/pics//java-collections.png">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N">有事请发邮件</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/geekqrzlovecode.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java 容器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/29/Java 容器/" class="article-date">
+      <time datetime="2018-03-29T02:30:38.345Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <!-- GFM-TOC -->
+<ul>
+<li><a href="#一概览">一、概览</a><ul>
+<li><a href="#collection">Collection</a></li>
+<li><a href="#map">Map</a></li>
+</ul>
+</li>
+<li><a href="#二容器中的设计模式">二、容器中的设计模式</a><ul>
+<li><a href="#迭代器模式">迭代器模式</a></li>
+<li><a href="#适配器模式">适配器模式</a></li>
+</ul>
+</li>
+<li><a href="#三散列">三、散列</a></li>
+<li><a href="#四源码分析">四、源码分析</a><ul>
+<li><a href="#arraylist">ArrayList</a></li>
+<li><a href="#vector">Vector</a></li>
+<li><a href="#linkedlist">LinkedList</a></li>
+<li><a href="#treemap">TreeMap</a></li>
+<li><a href="#hashmap">HashMap</a></li>
+<li><a href="#linkedhashmap">LinkedHashMap</a></li>
+<li><a href="#concurrenthashmap---jdk-17">ConcurrentHashMap - JDK 1.7</a></li>
+<li><a href="#concurrenthashmap---jdk-18">ConcurrentHashMap - JDK 1.8</a></li>
+</ul>
+</li>
+<li><a href="#五参考资料">五、参考资料</a><!-- GFM-TOC -->
+</li>
+</ul>
+<h1 id="一、概览"><a href="#一、概览" class="headerlink" title="一、概览"></a>一、概览</h1><p>容器主要包括 Collection 和 Map 两种，Collection 又包含了 List、Set 以及 Queue。</p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><p><div align="center"> <img src="../pics//java-collections.png"> </div><br></p>
+<h3 id="1-Set"><a href="#1-Set" class="headerlink" title="1. Set"></a>1. Set</h3><ul>
+<li><p>HashSet：基于哈希实现，支持快速查找，但不支持有序性操作，例如根据一个范围查找元素的操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</p>
+</li>
+<li><p>TreeSet：基于红黑树实现，支持有序性操作，但是查找效率不如 HashSet，HashSet 查找时间复杂度为 O(1)，TreeSet 则为 O(logn)；</p>
+</li>
+<li><p>LinkedHashSet：具有 HashSet 的查找效率，且内部使用链表维护元素的插入顺序。</p>
+</li>
+</ul>
+<h3 id="2-List"><a href="#2-List" class="headerlink" title="2. List"></a>2. List</h3><ul>
+<li><p>ArrayList：基于动态数组实现，支持随机访问；</p>
+</li>
+<li><p>Vector：和 ArrayList 类似，但它是线程安全的；</p>
+</li>
+<li><p>LinkedList：基于双向循环链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双端队列。</p>
+</li>
+</ul>
+<h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ul>
+<li><p>LinkedList：可以用它来支持双向队列；</p>
+</li>
+<li><p>PriorityQueue 是基于堆结构实现，可以用它来实现优先级队列。</p>
+</li>
+</ul>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p><div align="center"> <img src="../pics//java-collections1.png"> </div><br></p>
+<ul>
+<li><p>HashMap：基于哈希实现；</p>
+</li>
+<li><p>HashTable：和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高，因为 ConcurrentHashMap 引入了分段锁。</p>
+</li>
+<li><p>LinkedHashMap：使用链表来维护元素的顺序，顺序为插入顺序或者最近最少使用（LRU）顺序。</p>
+</li>
+<li><p>TreeMap：基于红黑树实现。</p>
+</li>
+</ul>
+<h1 id="二、容器中的设计模式"><a href="#二、容器中的设计模式" class="headerlink" title="二、容器中的设计模式"></a>二、容器中的设计模式</h1><h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><p><div align="center"> <img src="../pics//Iterator-1.jpg"> </div><br></p>
+<p>Collection 实现了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。</p>
+<p>从 JDK 1.5 之后可以使用 foreach 方法来遍历实现了 Iterable 接口的聚合对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">list.add(<span class="string">"a"</span>);</div><div class="line">list.add(<span class="string">"b"</span>);</div><div class="line"><span class="keyword">for</span> (String item : list) &#123;</div><div class="line">    System.out.println(item);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#%E5%8D%81%E4%BA%8C%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">迭代器模式</a></p>
+</blockquote>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>java.util.Arrays#asList() 可以把数组类型转换为 List 类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SafeVarargs</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span></span></div></pre></td></tr></table></figure>
+<p>如果要将数组类型转换为 List 类型，应该注意的是参数列表为泛型的变长参数，因此不能使用基本类型数组作为参数，只能使用相应的包装类型数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Integer[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</div><div class="line">List list = Arrays.asList(arr);</div></pre></td></tr></table></figure>
+<p>也可以使用以下方式生成 List。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List list = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#%E5%8D%81%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">适配器模式</a></p>
+</blockquote>
+<h1 id="三、散列"><a href="#三、散列" class="headerlink" title="三、散列"></a>三、散列</h1><p>hasCode() 返回散列值，使用的是对象的地址。</p>
+<p>而 equals() 是用来判断两个对象是否相等的，相等的两个对象散列值一定要相同，但是散列值相同的两个对象不一定相等。</p>
+<p>相等必须满足以下五个性质：</p>
+<p><strong>1. 自反性</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x.equals(x); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p><strong>2. 对称性</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x.equals(y) == y.equals(x) <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p><strong>3. 传递性</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(x.equals(y) &amp;&amp; y.equals(z)) &#123;</div><div class="line">    x.equals(z); <span class="comment">// true;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>4. 一致性</strong> </p>
+<p>多次调用 equals() 方法结果不变</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x.equals(y) == x.equals(y); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p><strong>5. 与 null 的比较</strong> </p>
+<p>对任何不是 null 的对象 x 调用 x.equals(null) 结果都为 false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x.euqals(<span class="keyword">null</span>); <span class="comment">// false;</span></div></pre></td></tr></table></figure>
+<h1 id="四、源码分析"><a href="#四、源码分析" class="headerlink" title="四、源码分析"></a>四、源码分析</h1><p>建议先阅读 <a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/%E7%AE%97%E6%B3%95.md#%E6%9F%A5%E6%89%BE" target="_blank" rel="external">算法-查找</a> 部分，对容器类源码的理解有很大帮助。</p>
+<p>至于 ConcurrentHashMap 的理解，需要有并发方面的知识，建议先阅读：<a href="https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Java%20%E5%B9%B6%E5%8F%91.md" target="_blank" rel="external">Java 并发</a></p>
+<p>以下源码从 JDK 1.8 提取而来，下载地址：<a href="https://github.com/CyC2018/JDK-Source-Code" target="_blank" rel="external">JDK-Source-Code</a>。</p>
+<h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/ArrayList.java" target="_blank" rel="external">ArraList.java</a></p>
+<h3 id="1-概览"><a href="#1-概览" class="headerlink" title="1. 概览"></a>1. 概览</h3><p>实现了 RandomAccess 接口，因此支持随机访问，这是理所当然的，因为 ArrayList 是基于数组实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></div><div class="line">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></div></pre></td></tr></table></figure>
+<p>基于数组实现，保存元素的数组使用 transient 修饰，该关键字声明数组默认不会被序列化。这是 ArrayList 具有动态扩容特性，因此保存元素的数组不一定都会被使用，那么就没必要全部进行序列化。ArrayList 重写了 writeObject() 和 readObject() 来控制只序列化数组中有元素填充那么部分内容。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></div></pre></td></tr></table></figure>
+<p>数组的默认大小为 10。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>删除元素时需要调用 System.arraycopy() 对元素进行复制，因此删除操作成本很高。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    rangeCheck(index);</div><div class="line"></div><div class="line">    modCount++;</div><div class="line">    E oldValue = elementData(index);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</div><div class="line">        System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index, numMoved);</div><div class="line">    elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> oldValue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>添加元素时使用 ensureCapacity() 方法来保证容量足够，如果不够时，需要使用 grow() 方法进行扩容，使得新容量为旧容量的 1.5 倍（oldCapacity + (oldCapacity &gt;&gt; 1))。扩容操作需要把原数组整个复制到新数组中，因此最好在创建 ArrayList 对象时就指定大概的容量大小，减少扩容操作的次数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">    modCount++;</div><div class="line"></div><div class="line">    <span class="comment">// overflow-conscious code</span></div><div class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</div><div class="line">        grow(minCapacity);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</div><div class="line">    <span class="comment">// overflow-conscious code</span></div><div class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</div><div class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</div><div class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</div><div class="line">        newCapacity = minCapacity;</div><div class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</div><div class="line">        newCapacity = hugeCapacity(minCapacity);</div><div class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></div><div class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-Fail-Fast"><a href="#2-Fail-Fast" class="headerlink" title="2. Fail-Fast"></a>2. Fail-Fast</h3><p>modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指添加或者删除至少一个元素的所有操作，或者是调整内部数组的大小，仅仅只是设置元素的值不算结构发生变化。</p>
+<p>在进行序列化或者迭代等操作时，需要比较操作前后 modCount 是否改变，如果改变了需要抛出 ConcurrentModificationException。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(java.io.ObjectOutputStream s)</span></span></div><div class="line">    <span class="keyword">throws</span> java.io.IOException&#123;</div><div class="line">    <span class="comment">// Write out element count, and any hidden stuff</span></div><div class="line">    <span class="keyword">int</span> expectedModCount = modCount;</div><div class="line">    s.defaultWriteObject();</div><div class="line"></div><div class="line">    <span class="comment">// Write out size as capacity for behavioural compatibility with clone()</span></div><div class="line">    s.writeInt(size);</div><div class="line"></div><div class="line">    <span class="comment">// Write out all elements in the proper order.</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++) &#123;</div><div class="line">        s.writeObject(elementData[i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (modCount != expectedModCount) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-和-Vector-的区别"><a href="#3-和-Vector-的区别" class="headerlink" title="3. 和 Vector 的区别"></a>3. 和 Vector 的区别</h3><ul>
+<li>Vector 和 ArrayList 几乎是完全相同的，唯一的区别在于 Vector 是同步的，因此开销就比 ArrayList 要大，访问速度更慢。最好使用 ArrayList 而不是 Vector，因为同步操作完全可以由程序员自己来控制；</li>
+<li>Vector 每次扩容请求其大小的 2 倍空间，而 ArrayList 是 1.5 倍。</li>
+</ul>
+<p>为了获得线程安全的 ArrayList，可以调用 Collections.synchronizedList(new ArrayList&lt;&gt;()); 返回一个线程安全的 ArrayList，也可以使用 concurrent 并发包下的 CopyOnWriteArrayList 类；</p>
+<h3 id="4-和-LinkedList-的区别"><a href="#4-和-LinkedList-的区别" class="headerlink" title="4. 和 LinkedList 的区别"></a>4. 和 LinkedList 的区别</h3><ul>
+<li>ArrayList 基于动态数组实现，LinkedList 基于双向循环链表实现；</li>
+<li>ArrayList 支持随机访问，LinkedList 不支持；</li>
+<li>LinkedList 在任意位置添加删除元素更快。</li>
+</ul>
+<h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/Vector.java" target="_blank" rel="external">Vector.java</a></p>
+<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/LinkedList.java" target="_blank" rel="external">LinkedList.java</a></p>
+<h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/TreeMap.java" target="_blank" rel="external">TreeMap.java</a></p>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/HashMap.java" target="_blank" rel="external">HashMap.java</a></p>
+<h3 id="1-存储结构"><a href="#1-存储结构" class="headerlink" title="1. 存储结构"></a>1. 存储结构</h3><p>使用拉链法来解决冲突，内部包含了一个 Entry 类型的数组 table，数组中的每个位置被当成一个桶。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">transient</span> Entry[] table;</div></pre></td></tr></table></figure>
+<p>其中，Entry 就是存储数据的键值对，它包含了四个字段。从 next 字段我们可以看出 Entry 是一个链表，即每个桶会存放一个链表。</p>
+<p><div align="center"> <img src="../pics//ce039f03-6588-4f0c-b35b-a494de0eac47.png" width="500"> </div><br></p>
+<p>JDK 1.8 使用 Node 类型存储一个键值对，它依然继承自 Entry，因此可以按照上面的存储结构来理解。</p>
+<p>需要注意的是，Key 类型为 final，这意味着它不可改变，因此每个桶的链表采用头插法实现，也就是说新节点需要只能在链表头部插入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;</div><div class="line">    <span class="keyword">final</span> K key;</div><div class="line">    V value;</div><div class="line">    Node&lt;K,V&gt; next;</div><div class="line"></div><div class="line">    Node(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</div><div class="line">        <span class="keyword">this</span>.hash = hash;</div><div class="line">        <span class="keyword">this</span>.key = key;</div><div class="line">        <span class="keyword">this</span>.value = value;</div><div class="line">        <span class="keyword">this</span>.next = next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> K <span class="title">getKey</span><span class="params">()</span>        </span>&#123; <span class="keyword">return</span> key; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">getValue</span><span class="params">()</span>      </span>&#123; <span class="keyword">return</span> value; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> key + <span class="string">"="</span> + value; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Objects.hashCode(key) ^ Objects.hashCode(value);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">setValue</span><span class="params">(V newValue)</span> </span>&#123;</div><div class="line">        V oldValue = value;</div><div class="line">        value = newValue;</div><div class="line">        <span class="keyword">return</span> oldValue;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (o == <span class="keyword">this</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Map.Entry) &#123;</div><div class="line">            Map.Entry&lt;?,?&gt; e = (Map.Entry&lt;?,?&gt;)o;</div><div class="line">            <span class="keyword">if</span> (Objects.equals(key, e.getKey()) &amp;&amp;</div><div class="line">                Objects.equals(value, e.getValue()))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-拉链法的工作原理"><a href="#2-拉链法的工作原理" class="headerlink" title="2. 拉链法的工作原理"></a>2. 拉链法的工作原理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HashMap&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(); <span class="comment">// 默认大小为 16</span></div><div class="line">map.put(<span class="string">"sachin"</span>, <span class="number">30</span>);</div><div class="line">map.put(<span class="string">"vishal"</span>, <span class="number">20</span>);</div><div class="line">map.put(<span class="string">"vaibhav"</span>, <span class="number">20</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>计算 “sachin” 的 hashcode 为 115，使用除留余数法得到 115 % 16 = 3，因此 (“sachin”, 30) 键值对放到第 3 个桶上。</li>
+<li>同样得到 (“vishal”, 20) 和 (“vaibhav”, 20) 都应该放到第 6 个桶上。(“vishal”, 20) 先放入， (“vaibhav”, 20) 链接到 (“vishal”, 20) 之后。</li>
+</ul>
+<p><div align="center"> <img src="../pics//b9a39d2a-618c-468b-86db-2e851f1a0057.jpg" width="600"> </div><br></p>
+<p>当进行查找时，需要分成两步进行，第一步是先根据 hashcode 计算出所在的桶，第二步是在链表上顺序查找。由于 table 是数组形式的，具有随机读取的特性，因此第一步的时间复杂度为 O(1)，而第二步需要在链表上顺序查找，时间复杂度显然和链表的长度成正比。</p>
+<h3 id="3-链表转红黑树"><a href="#3-链表转红黑树" class="headerlink" title="3. 链表转红黑树"></a>3. 链表转红黑树</h3><p>应该注意到，从 JDK 1.8 开始，一个桶存储的链表长度大于 8 时会将链表转换为红黑树。</p>
+<p><div align="center"> <img src="../pics//061c29ce-e2ed-425a-911e-56fbba1efce3.jpg" width="500"> </div><br></p>
+<h3 id="4-扩容"><a href="#4-扩容" class="headerlink" title="4. 扩容"></a>4. 扩容</h3><p>因为从 JDK 1.8 开始引入了红黑树，因此扩容操作较为复杂，为了便于理解，以下内容使用 JDK 1.7 的内容。</p>
+<p>设 HashMap 的 table 长度为 M，需要存储的键值对数量为 N，如果哈希函数满足均匀性的要求，那么每条链表的长度大约为 N/M，因此平均查找次数的数量级为 O(N/M)。</p>
+<p>为了让查找的成本降低，应该尽可能使得 N/M 尽可能小，因此需要保证 M 尽可能大，可就是说 table 要尽可能大。HashMap 采用动态扩容来根据当前的 N 值来调整 M 值，使得空间效率和时间效率都能得到保证。</p>
+<p>和扩容相关的参数主要有：capacity、size、threshold 和 load_factor。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">capacity</td>
+<td style="text-align:left">table 的容量大小，默认为 16，需要注意的是 capacity 必须保证为 2 的次方。</td>
+</tr>
+<tr>
+<td style="text-align:center">size</td>
+<td style="text-align:left">table 的实际使用量。</td>
+</tr>
+<tr>
+<td style="text-align:center">threshold</td>
+<td style="text-align:left">size 的临界值，size 必须小于 threshold，如果大于等于，就必须进行扩容操作。</td>
+</tr>
+<tr>
+<td style="text-align:center">load_factor</td>
+<td style="text-align:left">table 能够使用的比例，threshold = capacity * load_factor。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_INITIAL_CAPACITY = <span class="number">16</span>;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAXIMUM_CAPACITY = <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75f</span>;</div><div class="line"></div><div class="line"><span class="keyword">transient</span> Entry[] table;</div><div class="line"></div><div class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size;</div><div class="line"></div><div class="line"><span class="keyword">int</span> threshold;</div><div class="line"></div><div class="line"><span class="keyword">final</span> <span class="keyword">float</span> loadFactor;</div><div class="line"></div><div class="line"><span class="keyword">transient</span> <span class="keyword">int</span> modCount;</div></pre></td></tr></table></figure>
+<p>从下面的添加元素代码中可以看出，当需要扩容时，令 capacity 为原来的两倍。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">    Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">    table[bucketIndex] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</div><div class="line">    <span class="keyword">if</span> (size++ &gt;= threshold)</div><div class="line">        resize(<span class="number">2</span> * table.length);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>扩容使用 resize() 实现，需要注意的是，扩容操作同样需要把旧 table 的所有键值对重新插入新的 table 中，因此这一步是很费时的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</div><div class="line">    Entry[] oldTable = table;</div><div class="line">    <span class="keyword">int</span> oldCapacity = oldTable.length;</div><div class="line">    <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</div><div class="line">        threshold = Integer.MAX_VALUE;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</div><div class="line">    transfer(newTable);</div><div class="line">    table = newTable;</div><div class="line">    threshold = (<span class="keyword">int</span>)(newCapacity * loadFactor);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable)</span> </span>&#123;</div><div class="line">    Entry[] src = table;</div><div class="line">    <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; src.length; j++) &#123;</div><div class="line">        Entry&lt;K,V&gt; e = src[j];</div><div class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123;</div><div class="line">            src[j] = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">do</span> &#123;</div><div class="line">                Entry&lt;K,V&gt; next = e.next;</div><div class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">                e.next = newTable[i];</div><div class="line">                newTable[i] = e;</div><div class="line">                e = next;</div><div class="line">            &#125; <span class="keyword">while</span> (e != <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-确定桶下标"><a href="#5-确定桶下标" class="headerlink" title="5. 确定桶下标"></a>5. 确定桶下标</h3><p>需要三步操作：计算 Key 的 hashCode、高位运算、除留余数法取模。</p>
+<p><div align="center"> <img src="../pics//hashMap_u54C8_u5E0C_u7B97_u6CD5_u4F8B_u56FE.png" width="800"> </div><br></p>
+<p><strong>（一）hashcode()</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> Objects.hashCode(key) ^ Objects.hashCode(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>（二）高位运算</strong> </p>
+<p>通过 hashCode() 的高 16 位异或低 16 位，使得数组比较小时，也能保证高低位都参与到了哈希计算中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> h;</div><div class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>（三）除留余数</strong> </p>
+<p>令 x = 1&lt;&lt;4，即 x 为 2 的 4 次方，它具有以下性质：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x   : 00010000</div><div class="line">x-1 : 00001111</div></pre></td></tr></table></figure>
+<p>令一个数 y 与 x-1 做与运算，可以去除 y 位级表示的第 4 位及以上数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">y       : 10110010</div><div class="line">x-1     : 00001111</div><div class="line">y&amp;(x-1) : 00000010</div></pre></td></tr></table></figure>
+<p>这个性质和 y 对 x 取模效果是一样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x   : 00010000</div><div class="line">y   : 10110010</div><div class="line">y%x : 00000010</div></pre></td></tr></table></figure>
+<p>我们知道，位运算的代价比求模运算小的多，因此在进行这种计算时能用位运算的话能带来更高的性能。</p>
+<p>拉链法需要使用除留余数法来得到桶下标，也就是需要进行以下计算：hash%capacity，如果能保证 capacity 为 2 的幂次方，那么就可以将这个操作转换位位运算。</p>
+<p>以下操作在 Java 8 中没有，但是原理上相同。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-扩容-重新计算桶下标"><a href="#6-扩容-重新计算桶下标" class="headerlink" title="6. 扩容-重新计算桶下标"></a>6. 扩容-重新计算桶下标</h3><p>在进行扩容时，需要把 Node 重新放到对应的桶上。HashMap 使用了一个特殊的机制，可以降低重新计算桶下标的操作。</p>
+<p>假设原数组长度 capacity 为 8，扩容之后 new capacity 为 16：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">capacity     : 00010000</div><div class="line">new capacity : 00100000</div></pre></td></tr></table></figure>
+<p>对于一个 Key，它的 hashCode 如果在第 6 位上为 0，那么除留余数得到的结果和之前一样；如果为 1，那么得到的结果为原来的结果 + 8。</p>
+<h3 id="7-扩容-计算数组容量"><a href="#7-扩容-计算数组容量" class="headerlink" title="7. 扩容-计算数组容量"></a>7. 扩容-计算数组容量</h3><p>先考虑如何求一个数的补码，对于 10100000，它的补码为 11111111，可以使用以下方法得到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mask |= mask &gt;&gt; 1    11000000</div><div class="line">mask |= mask &gt;&gt; 2    11110000</div><div class="line">mask |= mask &gt;&gt; 4    11111111</div></pre></td></tr></table></figure>
+<p>如果最后令 mask+1，得到就是大于原始数字的最小的 2 次方。</p>
+<p>以下是 HashMap 中计算一个大小所需要的数组容量的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">tableSizeFor</span><span class="params">(<span class="keyword">int</span> cap)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n = cap - <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;</div><div class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;</div><div class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7-null-值"><a href="#7-null-值" class="headerlink" title="7. null 值"></a>7. null 值</h3><p>HashMap 允许有一个 Node 的 Key 为 null，该 Node 一定会放在第 0 个桶的位置，因为这个 Key 无法计算 hashCode()，因此只能规定一个桶让它存放。</p>
+<h3 id="8-与-HashTable-的区别"><a href="#8-与-HashTable-的区别" class="headerlink" title="8. 与 HashTable 的区别"></a>8. 与 HashTable 的区别</h3><ul>
+<li>HashTable 是同步的，它使用了 synchronized 来进行同步。它也是线程安全的，多个线程可以共享同一个 HashTable。HashMap 不是同步的，但是可以使用 ConcurrentHashMap，它是 HashTable 的替代，而且比 HashTable 可扩展性更好。</li>
+<li>HashMap 可以插入键为 null 的 Entry。</li>
+<li>HashMap 的迭代器是 fail-fast 迭代器，而 Hashtable 的 enumerator 迭代器不是 fail-fast 的。</li>
+<li>由于 Hashtable 是线程安全的也是 synchronized，所以在单线程环境下它比 HashMap 要慢。</li>
+<li>HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。</li>
+</ul>
+<h2 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/tree/master/src/HashMap.java" target="_blank" rel="external">LinkedHashMap.java</a></p>
+<h2 id="ConcurrentHashMap-JDK-1-7"><a href="#ConcurrentHashMap-JDK-1-7" class="headerlink" title="ConcurrentHashMap - JDK 1.7"></a>ConcurrentHashMap - JDK 1.7</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/blob/master/src/1.7/ConcurrentHashMap.java" target="_blank" rel="external">ConcurrentHashMap.java</a></p>
+<p>ConcurrentHashMap 和 HashMap 实现上类似，最主要的差别是 ConcurrentHashMap 采用了了分段锁，每个分段锁维护着几个桶，多个线程可以同时访问不同分段锁上的桶。</p>
+<p>相比于 HashTable 和用同步包装器包装的 HashMap（Collections.synchronizedMap(new HashMap())），ConcurrentHashMap 拥有更高的并发性。在 HashTable 和由同步包装器包装的 HashMap 中，使用一个全局的锁来同步不同线程间的并发访问。同一时间点，只能有一个线程持有锁，也就是说在同一时间点，只能有一个线程能访问容器。这虽然保证多线程间的安全并发访问，但同时也导致对容器的访问变成串行化的了。</p>
+<h3 id="1-存储结构-1"><a href="#1-存储结构-1" class="headerlink" title="1. 存储结构"></a>1. 存储结构</h3><p>和 HashMap 类似。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">HashEntry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;</div><div class="line">    <span class="keyword">final</span> K key;</div><div class="line">    <span class="keyword">volatile</span> V value;</div><div class="line">    <span class="keyword">volatile</span> HashEntry&lt;K,V&gt; next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>继承自 ReentrantLock，每个 Segment 维护着多个 HashEntry。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Segment</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">ReentrantLock</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">2249069246763182397L</span>;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_SCAN_RETRIES =</div><div class="line">        Runtime.getRuntime().availableProcessors() &gt; <span class="number">1</span> ? <span class="number">64</span> : <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">transient</span> <span class="keyword">volatile</span> HashEntry&lt;K,V&gt;[] table;</div><div class="line"></div><div class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> count;</div><div class="line"></div><div class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> modCount;</div><div class="line"></div><div class="line">    <span class="keyword">transient</span> <span class="keyword">int</span> threshold;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">float</span> loadFactor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> Segment&lt;K,V&gt;[] segments;</div></pre></td></tr></table></figure>
+<p>默认的并发级别为 16，也就是说默认创建 16 个 Segment。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CONCURRENCY_LEVEL = <span class="number">16</span>;</div></pre></td></tr></table></figure>
+<p><div align="center"> <img src="../pics//image005.jpg"> </div><br></p>
+<h3 id="2-HashEntery-的不可变性"><a href="#2-HashEntery-的不可变性" class="headerlink" title="2. HashEntery 的不可变性"></a>2. HashEntery 的不可变性</h3><p>HashEntry 中的 key，hash，next 都声明为 final 型。这意味着，不能把节点添加到链接的中间和尾部，也不能在链接的中间和尾部删除节点。这个特性可以保证：在访问某个节点时，这个节点之后的链接不会被改变。这个特性可以大大降低处理链表时的复杂性。</p>
+<p>同时，HashEntry 类的 value 域被声明为 Volatile 型，Java 的内存模型可以保证：某个写线程对 value 域的写入马上可以被后续的某个读线程 “看” 到。在 ConcurrentHashMap 中，不允许用 null 作为键和值，当读线程读到某个 HashEntry 的 value 域的值为 null 时，便知道产生了冲突——发生了重排序现象，需要加锁后重新读入这个 value 值。这些特性互相配合，使得读线程即使在不加锁状态下，也能正确访问 ConcurrentHashMap。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> V <span class="title">remove</span><span class="params">(Object key, <span class="keyword">int</span> hash, Object value)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span> (!tryLock())</div><div class="line">        scanAndLock(key, hash);</div><div class="line">    V oldValue = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        HashEntry&lt;K,V&gt;[] tab = table;</div><div class="line">        <span class="keyword">int</span> index = (tab.length - <span class="number">1</span>) &amp; hash;</div><div class="line">        HashEntry&lt;K,V&gt; e = entryAt(tab, index);</div><div class="line">        HashEntry&lt;K,V&gt; pred = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span> (e != <span class="keyword">null</span>) &#123;</div><div class="line">            K k;</div><div class="line">            HashEntry&lt;K,V&gt; next = e.next;</div><div class="line">            <span class="keyword">if</span> ((k = e.key) == key ||</div><div class="line">                (e.hash == hash &amp;&amp; key.equals(k))) &#123;</div><div class="line">                V v = e.value;</div><div class="line">                <span class="keyword">if</span> (value == <span class="keyword">null</span> || value == v || value.equals(v)) &#123;</div><div class="line">                    <span class="keyword">if</span> (pred == <span class="keyword">null</span>)</div><div class="line">                        setEntryAt(tab, index, next);</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                        pred.setNext(next);</div><div class="line">                    ++modCount;</div><div class="line">                    --count;</div><div class="line">                    oldValue = v;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            pred = e;</div><div class="line">            e = next;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        unlock();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> oldValue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在以下链表中删除 C 节点，C 节点之后的所有节点都原样保留，C 节点之前的所有节点都被克隆到新的链表中，并且顺序被反转。可以注意到，在执行 remove 操作时，原始链表并没有被修改，也就是说，读线程不会受到执行 remove 操作的并发写线程的干扰。</p>
+<p><div align="center"> <img src="../pics//image007.jpg"> </div><br></p>
+<p><div align="center"> <img src="../pics//image008.jpg"> </div><br></p>
+<p>除了 remove 操作，其它操作也类似。可以得出一个结论：写线程对某个链表的结构性修改不会影响其他的并发读线程对这个链表的遍历访问。</p>
+<h3 id="3-Volatile-变量"><a href="#3-Volatile-变量" class="headerlink" title="3. Volatile 变量"></a>3. Volatile 变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">HashEntry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> hash;</div><div class="line">    <span class="keyword">final</span> K key;</div><div class="line">    <span class="keyword">volatile</span> V value;</div><div class="line">    <span class="keyword">volatile</span> HashEntry&lt;K,V&gt; next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于内存可见性问题，未正确同步的情况下，写线程写入的值可能并不为后续的读线程可见。</p>
+<p>下面以写线程 M 和读线程 N 来说明 ConcurrentHashMap 如何协调读 / 写线程间的内存可见性问题。</p>
+<p><div align="center"> <img src="../pics//image009.jpg"> </div><br></p>
+<p>假设线程 M 在写入了 volatile 型变量 count 后，线程 N 读取了这个 volatile 型变量 count。</p>
+<p>根据 happens-before 关系法则中的程序次序法则，A appens-before 于 B，C happens-before D。</p>
+<p>根据 Volatile 变量法则，B happens-before C。</p>
+<p>根据传递性，连接上面三个 happens-before 关系得到：A appens-before 于 B； B appens-before C；C happens-before D。也就是说：写线程 M 对链表做的结构性修改，在读线程 N 读取了同一个 volatile 变量后，对线程 N 也是可见的了。</p>
+<p>虽然线程 N 是在未加锁的情况下访问链表。Java 的内存模型可以保证：只要之前对链表做结构性修改操作的写线程 M 在退出写方法前写 volatile 型变量 count，读线程 N 在读取这个 volatile 型变量 count 后，就一定能 “看到” 这些修改。</p>
+<p>ConcurrentHashMap 中，每个 Segment 都有一个变量 count。它用来统计 Segment 中的 HashEntry 的个数。这个变量被声明为 volatile。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">transient</span> <span class="keyword">volatile</span> <span class="keyword">int</span> count;</div></pre></td></tr></table></figure>
+<p>所有不加锁读方法，在进入读方法时，首先都会去读这个 count 变量。比如下面的 get 方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function">V <span class="title">get</span><span class="params">(Object key, <span class="keyword">int</span> hash)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span>(count != <span class="number">0</span>) &#123;       <span class="comment">// 首先读 count 变量</span></div><div class="line">       HashEntry&lt;K,V&gt; e = getFirst(hash);</div><div class="line">       <span class="keyword">while</span>(e != <span class="keyword">null</span>) &#123;</div><div class="line">           <span class="keyword">if</span>(e.hash == hash &amp;&amp; key.equals(e.key)) &#123;</div><div class="line">               V v = e.value;</div><div class="line">               <span class="keyword">if</span>(v != <span class="keyword">null</span>)</div><div class="line">                   <span class="keyword">return</span> v;</div><div class="line">               <span class="comment">// 如果读到 value 域为 null，说明发生了重排序，加锁后重新读取</span></div><div class="line">               <span class="keyword">return</span> readValueUnderLock(e);</div><div class="line">           &#125;</div><div class="line">           e = e.next;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在 ConcurrentHashMap 中，所有执行写操作的方法（put, remove, clear），在对链表做结构性修改之后，在退出写方法前都会去写这个 count 变量。所有未加锁的读操作（get, contains, containsKey）在读方法中，都会首先去读取这个 count 变量。</p>
+<p>根据 Java 内存模型，对 同一个 volatile 变量的写 / 读操作可以确保：写线程写入的值，能够被之后未加锁的读线程 “看到”。</p>
+<p>这个特性和前面介绍的 HashEntry 对象的不变性相结合，使得在 ConcurrentHashMap 中，读线程在读取散列表时，基本不需要加锁就能成功获得需要的值。这两个特性相配合，不仅减少了请求同一个锁的频率（读操作一般不需要加锁就能够成功获得值），也减少了持有同一个锁的时间（只有读到 value 域的值为 null 时 ，读线程才需要加锁后重读）。</p>
+<h3 id="4-小结"><a href="#4-小结" class="headerlink" title="4. 小结"></a>4. 小结</h3><p>ConcurrentHashMap 的高并发性主要来自于三个方面：</p>
+<ul>
+<li>用分离锁实现多个线程间的更深层次的共享访问。</li>
+<li>用 HashEntery 对象的不变性来降低执行读操作的线程在遍历链表期间对加锁的需求。</li>
+<li>通过对同一个 Volatile 变量的写 / 读访问，协调不同线程间读 / 写操作的内存可见性。</li>
+</ul>
+<h2 id="ConcurrentHashMap-JDK-1-8"><a href="#ConcurrentHashMap-JDK-1-8" class="headerlink" title="ConcurrentHashMap - JDK 1.8"></a>ConcurrentHashMap - JDK 1.8</h2><p><a href="https://github.com/CyC2018/JDK-Source-Code/blob/master/src/ConcurrentHashMap.java" target="_blank" rel="external">ConcurrentHashMap.java</a></p>
+<p><div align="center"> <img src="../pics//7779232-1e8ed39548081a1f.png"> </div><br></p>
+<p>JDK 1.7 分段锁机制来实现并发更新操作，核心类为 Segment，它继承自重入锁 ReentrantLock。</p>
+<p><div align="center"> <img src="../pics//7779232-96822582feb08651.png"> </div><br></p>
+<p>JDK 1.8 的实现不是用了 Segment，Segment 属于重入锁 ReentrantLock。而是使用了内置锁 synchronized，主要是出于以下考虑：</p>
+<ol>
+<li>synchronized 的锁粒度更低；</li>
+<li>synchronized 优化空间更大；</li>
+<li>在大量数据操作的情况下，ReentrantLock 会开销更多的内存。</li>
+</ol>
+<p>并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。</p>
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><ul>
+<li>Java 编程思想</li>
+<li><a href="https://www.w3resource.com/java-tutorial/java-collections.php" target="_blank" rel="external">Java Collection Framework</a></li>
+<li><a href="https://openhome.cc/Gossip/DesignPattern/IteratorPattern.htm" target="_blank" rel="external">Iterator 模式</a></li>
+<li><a href="https://tech.meituan.com/java-hashmap.html" target="_blank" rel="external">Java 8 系列之重新认识 HashMap</a></li>
+<li><a href="http://javarevisited.blogspot.hk/2010/10/difference-between-hashmap-and.html" target="_blank" rel="external">What is difference between HashMap and Hashtable in Java?</a></li>
+<li><a href="http://www.zhangchangle.com/2018/02/07/Java%E9%9B%86%E5%90%88%E4%B9%8BHashMap/" target="_blank" rel="external">Java 集合之 HashMap</a></li>
+<li><a href="http://www.programering.com/a/MDO3QDNwATM.html" target="_blank" rel="external">The principle of ConcurrentHashMap analysis</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/" target="_blank" rel="external">探索 ConcurrentHashMap 高并发性的实现机制</a></li>
+<li><a href="https://www.jianshu.com/p/75adf47958a7" target="_blank" rel="external">HashMap 相关面试题及其解答</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-enhancement/java-thirtysix.html" target="_blank" rel="external">Java 集合细节（二）：asList 的缺陷</a></li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/03/29/Java 容器/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2018年03月29日 - 10时30分</p>
+        <p><span>最后更新:</span>2018年03月28日 - 16时47分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/29/Java 容器/" title="">http://yoursite.com/2018/03/29/Java 容器/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/Java 容器/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/20187/01/28/http状态码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          http学习之状态码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/29/Java 基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、概览"><span class="toc-number">1.</span> <span class="toc-text">一、概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection"><span class="toc-number">1.1.</span> <span class="toc-text">Collection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Set"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. Set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-List"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Queue"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. Queue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-number">1.2.</span> <span class="toc-text">Map</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、容器中的设计模式"><span class="toc-number">2.</span> <span class="toc-text">二、容器中的设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#迭代器模式"><span class="toc-number">2.1.</span> <span class="toc-text">迭代器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#适配器模式"><span class="toc-number">2.2.</span> <span class="toc-text">适配器模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、散列"><span class="toc-number">3.</span> <span class="toc-text">三、散列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、源码分析"><span class="toc-number">4.</span> <span class="toc-text">四、源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayList"><span class="toc-number">4.1.</span> <span class="toc-text">ArrayList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-概览"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Fail-Fast"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. Fail-Fast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-和-Vector-的区别"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. 和 Vector 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-和-LinkedList-的区别"><span class="toc-number">4.1.4.</span> <span class="toc-text">4. 和 LinkedList 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vector"><span class="toc-number">4.2.</span> <span class="toc-text">Vector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedList"><span class="toc-number">4.3.</span> <span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TreeMap"><span class="toc-number">4.4.</span> <span class="toc-text">TreeMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap"><span class="toc-number">4.5.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-存储结构"><span class="toc-number">4.5.1.</span> <span class="toc-text">1. 存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-拉链法的工作原理"><span class="toc-number">4.5.2.</span> <span class="toc-text">2. 拉链法的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-链表转红黑树"><span class="toc-number">4.5.3.</span> <span class="toc-text">3. 链表转红黑树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-扩容"><span class="toc-number">4.5.4.</span> <span class="toc-text">4. 扩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-确定桶下标"><span class="toc-number">4.5.5.</span> <span class="toc-text">5. 确定桶下标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-扩容-重新计算桶下标"><span class="toc-number">4.5.6.</span> <span class="toc-text">6. 扩容-重新计算桶下标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-扩容-计算数组容量"><span class="toc-number">4.5.7.</span> <span class="toc-text">7. 扩容-计算数组容量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-null-值"><span class="toc-number">4.5.8.</span> <span class="toc-text">7. null 值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-与-HashTable-的区别"><span class="toc-number">4.5.9.</span> <span class="toc-text">8. 与 HashTable 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedHashMap"><span class="toc-number">4.6.</span> <span class="toc-text">LinkedHashMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConcurrentHashMap-JDK-1-7"><span class="toc-number">4.7.</span> <span class="toc-text">ConcurrentHashMap - JDK 1.7</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-存储结构-1"><span class="toc-number">4.7.1.</span> <span class="toc-text">1. 存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HashEntery-的不可变性"><span class="toc-number">4.7.2.</span> <span class="toc-text">2. HashEntery 的不可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Volatile-变量"><span class="toc-number">4.7.3.</span> <span class="toc-text">3. Volatile 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-小结"><span class="toc-number">4.7.4.</span> <span class="toc-text">4. 小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConcurrentHashMap-JDK-1-8"><span class="toc-number">4.8.</span> <span class="toc-text">ConcurrentHashMap - JDK 1.8</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、参考资料"><span class="toc-number">5.</span> <span class="toc-text">五、参考资料</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/20187/01/28/http状态码/" title="上一篇: http学习之状态码">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/03/29/Java 基础/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20187/01/28/http状态码/">http学习之状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 容器/">Java 容器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础/">Java 基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java IO/">Java IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/JDK 中的设计模式/">JDK 中的设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 虚拟机/">Java 虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 并发/">Java 并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/spring实战/">java  spring的世界</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
