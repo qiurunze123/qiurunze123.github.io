@@ -3,23 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo博客添加相册功能 | GeekQ</title>
+  <title>git rebase与merge的区别（推荐merge） | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo博客添加相册功能基本上所有的hexo主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟hexo主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：  图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢  怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url  等等   所以需要找到一个好的解决方法。 注意：本博客">
-<meta name="keywords" content="Hexo博客添加相册功能">
+  <meta name="description" content="git rebase与merge的区别前言git merge与rebase使用与区别">
+<meta name="keywords" content="git命令与使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客添加相册功能">
-<meta property="og:url" content="http://yoursite.com/2017/07/14/Hexo博客添加相册功能/index.html">
+<meta property="og:title" content="git rebase与merge的区别（推荐merge）">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/rebae与merge/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="Hexo博客添加相册功能基本上所有的hexo主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟hexo主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：  图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢  怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url  等等   所以需要找到一个好的解决方法。 注意：本博客">
-<meta property="og:image" content="http://i1.piimg.com/567571/ba2d4107e9ef9d4c.png">
-<meta property="og:image" content="http://i2.muimg.com/567571/71b3bc62eace5d56.png">
-<meta property="og:image" content="http://i2.muimg.com/567571/68797527b5cb45de.png">
-<meta property="og:updated_time" content="2017-07-14T04:33:01.799Z">
+<meta property="og:description" content="git rebase与merge的区别前言git merge与rebase使用与区别">
+<meta property="og:image" content="C://hexo_blog/themes/spfk/source/img/bj.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/697285-608d1da96f1ea926.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/697285-b52fdd23cfc86d35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/697285-d12ab4a3d26ebcfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/697285-b48791d46af20e9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/697285-9ae8ecdf2a9f7b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-21T01:25:29.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客添加相册功能">
-<meta name="twitter:description" content="Hexo博客添加相册功能基本上所有的hexo主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟hexo主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：  图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢  怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url  等等   所以需要找到一个好的解决方法。 注意：本博客">
-<meta name="twitter:image" content="http://i1.piimg.com/567571/ba2d4107e9ef9d4c.png">
+<meta name="twitter:title" content="git rebase与merge的区别（推荐merge）">
+<meta name="twitter:description" content="git rebase与merge的区别前言git merge与rebase使用与区别">
+<meta name="twitter:image" content="C://hexo_blog/themes/spfk/source/img/bj.jpg">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -209,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Hexo博客添加相册功能" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rebae与merge" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/14/Hexo博客添加相册功能/" class="article-date">
-      <time datetime="2017-07-14T08:42:20.000Z" itemprop="datePublished">2017-07-14</time>
+      <a href="/2018/03/29/rebae与merge/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.164Z" itemprop="datePublished">2018-03-29</time>
 </a>
     </div>
   
@@ -226,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo博客添加相册功能
+      git rebase与merge的区别（推荐merge）
     </h1>
   
 
@@ -237,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo博客添加相册功能/">Hexo博客添加相册功能</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -247,153 +250,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Hexo博客添加相册功能"><a href="#Hexo博客添加相册功能" class="headerlink" title="Hexo博客添加相册功能"></a>Hexo博客添加相册功能</h1><p>基本上所有的hexo主题默认都没有实现相册功能，一方面相册功能的需求较少，毕竟hexo主要是写博客用的；另一方面实现相册功能比较麻烦，比如说：</p>
-<ul>
-<li><p>图片放哪里，放在source文件夹中，需要解析成静态文件，图片一旦多的话就会解析的非常慢</p>
-</li>
-<li><p>怎么批量获取图片url(文件名)，图片那么多，不可能一个一个的手动输入图片url</p>
-</li>
-<li><p>等等</p>
-</li>
-</ul>
-<p>所以需要找到一个好的解决方法。</p>
-<p>注意：本博客使用的是spfk(也是yilia主题的另一种表现方式)主题，该主题作者<a href="https://github.com/litten" target="_blank" rel="external">litten大牛</a>有实现了相册功能，但他是同步<code>instagram</code>的图片，我会用不同的方法实现一个相册功能。</p>
+        <h2 id="git-rebase与merge的区别"><a href="#git-rebase与merge的区别" class="headerlink" title="git rebase与merge的区别"></a><strong>git rebase与merge的区别</strong></h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>git merge与rebase使用与区别</p>
 <a id="more"></a>
-<h3 id="新建一个页面"><a href="#新建一个页面" class="headerlink" title="新建一个页面"></a>新建一个页面</h3><pre><code>hexo new page &quot;photo&quot;
-</code></pre><p>执行上面命令，会在<code>source</code>文件夹中生成<code>photo</code>文件夹，打开<code>photo</code>文件夹中的<code>index.md</code>文件，修改内容如下：</p>
-<pre><code>title: 相册 
-noDate: &apos;true&apos;
---- 
-
-&lt;link type=&quot;text/css&quot; href=&quot;/fancybox/jquery.fancybox.css&quot; rel=&quot;stylesheet&quot;&gt;
- &lt;div class=&quot;instagram&quot;&gt;
-  &lt;section class=&quot;archives album&quot;&gt;
-    &lt;ul class=&quot;img-box-ul&quot;&gt;&lt;/ul&gt;
-  &lt;/section&gt;
- &lt;/div&gt;
-</code></pre><p>相册的样式使用该主题作者的相册样式，如果大家使用其他主题，样式可以自己实现。</p>
-<h3 id="图片位置"><a href="#图片位置" class="headerlink" title="图片位置"></a>图片位置</h3><p>图片不能放在<code>source</code>文件中，因为需要编译成静态文件，非常慢，那放在哪好呢？一般我们会把博客备份到<code>github</code>，这样可以在不同电脑上写博客。那么我们也可以把相册一起上传到<code>github</code>，所以，在博客根目录下建一个放置图片的文件夹<code>photos</code>，这样你上传再多的图片都可以。</p>
-<p><strong>博客备份(本地项目上传到GitHub):请查看本博客关于<a href="https://shonlee.github.io/2017/04/06/github%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE/" target="_blank" rel="external">上传GitHub的相关文章</a></strong></p>
-<h3 id="获取图片"><a href="#获取图片" class="headerlink" title="获取图片"></a>获取图片</h3><p>原生<code>js</code>不能很好的处理文件，所以用js并不能获取图片的文件名。虽然<code>js</code>不能处理文件，但是<code>nodejs</code>可以啊。在<code>source\photo</code>文件夹中新建一个<code>tool.js</code>文件，内容如下：</p>
-<pre><code>&quot;use strict&quot;;
-const fs = require(&quot;fs&quot;);
-const path = &quot;../../photos&quot;;
-
-fs.readdir(path, function (err, files) {
-    if (err) {
-        return;
-    }
-    let arr = [];
-    (function iterator(index) {
-        if (index == files.length) {
-            fs.writeFile(&quot;output.json&quot;, JSON.stringify(arr, null, &quot;\t&quot;));
-            return;
-        }
-
-        fs.stat(path + &quot;/&quot; + files[index], function (err, stats) {
-            if (err) {
-                return;
-            }
-            if (stats.isFile()) {
-                arr.push(files[index]);
-            }
-            iterator(index + 1);
-        })
-    }(0));
-});
-</code></pre><p><code>tool.js</code>的作用是把所有的图片名称放在一个<code>json</code>文件中。运行<code>node tool.js</code>就会在<code>source\photo</code>下创建一个<code>output.json</code>文件。每次你要添加新图片时，都要运行<code>node tool.js</code>。</p>
-<p>有了这个json文件，接下来就要用到js生成html代码了。</p>
-<p><strong>运行<code>node tool.js的方法</code></strong></p>
-<pre><code>a. 打开cmd命令:
-b. CD 到tool.js的目录文件下
-c. 运行命令 `node tool.js`
-</code></pre><p><img src="http://i1.piimg.com/567571/ba2d4107e9ef9d4c.png" alt=""></p>
-<p>运行结果如图:</p>
-<p><img src="http://i2.muimg.com/567571/71b3bc62eace5d56.png" alt=""></p>
-<h3 id="生成html代码"><a href="#生成html代码" class="headerlink" title="生成html代码"></a>生成html代码</h3><p>在<code>yourBlog\themes\spfk\source\js</code>(<code>yourBlog</code>为你的博客根目录，将<code>spfk</code>替换为你使用的主题)文件夹下新建一个<code>photo.js</code>的文件夹。为什么在这里建呢？因为编译之后会出现在<code>public\js</code>文件夹中，博客使用的js都在这。</p>
-<p><code>photo.js</code>代码如下：</p>
-<pre><code>define([], function () {
-    return {
-        page: 1,
-        offset: 20,
-        init: function () {
-            var that = this;
-            $.getJSON(&quot;/photo/output.json&quot;, function (data) {
-                that.render(that.page, data);
-                that.scroll(data);
-            });
-        },
-
-        render: function (page, data) {
-            var begin = (page - 1) * this.offset;
-            var end = page * this.offset;
-            if (begin &gt;= data.length) return;
-            var html, li = &quot;&quot;;
-            for (var i = begin; i &lt; end &amp;&amp; i &lt; data.length; i++) {
-                li += &apos;&lt;li&gt;&lt;div class=&quot;img-box&quot;&gt;&apos; +
-                    &apos;&lt;a class=&quot;img-bg&quot; rel=&quot;example_group&quot; href=&quot;https://github.com/ShonLee/hexo_blog/blob/master/photos/&apos; + data[i] + &apos;?raw=true&quot;&gt;&lt;/a&gt;&apos; +
-                    &apos;&lt;img lazy-src=&quot;https://github.com/ShonLee/hexo_blog/blob/master/photos/&apos; + data[i] + &apos;?raw=true&quot; /&gt;&apos; +
-                    &apos;&lt;/li&gt;&apos;;
-            }
-
-            $(&quot;.img-box-ul&quot;).append(li);
-            $(&quot;.img-box-ul&quot;).lazyload();
-            $(&quot;a[rel=example_group]&quot;).fancybox();
-        },
-
-        scroll: function (data) {
-            var that = this;
-            $(window).scroll(function() {
-                var windowPageYOffset = window.pageYOffset;
-                var windowPageYOffsetAddHeight = windowPageYOffset + window.innerHeight;
-                var sensitivity = 0;
-
-                var offsetTop = $(&quot;.instagram&quot;).offset().top + $(&quot;.instagram&quot;).height();
-
-                if (offsetTop &gt;= windowPageYOffset &amp;&amp; offsetTop &lt; windowPageYOffsetAddHeight + sensitivity) {
-                    that.render(++that.page, data);
-                }
-            })
-        }
-    }
-})
-</code></pre><p>其中<code>https://github.com/ShonLee/hexo_blog/blob/master/photos/&#39; + data[i] + &#39;?raw=true</code>是上传至github的图片链接。<strong><code>blob</code>就相当于地址中的<code>tree</code></strong></p>
-<p><img src="http://i2.muimg.com/567571/68797527b5cb45de.png" alt=""></p>
-<p>因为不可能一次性将所有的图片都插入到页面中，所以我做了分页功能，一次加载20张图片。</p>
-<p>引入<code>photo.js</code>最直接的方法是在<code>E:\Hexo_Blog\source\photo</code>目录下的<code>index.md</code>文件中引入：</p>
-<pre><code>title: 相册 
-noDate: &apos;true&apos;
---- 
-
-&lt;link type=&quot;text/css&quot; href=&quot;/fancybox/jquery.fancybox.css&quot; rel=&quot;stylesheet&quot;&gt;
- &lt;div class=&quot;instagram&quot;&gt;
-  &lt;section class=&quot;archives album&quot;&gt;
-    &lt;ul class=&quot;img-box-ul&quot;&gt;&lt;/ul&gt;
-  &lt;/section&gt;
- &lt;/div&gt;
-
-&lt;script src=&quot;/js/photo.js&quot;&gt;&lt;/script&gt;
-</code></pre><p>如果大家和我用的是同一主题，在<code>yourBlog\themes\spfk\source\js\main.js</code>文件末尾增加如下代码：</p>
-<pre><code>if($(&quot;.instagram&quot;).length) {
- require([&apos;/js/photo.js&apos;, &apos;/fancybox/jquery.fancybox.js&apos;, &apos;/js/jquery.lazyload.js&apos;], function(obj) {
-     obj.init();
- });
- }
-</code></pre><p>如果不是，看大家使用的主题有什么限制了。</p>
-<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>别忘了要在主题的配置文件<code>_config.yml</code>的<code>menu</code>下添加一个相册的菜单：</p>
-<pre><code>menu: 
-    首页: / 
-    归档: /archives 
-    随笔: /tags/随笔 
-    相册: /photo
-</code></pre><p>最后部署一遍,就可以在本地或上传GitHub产看相册了</p>
-<pre><code>hexo clean
-hexo g
-hexo d
-</code></pre><p>相册功能就完成了。</p>
-<blockquote>
-<p>引用<a href="http://www.cnblogs.com/xljzlw/p/5137622.html" target="_blank" rel="external">那时候的我</a>的链接<br><br>引用<a href="http://zlwis.me/photo/" target="_blank" rel="external">那时候的我</a>的个人博客</p>
-</blockquote>
+<h2 id="git-rebase-使用"><a href="#git-rebase-使用" class="headerlink" title="git rebase 使用"></a>git rebase 使用</h2><p>git rebase 用于把一个分支的修改合并到当前分支 。假设你现在有一个远程分支.创建mywork分支.</p>
+<pre><code>git checkout -b mywork origin 
+</code></pre><p>假设远程分支已经有两个提交.如图。<br><img src="C://hexo_blog/themes/spfk/source/img/bj.jpg" alt=""></p>
+<p>现在我们在这个分支做一些修改.然后生成两个提交（commit）.</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><pre><code>touch a.txt
+touch b.txt
+git add -A
+git commit -m &quot;commt&quot;
+git push origin master
+</code></pre><p>但是与此同时别人也在origin上面做了一些修改并且提交了.这意味着 origin与mywork各自前进了.它们之间关系图如下：<br><img src="http://upload-images.jianshu.io/upload_images/697285-608d1da96f1ea926.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在这里 .你可以用git pull 命令把分支上的修改合并.结果看起来就像是一个新的合并的提交（merge commit）</p>
+<p>在这里形成了一个新的提交 C7 .但是.如果你想让mywork分支历史看起来更加整洁像没有合并过一样.你可以使用git rebase</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/697285-b52fdd23cfc86d35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h3><pre><code>git checkout mywork
+git rebase origin 
+</code></pre><p>这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/697285-d12ab4a3d26ebcfd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除. （请查看 git gc)<br><img src="http://upload-images.jianshu.io/upload_images/697285-b48791d46af20e9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><p>在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用”git-add”命令去更新这些内容的索引(index), 然后，你无需执行 git-commit,只要执行:</p>
+<h4 id="git-命令"><a href="#git-命令" class="headerlink" title="git 命令"></a>git 命令</h4><pre><code>git rebase --continue
+git rebase --abort
+</code></pre><p>这样git会继续应用(apply)余下的补丁。<br>在任何时候，你可以用–abort参数来终止rebase的行动，并且”mywork” 分支会回到rebase开始前的状态。</p>
+<h2 id="gitrebase与merge区别"><a href="#gitrebase与merge区别" class="headerlink" title="gitrebase与merge区别"></a>gitrebase与merge区别</h2><p>查看历史</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/697285-9ae8ecdf2a9f7b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>当我们使用Git log来参看commit时，其commit的顺序也有所不同。</p>
+<p>假设C3提交于9:00AM,C5提交于10:00AM,C4提交于11:00AM，C6提交于12:00AM,</p>
+<p>对于使用git merge来合并所看到的commit的顺序（从新到旧）是：C7 ,C6,C4,C5,C3,C2,C1</p>
+<p>对于使用git rebase来合并所看到的commit的顺序（从新到旧）是：C7 ,C6‘,C5’,C4,C3,C2,C1</p>
+<p>因为C6’提交只是C6提交的克隆，C5’提交只是C5提交的克隆，<br>从用户的角度看使用git rebase来合并后所看到的commit的顺序（从新到旧）是：C7 ,C6,C5,C4,C3,C2,C1</p>
+<p>另外，我们在使用git pull命令的时候，可以使用–rebase参数，即git pull –rebase,这里表示把你的本地当前分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把本地当前分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到本地当前分支上。</p>
+<p>使用方式：<br>$ git pull –rebase &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</p>
+<p>作者：烟雨随风<br>链接：<a href="http://www.jianshu.com/p/cca69cb695a6（转载）" target="_blank" rel="external">http://www.jianshu.com/p/cca69cb695a6（转载）</a></p>
 
       
       
@@ -403,13 +293,13 @@ hexo d
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/07/14/Hexo博客添加相册功能/">Hexo博客添加相册功能</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2017年07月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2017年07月14日 - 12时33分</p>
+        <p><span>发布时间:</span>2018年03月29日 - 09时34分</p>
+        <p><span>最后更新:</span>2017年07月21日 - 09时25分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/07/14/Hexo博客添加相册功能/" title="Hexo博客添加相册功能">http://yoursite.com/2017/07/14/Hexo博客添加相册功能/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/07/14/Hexo博客添加相册功能/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/29/rebae与merge/" title="git rebase与merge的区别（推荐merge）">http://yoursite.com/2018/03/29/rebae与merge/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/rebae与merge/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -422,18 +312,18 @@ hexo d
 
 <nav id="article-nav">
   
-    <a href="/2018/03/29/WORKFLOW/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/29/spring实战/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          团队workfolw的分布使用
+          java  spring的世界
         
       </div>
     </a>
   
   
-    <a href="/2015/08/14/代码可读性/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【代码可读性】代码如何更加可读简洁</div>
+    <a href="/2018/03/29/git命令与使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git命令与使用（团队workfolw的分布使用）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -444,7 +334,7 @@ hexo d
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo博客添加相册功能"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客添加相册功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建一个页面"><span class="toc-number">1.0.1.</span> <span class="toc-text">新建一个页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片位置"><span class="toc-number">1.0.2.</span> <span class="toc-text">图片位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取图片"><span class="toc-number">1.0.3.</span> <span class="toc-text">获取图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成html代码"><span class="toc-number">1.0.4.</span> <span class="toc-text">生成html代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成静态文件"><span class="toc-number">1.0.5.</span> <span class="toc-text">生成静态文件</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rebase与merge的区别"><span class="toc-number">1.</span> <span class="toc-text">git rebase与merge的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number"></span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-rebase-使用"><span class="toc-number">1.</span> <span class="toc-text">git rebase 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#命令"><span class="toc-number">1.0.1.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令-1"><span class="toc-number">1.1.</span> <span class="toc-text">命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决冲突"><span class="toc-number">2.</span> <span class="toc-text">解决冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-命令"><span class="toc-number">2.0.1.</span> <span class="toc-text">git 命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitrebase与merge区别"><span class="toc-number">3.</span> <span class="toc-text">gitrebase与merge区别</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -483,13 +373,13 @@ hexo d
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/29/WORKFLOW/" title="上一篇: 团队workfolw的分布使用">
+            <a href="/2018/03/29/spring实战/" title="上一篇: java  spring的世界">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/08/14/代码可读性/" title="下一篇: 【代码可读性】代码如何更加可读简洁">
+            <a href="/2018/03/29/git命令与使用/" title="下一篇: git命令与使用（团队workfolw的分布使用）">
                 <i class="fa fa-angle-right"></i>
             </a>
         

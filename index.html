@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/Hexo博客添加相册功能/" style="font-size: 10px;">Hexo博客添加相册功能</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a>
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/Hexo博客添加相册功能/" style="font-size: 10px;">Hexo博客添加相册功能</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
                     </div>
                 </section>
                 
@@ -208,11 +208,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-rebae与merge" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-http状态码" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/19/rebae与merge/" class="article-date">
-      <time datetime="2017-07-19T00:53:23.087Z" itemprop="datePublished">2017-07-19</time>
+      <a href="/20187/01/28/http状态码/" class="article-date">
+      <time datetime="+020187-01-28T08:00:00.000Z" itemprop="datePublished">20187-01-28</time>
 </a>
     </div>
   
@@ -225,7 +225,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/19/rebae与merge/">git rebase与merge的区别（推荐merge）</a>
+      <a class="article-title" href="/20187/01/28/http状态码/">http学习之状态码</a>
     </h1>
   
 
@@ -235,8 +235,41 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="git-rebase与merge的区别"><a href="#git-rebase与merge的区别" class="headerlink" title="git rebase与merge的区别"></a><strong>git rebase与merge的区别</strong></h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>git merge与rebase使用与区别</p>
-          
+        <h2 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a><strong>http状态码</strong></h2><h1 id="状态码介绍"><a href="#状态码介绍" class="headerlink" title="状态码介绍"></a>状态码介绍</h1><ol>
+<li>HTTP状态码负责表示客户端HTTP请求的返回结果，标记服务器处理是否正常，是否出现错误</li>
+</ol>
+<h1 id="状态码类别"><a href="#状态码类别" class="headerlink" title="状态码类别"></a>状态码类别</h1><pre><code>|        | 类别   |  原因短语  |
+| --------   | -----:   | :----: |
+| 1XX        | 信息性状态码      |   接受的请求正在处理    |
+| 2XX        | Success(成功状态码)     |  请求正常处理完毕    |
+| 3XX        | Redirection(重定向状态码)     |   需要进行附加操作才可以完成    |
+| 4XX        | Client Error(客户端错误状态码)      |   服务器无法处理请求   |
+| 5XX        | server Error(服务器端错误状态码)      |   服务器处理请求出错   |
+</code></pre><p>一共14中状态，下面我一一和大家到来！</p>
+<pre><code>| 200        | 正常处理请求OK      |   请求已经正常处理    |
+</code></pre><p>   表示从客户端发来的请求在服务器端正常处理，在响应的时候会随着方法的不通过返回的信息也不同</p>
+<pre><code>| 204        | 正常处理请求OK      |   请求响应成功但是没有资源返回    |
+</code></pre><p>   表示返回的响应报文中不含实体的主体部分，另外也不允许返回任何实体的主体比如：当游览器发出请求的后返回204响应那么游览器的页面不发生更新。</p>
+<pre><code>| 206（partial content）        | 资源部分请求      | 该状态码表示对客户端进行了范围请求，响应报文中包含由 Content -Range 指定的范围的实体内容    |
+</code></pre><h3 id="3XX状态码"><a href="#3XX状态码" class="headerlink" title="3XX状态码"></a>3XX状态码</h3><pre><code>| 301        | MOVED PERMANENTLY     |   资源的URL已更改    |
+</code></pre><p>   永久性重定向，表示请求的资源应被分配了新的URL以后应使用资源现在所指的URL！</p>
+<pre><code>| 302        | SEE other     |   资源的URL已经定位到其他位置   |
+</code></pre><p>   301与302状态码有着相同的功能 但是302状态码代表着资源不会被永久移动，302重定向只是暂时的重定向，搜索引擎会抓取新的内容而保留旧的地址，因为服务器返回302，所以，搜索搜索引擎认为新的网址是暂时的。而301重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址。</p>
+<pre><code>| 303        | SEE other     |   资源的URL已经定位到其他位置   |
+</code></pre><p>   该状态码表示由于请求对应的资源存在着另一个URL应只用GET方法定向获取请求的资源</p>
+<pre><code>| 304       | NOT MOdified     |   资源已经找到但是没有符合条件的请求   |
+</code></pre><p>   该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况下，304状态码返回，与重定向无关系！<br>        | 307       | TEMporary Redirect     | 临时重定向  |</p>
+<h3 id="4XX-表明响应结果表明是客户端的发生错误的原因"><a href="#4XX-表明响应结果表明是客户端的发生错误的原因" class="headerlink" title="4XX 表明响应结果表明是客户端的发生错误的原因"></a>4XX 表明响应结果表明是客户端的发生错误的原因</h3><pre><code>| 400       |BAD request    | 请求报文中存在语法错误 |
+
+| 401       |    | 需要一些http等的认证 |
+
+| 403       |Forbidden    | 请求资源的访问被服务器拒绝 |
+</code></pre><p>未获得文件系统的访问授权，访问权限出现某些问题（未授权的IP试图访问）<br>        | 404       |NOT found    | 服务器上没有请求的资源 |</p>
+<h3 id="5xx-服务器错误"><a href="#5xx-服务器错误" class="headerlink" title="5xx 服务器错误"></a>5xx 服务器错误</h3><pre><code>| 500       |server error   | 服务器上端出现bug |
+
+| 503       |service unavailable   | 服务器繁忙超负载无法处理|
+</code></pre><p>还有许多状态表与错误不一致的情况比如服务器处理错误但是还是返回了200ok!也是经常遇到</p>
+
       
       
     </div>
@@ -247,13 +280,9 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游览器-http/">游览器. http</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a  href="/2017/07/19/rebae与merge/#more">小学生 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -274,8 +303,8 @@
     <article id="post-通过github和hexo学习写个人博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/18/通过github和hexo学习写个人博客/" class="article-date">
-      <time datetime="2017-07-18T09:30:58.526Z" itemprop="datePublished">2017-07-18</time>
+      <a href="/2018/03/29/通过github和hexo学习写个人博客/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.171Z" itemprop="datePublished">2018-03-29</time>
 </a>
     </div>
   
@@ -288,7 +317,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a>
+      <a class="article-title" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a>
     </h1>
   
 
@@ -329,7 +358,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/18/通过github和hexo学习写个人博客/#more">小学生 >></a>
+          <a  href="/2018/03/29/通过github和hexo学习写个人博客/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -348,11 +377,11 @@
 
 
   
-    <article id="post-WORKFLOW" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-spring实战" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/18/WORKFLOW/" class="article-date">
-      <time datetime="2017-07-18T00:55:23.715Z" itemprop="datePublished">2017-07-18</time>
+      <a href="/2018/03/29/spring实战/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.166Z" itemprop="datePublished">2018-03-29</time>
 </a>
     </div>
   
@@ -365,7 +394,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/WORKFLOW/">团队workfolw的分布使用</a>
+      <a class="article-title" href="/2018/03/29/spring实战/">java  spring的世界</a>
     </h1>
   
 
@@ -375,7 +404,87 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h3 id="1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><a href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章" class="headerlink" title="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章"></a>1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">地址</a>。引用此人文章</h3>
+        <h3 id="spring概述"><a href="#spring概述" class="headerlink" title="spring概述"></a>spring概述</h3><ul>
+<li>1.spring概述与入门</li>
+<li>2.springIOC与aop</li>
+<li>3.springIOC容器概述</li>
+<li>4.在IOC容器里面装配bean</li>
+<li>5.spring容器高级主题</li>
+<li>6.springAOP 基础</li>
+<li>7.基于@aspect和schema的AOP</li>
+<li>8.数据访问</li>
+<li>9.spring   dao 支出</li>
+<li>10.spring  事务管理</li>
+<li><ol>
+<li>其他ORM框架</li>
+</ol>
+</li>
+<li>12.任务调度与异步执行器</li>
+<li>13.springMVC</li>
+<li>14.单元测试实战</li>
+</ul>
+<h3 id="下一章节"><a href="#下一章节" class="headerlink" title="下一章节"></a>下一章节</h3><ul>
+<li>1.JPA使用与详解（查询与分页）概述与入门</li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-spring/">java . spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-rebae与merge" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/29/rebae与merge/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.164Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="git-rebase与merge的区别"><a href="#git-rebase与merge的区别" class="headerlink" title="git rebase与merge的区别"></a><strong>git rebase与merge的区别</strong></h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>git merge与rebase使用与区别</p>
           
       
       
@@ -392,7 +501,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/18/WORKFLOW/#more">小学生 >></a>
+          <a  href="/2018/03/29/rebae与merge/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -414,8 +523,8 @@
     <article id="post-git命令与使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/07/17/git命令与使用/" class="article-date">
-      <time datetime="2017-07-17T00:40:45.134Z" itemprop="datePublished">2017-07-17</time>
+      <a href="/2018/03/29/git命令与使用/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.158Z" itemprop="datePublished">2018-03-29</time>
 </a>
     </div>
   
@@ -428,7 +537,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/17/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a>
+      <a class="article-title" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a>
     </h1>
   
 
@@ -460,7 +569,70 @@ git add -h  查看git add 帮助文档
 
       
         <p class="article-more-link">
-          <a  href="/2017/07/17/git命令与使用/#more">小学生 >></a>
+          <a  href="/2018/03/29/git命令与使用/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-WORKFLOW" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/29/WORKFLOW/" class="article-date">
+      <time datetime="2018-03-29T01:34:08.155Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><a href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章" class="headerlink" title="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章"></a>1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">地址</a>。引用此人文章</h3>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/03/29/WORKFLOW/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -534,6 +706,132 @@ git add -h  查看git add 帮助文档
       
         <p class="article-more-link">
           <a  href="/2017/07/14/Hexo博客添加相册功能/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-代码可读性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/14/代码可读性/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="可读性的重要"><a href="#可读性的重要" class="headerlink" title="可读性的重要"></a>可读性的重要</h1><p>编程有很大一部分时间是在阅读代码，不仅要阅读自己的代码，而且要阅读别人的代码。因此，可读性良好的代码能够大大提高编程效率。<br>可读性良好的代码往往会让代码架构更好，因为程序员更愿意去修改这部分代码，而且也更容易修改。如何能够做到更加简洁与扩散，我虽然度过许多设计模式但是许许多多的真正工作是用不到的，如何保持整洁的代码！</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码如何优雅/">代码如何优雅</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/14/代码可读性/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java认识枚举类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/Java认识枚举类/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="枚举类的使用方法"><a href="#枚举类的使用方法" class="headerlink" title="枚举类的使用方法"></a>枚举类的使用方法</h1><p>在没有枚举类的时候一般我们定义星期几或者其他的类型的数据，一般都通过上面的那种静态变量的形式来，为了简化许多ifelse,枚举类出现了，他可以看作是java 语法的语法糖！</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举类的使用/">枚举类的使用</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/14/Java认识枚举类/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
