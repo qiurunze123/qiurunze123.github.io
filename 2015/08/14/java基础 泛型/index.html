@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>http学习之状态码 | GeekQ</title>
+  <title>【java基础】java的泛型 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http状态码状态码介绍 HTTP状态码负责表示客户端HTTP请求的返回结果，标记服务器处理是否正常，是否出现错误  状态码类别|        | 类别   |  原因短语  | | --------   | -----:   | :----: | | 1XX        | 信息性状态码      |   接受的请求正在处理    | | 2XX        | Success(成功状态码">
-<meta name="keywords" content="游览器. http">
+  <meta name="description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
+<meta name="keywords" content="java的泛型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http学习之状态码">
-<meta property="og:url" content="http://yoursite.com/20187/01/28/http状态码/index.html">
+<meta property="og:title" content="【java基础】java的泛型">
+<meta property="og:url" content="http://yoursite.com/2015/08/14/java基础 泛型/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="http状态码状态码介绍 HTTP状态码负责表示客户端HTTP请求的返回结果，标记服务器处理是否正常，是否出现错误  状态码类别|        | 类别   |  原因短语  | | --------   | -----:   | :----: | | 1XX        | 信息性状态码      |   接受的请求正在处理    | | 2XX        | Success(成功状态码">
-<meta property="og:updated_time" content="2018-03-29T01:34:08.163Z">
+<meta property="og:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
+<meta property="og:updated_time" content="2018-04-02T10:46:35.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http学习之状态码">
-<meta name="twitter:description" content="http状态码状态码介绍 HTTP状态码负责表示客户端HTTP请求的返回结果，标记服务器处理是否正常，是否出现错误  状态码类别|        | 类别   |  原因短语  | | --------   | -----:   | :----: | | 1XX        | 信息性状态码      |   接受的请求正在处理    | | 2XX        | Success(成功状态码">
+<meta name="twitter:title" content="【java基础】java的泛型">
+<meta name="twitter:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-http状态码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java基础 泛型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/20187/01/28/http状态码/" class="article-date">
-      <time datetime="+020187-01-28T08:00:00.000Z" itemprop="datePublished">20187-01-28</time>
+      <a href="/2015/08/14/java基础 泛型/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      http学习之状态码
+      【java基础】java的泛型
     </h1>
   
 
@@ -233,7 +233,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游览器-http/">游览器. http</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的泛型/">java的泛型</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,40 +243,142 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a><strong>http状态码</strong></h2><h1 id="状态码介绍"><a href="#状态码介绍" class="headerlink" title="状态码介绍"></a>状态码介绍</h1><ol>
-<li>HTTP状态码负责表示客户端HTTP请求的返回结果，标记服务器处理是否正常，是否出现错误</li>
-</ol>
-<h1 id="状态码类别"><a href="#状态码类别" class="headerlink" title="状态码类别"></a>状态码类别</h1><pre><code>|        | 类别   |  原因短语  |
-| --------   | -----:   | :----: |
-| 1XX        | 信息性状态码      |   接受的请求正在处理    |
-| 2XX        | Success(成功状态码)     |  请求正常处理完毕    |
-| 3XX        | Redirection(重定向状态码)     |   需要进行附加操作才可以完成    |
-| 4XX        | Client Error(客户端错误状态码)      |   服务器无法处理请求   |
-| 5XX        | server Error(服务器端错误状态码)      |   服务器处理请求出错   |
-</code></pre><p>一共14中状态，下面我一一和大家到来！</p>
-<pre><code>| 200        | 正常处理请求OK      |   请求已经正常处理    |
-</code></pre><p>   表示从客户端发来的请求在服务器端正常处理，在响应的时候会随着方法的不通过返回的信息也不同</p>
-<pre><code>| 204        | 正常处理请求OK      |   请求响应成功但是没有资源返回    |
-</code></pre><p>   表示返回的响应报文中不含实体的主体部分，另外也不允许返回任何实体的主体比如：当游览器发出请求的后返回204响应那么游览器的页面不发生更新。</p>
-<pre><code>| 206（partial content）        | 资源部分请求      | 该状态码表示对客户端进行了范围请求，响应报文中包含由 Content -Range 指定的范围的实体内容    |
-</code></pre><h3 id="3XX状态码"><a href="#3XX状态码" class="headerlink" title="3XX状态码"></a>3XX状态码</h3><pre><code>| 301        | MOVED PERMANENTLY     |   资源的URL已更改    |
-</code></pre><p>   永久性重定向，表示请求的资源应被分配了新的URL以后应使用资源现在所指的URL！</p>
-<pre><code>| 302        | SEE other     |   资源的URL已经定位到其他位置   |
-</code></pre><p>   301与302状态码有着相同的功能 但是302状态码代表着资源不会被永久移动，302重定向只是暂时的重定向，搜索引擎会抓取新的内容而保留旧的地址，因为服务器返回302，所以，搜索搜索引擎认为新的网址是暂时的。而301重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址。</p>
-<pre><code>| 303        | SEE other     |   资源的URL已经定位到其他位置   |
-</code></pre><p>   该状态码表示由于请求对应的资源存在着另一个URL应只用GET方法定向获取请求的资源</p>
-<pre><code>| 304       | NOT MOdified     |   资源已经找到但是没有符合条件的请求   |
-</code></pre><p>   该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况下，304状态码返回，与重定向无关系！<br>        | 307       | TEMporary Redirect     | 临时重定向  |</p>
-<h3 id="4XX-表明响应结果表明是客户端的发生错误的原因"><a href="#4XX-表明响应结果表明是客户端的发生错误的原因" class="headerlink" title="4XX 表明响应结果表明是客户端的发生错误的原因"></a>4XX 表明响应结果表明是客户端的发生错误的原因</h3><pre><code>| 400       |BAD request    | 请求报文中存在语法错误 |
+        <h1 id="java的泛型"><a href="#java的泛型" class="headerlink" title="java的泛型"></a>java的泛型</h1><p>泛型初探</p>
+<p>在泛型（Generic type或Generics）出现之前，是这么写代码的：</p>
+<pre><code>public static void main(String[] args)
+{
+List list = new ArrayList();
+list.add(&quot;123&quot;);
+list.add(&quot;456&quot;);
 
-| 401       |    | 需要一些http等的认证 |
+System.out.println((String)list.get(0));
+}
+</code></pre><a id="more"></a>
+<p>当然这是完全允许的，因为List里面的内容是Object类型的，自然任何对象类型都可以放入、都可以取出，但是这么写会有两个问题：</p>
+<p>1、当一个对象放入集合时，集合不会记住此对象的类型，当再次从集合中取出此对象时，该对象的编译类型变成了Object</p>
+<p>2、运行时需要人为地强制转换类型到具体目标，实际的程序绝不会这么简单，一个不小心就会出现java.lang.ClassCastException，即类型转换异常</p>
+<p>所以，泛型出现之后，上面的代码就改成了大家都熟知的写法：</p>
+<pre><code>public static void main(String[] args)
+{
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;123&quot;);
+list.add(&quot;456&quot;);
 
-| 403       |Forbidden    | 请求资源的访问被服务器拒绝 |
-</code></pre><p>未获得文件系统的访问授权，访问权限出现某些问题（未授权的IP试图访问）<br>        | 404       |NOT found    | 服务器上没有请求的资源 |</p>
-<h3 id="5xx-服务器错误"><a href="#5xx-服务器错误" class="headerlink" title="5xx 服务器错误"></a>5xx 服务器错误</h3><pre><code>| 500       |server error   | 服务器上端出现bug |
+System.out.println(list.get(0));
+}
+</code></pre><p>这就是泛型。泛型是对Java语言类型系统的一种扩展，有点类似于C++的模板，可以把类型参数看作是使用参数化类型时指定的类型的一个占位符。引入泛型，是对Java语言一个较大的功能增强，带来了很多的好处：</p>
+<pre><code>1、类型安全。类型错误现在在编译期间就被捕获到了，而不是在运行时当作java.lang.ClassCastException展示出来，将类型检查从运行时挪到编译时有助于开发者更容易找到错误，并提高程序的可靠性
 
-| 503       |service unavailable   | 服务器繁忙超负载无法处理|
-</code></pre><p>还有许多状态表与错误不一致的情况比如服务器处理错误但是还是返回了200ok!也是经常遇到</p>
+2、消除了代码中许多的强制类型转换，增强了代码的可读性
+
+3、为较大的优化带来了可能
+</code></pre><p>getClass()相同</p>
+<p>看一段代码：</p>
+<pre><code>public static void main(String[] args)
+{
+List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
+List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
+System.out.println(stringList.getClass() == integerList.getClass());
+}
+运行结果为：
+
+true
+这意味着，泛型是什么并不会对一个对象实例是什么类型的造成影响，所以，通过改变泛型的方式试图定义不同的重载方法也是不可以的：
+</code></pre><p>尽量使用精确的类型定义泛型</p>
+<p>尽量使用精确的类型定义泛型，除非必要，否则不要写一个接口或者父类上去：</p>
+<pre><code>public static void main(String[] args)
+{
+List&lt;Number&gt; list = new ArrayList&lt;Number&gt;();
+list.add(4);
+list.add(2.2);
+for (Number number : list)
+    System.out.println(number);
+}
+</code></pre><p>就像这样，list中的是一个Number类型，往里面添加的是Integer与Double，这样导致get出来的元素也都是Number类型的，失去了子类扩展的功能。</p>
+<p>如果要让子类变为Interger和Double也可以，(Integer)list.get(0)和(Double)list.get(1)强转就可以了，但是这样不就失去了泛型的意义了吗？所以，尽量用精确的类型去定义泛型。</p>
+<p>使用类型通配符</p>
+<pre><code>List&lt;Object&gt;不是List&lt;String&gt;的父类型，List&lt;Integer&gt;不是List&lt;Number&gt;的父类型，试图用以下方式赋值是不允许的：
+
+1 public static void main(String[] args)
+2 {
+3     List&lt;Number&gt; numberList = new ArrayList&lt;Number&gt;();
+4     List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
+5     numberList = integerList;
+6 }
+</code></pre><p>第5行将报错”Type mismatch: cannot convert from List<integer> to List<number>“。有人可能觉得这样很不方便：我在一个方法里面只需要循环检索一个List，也不能利用多态放一个父类型进去，也不能重载，那怎么办呢？针对这个问题，Java给开发者提供了通配符”?”，看一下：</number></integer></p>
+<pre><code>public static void main(String[] args)
+{
+    List&lt;String&gt;  stringList = new ArrayList&lt;String&gt;();
+    List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
+
+    printList(stringList);
+    printList(integerList);
+}
+
+private static void printList(List&lt;?&gt; l)
+{
+    for (Object o : l)
+        System.out.println(o);
+}
+</code></pre><p>&lt;?&gt;是类型通配符，表示是任何泛型的父类型，这样List<object>、List<string>这些都可以传递进入printList方法中，注意这里的参数不能写成List<e>，这样就报错了，E未定义。当然&lt;?&gt;也可以不加，不过这样会有警告：如果传递一个List<e>给List，相当于传递一个只承诺将它当作List（原始类型）的方法，这将会破坏使用泛型的类型安全。</e></e></string></object></p>
+<p>再注意一点，使用类型通配符，只能从中检索元素，不能添加元素。</p>
+<p>泛型方法</p>
+<pre><code>public static void main(String[] args)
+{
+    System.out.println(ifThenElse(false, &quot;111&quot;, &quot;222&quot;));
+}
+
+private static &lt;T&gt; T ifThenElse(boolean b, T first, T second)
+{
+    return b ? first : second;
+}
+</code></pre><p>返回结果为：</p>
+<p>222<br>这说明，方法也可以被泛型化，不管定义在其中的类是不是泛型化的。这意味着不用显式告诉编译器，想要T什么值：编译器只知道这些T都必须相同。</p>
+<p>静态资源不认识泛型</p>
+<p>接上一个话题，如果把<t>去掉，那么：</t></p>
+<p>报错，T未定义。但是如果我们再把static去掉：<br>这并不会有任何问题。两相对比下，可以看出static方法并不认识泛型，所以我们要加上一个<t>，告诉static方法，后面的T是一个泛型。既然static方法不认识泛型，那我们看一下static变量是否认识泛型：<br>这证明了，static变量也不认识泛型，其实不仅仅是static方法、static变量，static块也不认识泛型，可以自己试一下。总结起来就是一句话：静态资源不认识泛型。<br>泛型约束</t></p>
+<p>可以对泛型参数作约束，本来觉得应该有规律，后来发现没有，那就把自己研究的结论发一下，假设有一组类继承关系C继承自B，B继承自A：</p>
+<pre><code>1、定义class的时候只能使用extends关键字且不能用通配符&quot;?&quot;
+
+public class TestMain&lt;T extends B&gt;
+{
+    public static void main(String[] args)
+    {
+        new TestMain&lt;C&gt;();
+    }
+}
+正确。
+
+TestMain类的泛型只能传B的子类，也就是C。new TestMain&lt;A&gt;()
+public class TestMain&lt;? extends B&gt;&quot;、
+public class TestMain&lt;T super B&gt;&quot;都是错误的写法
+</code></pre><p>2、作为方法的参数，泛型可以使用”? extends B”或者”? super B”，前者表示实际类型只可以是B的子类，后者表示实际类型只可以是B的父类，以下两种写法都是正确的：</p>
+<pre><code>public static void main(String[] args)
+{
+    print(new ArrayList&lt;C&gt;());
+}
+
+public static void print(List&lt;? extends B&gt; list)
+{
+
+}
+public static void main(String[] args)
+{
+    print(new ArrayList&lt;A&gt;());
+    print(new ArrayList&lt;Object&gt;());
+}
+
+public static void print(List&lt;? super B&gt; list)
+{
+
+}
+</code></pre><p>3、作为局部变量的参数，泛型可以使用”? extends B”或者”? super B”，不过前者好像没什么意义，后者表示只可以传以B为父类的对象，所以以下的写法是正确的：</p>
+<pre><code>public static void main(String[] args)
+{
+    List&lt;? super B&gt; list = new ArrayList&lt;B&gt;();
+    list.add(new C());
+}
+</code></pre><p>不要写”list.add(new A())”，JDK将会认为这是类型不匹配的。</p>
 
       
       
@@ -286,13 +388,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/20187/01/28/http状态码/">http学习之状态码</a></p>
+        <p><span>本文标题:</span><a href="/2015/08/14/java基础 泛型/">【java基础】java的泛型</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>20187年01月28日 - 16时00分</p>
-        <p><span>最后更新:</span>2018年03月29日 - 09时34分</p>
+        <p><span>发布时间:</span>2015年08月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月02日 - 18时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/20187/01/28/http状态码/" title="http学习之状态码">http://yoursite.com/20187/01/28/http状态码/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/20187/01/28/http状态码/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/08/14/java基础 泛型/" title="【java基础】java的泛型">http://yoursite.com/2015/08/14/java基础 泛型/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/08/14/java基础 泛型/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -305,9 +407,18 @@
 
 <nav id="article-nav">
   
+    <a href="/2018/03/29/WORKFLOW/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          团队workfolw的分布使用
+        
+      </div>
+    </a>
   
-    <a href="/2018/03/29/Java 基础final/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java基础（final使用）</div>
+  
+    <a href="/2015/08/14/代码可读性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【代码可读性】代码如何更加可读简洁</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -318,7 +429,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#http状态码"><span class="toc-number">1.</span> <span class="toc-text">http状态码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态码介绍"><span class="toc-number"></span> <span class="toc-text">状态码介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态码类别"><span class="toc-number"></span> <span class="toc-text">状态码类别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3XX状态码"><span class="toc-number">0.1.</span> <span class="toc-text">3XX状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4XX-表明响应结果表明是客户端的发生错误的原因"><span class="toc-number">0.2.</span> <span class="toc-text">4XX 表明响应结果表明是客户端的发生错误的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5xx-服务器错误"><span class="toc-number">0.3.</span> <span class="toc-text">5xx 服务器错误</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的泛型"><span class="toc-number">1.</span> <span class="toc-text">java的泛型</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -357,11 +468,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/03/29/WORKFLOW/" title="上一篇: 团队workfolw的分布使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/03/29/Java 基础final/" title="下一篇: java基础（final使用）">
+            <a href="/2015/08/14/代码可读性/" title="下一篇: 【代码可读性】代码如何更加可读简洁">
                 <i class="fa fa-angle-right"></i>
             </a>
         
