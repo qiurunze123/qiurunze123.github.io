@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a> <a href="/tags/理解java/" style="font-size: 10px;">理解java</a>
                     </div>
                 </section>
                 
@@ -334,69 +334,6 @@
 
 
   
-    <article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
-      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/14/java基础hashmap的使用/#more">小学生 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-jquery 面向对象写法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -474,6 +411,84 @@
 
 
   
+    <article id="post-java基础 理解java" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础 理解java/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/java基础 理解java/">【java基础】理解java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="理解java"><a href="#理解java" class="headerlink" title="理解java"></a>理解java</h1><p>1、字符串不变性</p>
+<p>下面这张图展示了这段代码做了什么</p>
+<pre><code>String s = &quot;abcd&quot;;
+s = s.concat(&quot;ef&quot;);
+</code></pre><p><img src="https://i.imgur.com/gE5s3Xp.jpg" alt=""></p>
+<p>2.equals()方法、hashCode()方法的区别</p>
+<p>HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：</p>
+<p>如果两个对象相等(equal)，那么他们一定有相同的哈希值。<br>如果两个对象的哈希值相同，但他们未必相等(equal)。<br><img src="https://i.imgur.com/dTnskMv.jpg" alt=""><br>3.Java异常类的层次结构</p>
+<p>图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。<br><img src="https://i.imgur.com/0S0UM1r.jpg" alt=""><br>4.集合类的层次结构</p>
+<p>注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方法）<br><img src="https://i.imgur.com/fbv3Mys.jpg" alt=""></p>
+<p>5.Java同步</p>
+<p>Java同步机制可通过类比建筑物来阐明。<br><img src="https://i.imgur.com/OeKjKjw.jpg" alt=""></p>
+<p>6.别名</p>
+<p>别名意味着有多个变量指向同一可被更新的内存块，这些别名分别是不同的对象类型。</p>
+<p><img src="https://i.imgur.com/U51yrMV.jpg" alt=""></p>
+<p>7.堆和栈</p>
+<p>图解表明了方法和对象在运行时内存中的位置。</p>
+<p><img src="https://i.imgur.com/vU5OtcA.png" alt=""></p>
+<p>8.Java虚拟机运行时数据区域</p>
+<p>图解展示了整个虚拟机运行时数据区域的情况。<br><img src="https://i.imgur.com/E6E3dPW.jpg" alt=""></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理解java/">理解java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Java认识枚举类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -519,6 +534,69 @@
       
         <p class="article-more-link">
           <a  href="/2015/07/14/Java认识枚举类/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/14/java基础hashmap的使用/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
