@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
                     </div>
                 </section>
                 
@@ -380,6 +380,146 @@
         <p class="article-more-link">
           <a  href="/2015/07/14/Java认识枚举类/#more">小学生 >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/14/java基础hashmap的使用/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jquery 面向对象写法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/jquery 面向对象写法/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/jquery 面向对象写法/">【jquery】面向对象写法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="上代码-jquery对象写法"><a href="#上代码-jquery对象写法" class="headerlink" title="上代码 jquery对象写法"></a>上代码 jquery对象写法</h1><pre><code>    $(function() {
+    //可以初始化 属性值
+    var pi;
+    var Run = function (){
+       pi= &quot;3.1415&quot;;
+      //可以赋值属性
+    }
+    //new 出一个新的jquery的对象
+   $.run = new Run();
+   //定义一个按钮
+   Run.prototype.start = function (){
+    alert(&quot;测试成功！&quot;);
+   }
+    });
+&lt;body&gt;
+  &lt;button  onclick=&quot;$.run.start()&quot;&gt;Run&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>面向对象写法可以减少以及避免id或者name冲突的概率，而且写起来很方便好看！</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery面向对象写法/">jquery面向对象写法</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>

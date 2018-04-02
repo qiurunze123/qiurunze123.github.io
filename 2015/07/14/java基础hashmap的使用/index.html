@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【java基础】hashmap的实现原理 | GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HashMap概述HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+<meta name="keywords" content="hashmap的实现原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【java基础】hashmap的实现原理">
+<meta property="og:url" content="http://yoursite.com/2015/07/14/java基础hashmap的使用/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="HashMap概述HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+<meta property="og:updated_time" content="2018-04-02T01:09:42.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【java基础】hashmap的实现原理">
+<meta name="twitter:description" content="HashMap概述HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N">有事请发邮件</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【java基础】hashmap的实现原理
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
+<a id="more"></a>
+<h3 id="HashMap的数据结构"><a href="#HashMap的数据结构" class="headerlink" title="HashMap的数据结构"></a>HashMap的数据结构</h3><p>在Java编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。</p>
+<p>HashMap底层就是一个数组结构，数组中的每一项又是一个链表。当新建一个HashMap的时候，就会初始化一个数组。</p>
+<pre><code>/**
+* The table, resized as necessary. Length MUST Always be a power of two.
+ */
+transient Entry[] table;
+
+static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+final K key;
+V value;
+Entry&lt;K,V&gt; next;
+final int hash;
+……
+}
+</code></pre><p>可以看出，Entry就是数组中的元素，每个 Map.Entry 其实就是一个key-value对，它持有一个指向下一个元素的引用，这就构成了链表。</p>
+<h3 id="HashMap的存取实现"><a href="#HashMap的存取实现" class="headerlink" title="HashMap的存取实现"></a>HashMap的存取实现</h3><pre><code> public V put(K key, V value) {
+// HashMap允许存放null键和null值。
+// 当key为null时，调用putForNullKey方法，将value放置在数组第一个位置。  
+if (key == null)
+    return putForNullKey(value);
+// 根据key的keyCode重新计算hash值。
+int hash = hash(key.hashCode());
+// 搜索指定hash值在对应table中的索引。
+int i = indexFor(hash, table.length);
+// 如果 i 索引处的 Entry 不为 null，通过循环不断遍历 e 元素的下一个元素。
+for (Entry&lt;K,V&gt; e = table[i]; e != null; e = e.next) {
+    Object k;
+    if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) {
+        V oldValue = e.value;
+        e.value = value;
+        e.recordAccess(this);
+        return oldValue;
+    }
+}
+// 如果i索引处的Entry为null，表明此处还没有Entry。
+modCount++;
+// 将key、value添加到i索引处。
+addEntry(hash, key, value, i);
+return null;
+}
+</code></pre><p>从上面的源代码中可以看出：当我们往HashMap中put元素的时候，先根据key的hashCode重新计算hash值，根据hash值得到这个元素在数组中的位置（即下标）， 如果数组该位置上已经存放有其他元素了，那么在这个位置上的元素将以链表的形式存放，新加入的放在链头，最先加入的放在链尾。如果数组该位置上没有元素，就直接将该元素放到此数组中的该位置上。</p>
+<p>addEntry(hash, key, value, i)方法根据计算出的hash值，将key-value对放在数组table的i索引处。addEntry 是 HashMap 提供的一个包访问权限的方法，代码如下：</p>
+<pre><code>void addEntry(int hash, K key, V value, int bucketIndex) {
+// 获取指定 bucketIndex 索引处的 Entry  
+Entry&lt;K,V&gt; e = table[bucketIndex];
+// 将新创建的 Entry 放入 bucketIndex 索引处，并让新的 Entry 指向原来的 Entry  
+table[bucketIndex] = new Entry&lt;K,V&gt;(hash, key, value, e);
+// 如果 Map 中的 key-value 对的数量超过了极限
+if (size++ &gt;= threshold)
+// 把 table 对象的长度扩充到原来的2倍。
+    resize(2 * table.length);
+}
+</code></pre><p>当系统决定存储HashMap中的key-value对时，完全没有考虑Entry中的value，仅仅只是根据key来计算并决定每个Entry的存储位置。我们完全可以把 Map 集合中的 value 当成 key 的附属，当系统决定了 key 的存储位置之后，value 随之保存在那里即可。</p>
+<p>hash(int h)方法根据key的hashCode重新计算一次散列。此算法加入了高位计算，防止低位不变，高位变化时，造成的hash冲突。</p>
+<pre><code>static int hash(int h) {
+h ^= (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);
+return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);  
+}
+</code></pre><p>我们可以看到在HashMap中要找到某个元素，需要根据key的hash值来求得对应数组中的位置。如何计算这个位置就是hash算法。前面说过HashMap的数据结构是数组和链表的结合，所以我们当然希望这个HashMap里面的 元素位置尽量的分布均匀些，尽量使得每个位置上的元素数量只有一个，那么当我们用hash算法求得这个位置的时候，马上就可以知道对应位置的元素就是我们要的，而不用再去遍历链表，这样就大大优化了查询的效率。</p>
+<p>对于任意给定的对象，只要它的 hashCode() 返回值相同，那么程序调用 hash(int h) 方法所计算得到的 hash 码值总是相同的。我们首先想到的就是把hash值对数组长度取模运算，这样一来，元素的分布相对来说是比较均匀的。但是，“模”运算的消耗还是比较大的，在HashMap中是这样做的：调用 indexFor(int h, int length) 方法来计算该对象应该保存在 table 数组的哪个索引处。indexFor(int h, int length) 方法的代码如下：</p>
+<pre><code>static int indexFor(int h, int length) {  
+return h &amp; (length-1);
+}
+</code></pre><p>这个方法非常巧妙，它通过 h &amp; (table.length -1) 来得到该对象的保存位，而HashMap底层数组的长度总是 2 的 n 次方，这是HashMap在速度上的优化。在 HashMap 构造器中有如下代码：</p>
+<pre><code>int capacity = 1;
+while (capacity &lt; initialCapacity)  
+    capacity &lt;&lt;= 1;
+</code></pre><p>这段代码保证初始化时HashMap的容量总是2的n次方，即底层数组的长度总是为2的n次方。</p>
+<p>当length总是 2 的n次方时，h&amp; (length-1)运算等价于对length取模，也就是h%length，但是&amp;比%具有更高的效率。</p>
+<p>这看上去很简单，其实比较有玄机的，我们举个例子来说明：</p>
+<p>假设数组长度分别为15和16，优化后的hash码分别为8和9，那么&amp;运算后的结果如下：</p>
+<pre><code>h &amp; (table.length-1)    hash        table.length-1    
+8 &amp; (15-1)：    0100    &amp;    1110    = 0100
+9 &amp; (15-1)：    0101    &amp;    1110    = 0100
+8 &amp; (16-1)：    0100    &amp;    1111    = 0100
+9 &amp; (16-1)：    0101    &amp;    1111    = 0101
+</code></pre><p>从上面的例子中可以看出：当它们和15-1（1110）“与”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8和9会被放到数组中的同一个位置上形成链表，那么查询的时候就需要遍历这个链 表，得到8或者9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为15的时候，hash值会与15-1（1110）进行“与”，那么最后一位永远是0，而0001，0011，0101，1001，1011，0111，1101这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！而当数组长度为16时，即为2的n次方时，2n-1得到的二进制数的每个位上的值都为1，这使得在低位上&amp;时，得到的和原hash的低位相同，加之hash(int h)方法对key的hashCode的进一步优化，加入了高位计算，就使得只有相同的hash值的两个值才会被放到数组中的同一个位置上形成链表。</p>
+<p>所以说，当数组长度为2的n次幂的时候，不同的key算得得index相同的几率较小，那么数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。</p>
+<p>根据上面 put 方法的源代码可以看出，当程序试图将一个key-value对放入HashMap中时，程序首先根据该 key 的 hashCode() 返回值决定该 Entry 的存储位置：如果两个 Entry 的 key 的 hashCode() 返回值相同，那它们的存储位置相同。如果这两个 Entry 的 key 通过 equals 比较返回 true，新添加 Entry 的 value 将覆盖集合中原有 Entry 的 value，但key不会覆盖。如果这两个 Entry 的 key 通过 equals 比较返回 false，新添加的 Entry 将与集合中原有 Entry 形成 Entry 链，而且新添加的 Entry 位于 Entry 链的头部——具体说明继续看 addEntry() 方法的说明。</p>
+<pre><code>public V get(Object key) {
+if (key == null)
+    return getForNullKey();
+int hash = hash(key.hashCode());
+for (Entry&lt;K,V&gt; e = table[indexFor(hash, table.length)];
+    e != null;
+    e = e.next) {
+    Object k;
+    if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k)))  
+        return e.value;
+}
+return null;
+}
+</code></pre><p>有了上面存储时的hash算法作为基础，理解起来这段代码就很容易了。从上面的源代码中可以看出：从HashMap中get元素时，首先计算key的hashCode，找到数组中对应位置的某一元素，然后通过key的equals方法在对应位置的链表中找到需要的元素。</p>
+<p>归纳</p>
+<p>简单地说，HashMap 在底层将 key-value 当成一个整体进行处理，这个整体就是一个 Entry 对象。HashMap 底层采用一个 Entry[] 数组来保存所有的 key-value 对，当需要存储一个 Entry 对象时，会根据hash算法来决定其在数组中的存储位置，在根据equals方法决定其在该数组位置上的链表中的存储位置；当需要取出一个Entry时，<br>也会根据hash算法找到其在数组中的存储位置，再根据equals方法从该位置上的链表中取出该Entry。</p>
+<p>HashMap的resize（rehash）</p>
+<p>当HashMap中的元素越来越多的时候，hash冲突的几率也就越来越高，因为数组的长度是固定的。所以为了提高查询的效率，就要对HashMap的数组进行扩容，数组扩容这个操作也会出现在ArrayList中，这是一个常用的操作，而在HashMap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。</p>
+<p>那么HashMap什么时候进行扩容呢？当HashMap中的元素个数超过数组大小loadFactor时，就会进行数组扩容，loadFactor的默认值为0.75，这是一个折中的取值。也就是说，默认情况下，数组大小为16，那么当HashMap中元素个数超过160.75=12的时候，就把数组的大小扩展为 2*16=32，即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知HashMap中元素的个数，那么预设元素的个数能够有效的提高HashMap的性能。</p>
+<p>HashMap的性能参数</p>
+<p>HashMap 包含如下几个构造器：</p>
+<p>HashMap()：构建一个初始容量为 16，负载因子为 0.75 的 HashMap。<br>ashMap(int initialCapacity)：构建一个初始容量为 initialCapacity，负载因子为 0.75 的 HashMap。<br>HashMap(int initialCapacity, float loadFactor)：以指定初始容量、指定的负载因子创建一个 HashMap。<br>HashMap的基础构造器HashMap(int initialCapacity, float loadFactor)带有两个参数，它们是初始容量initialCapacity和负载因子loadFactor。</p>
+<p>负载因子loadFactor衡量的是一个散列表的空间的使用程度，负载因子越大表示散列表的装填程度越高，反之愈小。对于使用链表法的散列表来说，查找一个元素的平均时间是O(1+a)，因此如果负载因子越大，对空间的利用更充分，然而后果是查找效率的降低；如果负载因子太小，那么散列表的数据将过于稀疏，对空间造成严重浪费。</p>
+<p>HashMap的实现中，通过threshold字段来判断HashMap的最大容量：</p>
+<p>1<br>threshold = (int)(capacity * loadFactor);<br>结合负载因子的定义公式可知，threshold就是在此loadFactor和capacity对应下允许的最大元素数目，超过这个数目就重新resize，以降低实际的负载因子。默认的的负载因子0.75是对空间和时间效率的一个平衡选择。当容量超出此最大容量时， resize后的HashMap容量是容量的两倍：</p>
+<p>Fail-Fast机制</p>
+<p>我们知道java.util.HashMap不是线程安全的，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。</p>
+<p>这一策略在源码中的实现是通过modCount域，modCount顾名思义就是修改次数，对HashMap内容的修改都将增加这个值，那么在迭代器初始化过程中会将这个值赋给迭代器的expectedModCount。</p>
+<pre><code>HashIterator() {
+expectedModCount = modCount;
+if (size &gt; 0) { // advance to first entry
+Entry[] t = table;
+while (index &lt; t.length &amp;&amp; (next = t[index++]) == null)  
+    ;
+}
+}
+</code></pre><p>在迭代过程中，判断modCount跟expectedModCount是否相等，如果不相等就表示已经有其他线程修改了Map：</p>
+<p>注意到modCount声明为volatile，保证线程之间修改的可见性。</p>
+<pre><code>final Entry&lt;K,V&gt; nextEntry() {
+if (modCount != expectedModCount)
+    throw new ConcurrentModificationException();
+在HashMap的API中指出：
+</code></pre><p>由所有HashMap类的“collection 视图方法”所返回的迭代器都是快速失败的：在迭代器创建之后，如果从结构上对映射进行修改，除非通过迭代器本身的 remove 方法，其他任何时间任何方式的修改，迭代器都将抛出 ConcurrentModificationException。因此，面对并发的修改，迭代器很快就会完全失败，而不冒在将来不确定的时间发生任意不确定行为的风险。</p>
+<p>注意，迭代器的快速失败行为不能得到保证，一般来说，存在非同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出ConcurrentModificationException。因此，编写依赖于此异常的程序的做法是错误的，正确做法是：迭代器的快速失败行为应该仅用于检测程序错误。</p>
+<p>HashMap的两种遍历方式</p>
+<p>##第一种</p>
+<pre><code>Map map = new HashMap();
+Iterator iter = map.entrySet().iterator();
+while (iter.hasNext()) 
+{Map.Entry entry = (Map.Entry) iter.next();
+Object key = entry.getKey();
+Object val = entry.getValue();}
+</code></pre><p>效率高,以后一定要使用此种方式！</p>
+<p>第二种</p>
+<pre><code>Map map = new HashMap();
+　　Iterator iter = map.keySet().iterator();
+　　while (iter.hasNext()) {
+　　Object key = iter.next();
+　　Object val = map.get(key);
+　　}
+</code></pre><p>效率低,以后尽量少使用！</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2015年07月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月02日 - 09时09分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2015/07/14/java基础hashmap的使用/" title="【java基础】hashmap的实现原理">http://yoursite.com/2015/07/14/java基础hashmap的使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/07/14/java基础hashmap的使用/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2015/07/14/Java认识枚举类/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【java认识】枚举类的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/14/jquery 面向对象写法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【jquery】面向对象写法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap概述"><span class="toc-number">1.</span> <span class="toc-text">HashMap概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap的数据结构"><span class="toc-number">1.0.1.</span> <span class="toc-text">HashMap的数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap的存取实现"><span class="toc-number">1.0.2.</span> <span class="toc-text">HashMap的存取实现</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/07/14/Java认识枚举类/" title="上一篇: 【java认识】枚举类的使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2015/07/14/jquery 面向对象写法/" title="下一篇: 【jquery】面向对象写法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20187/01/28/http状态码/">http学习之状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础final/">java基础（final使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础static/">java基础（static使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/JDK 中的设计模式/">JDK 中的设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 虚拟机/">Java 虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础string/">java基础（String）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/spring实战/">java  spring的世界</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/jquery 面向对象写法/">【jquery】面向对象写法</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
