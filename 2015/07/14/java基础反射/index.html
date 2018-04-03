@@ -3,19 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【java基础】java的泛型 | GeekQ</title>
+  <title>【java】java反射方法与使用 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
-<meta name="keywords" content="java的泛型">
+  <meta name="description" content="java的反射方法Java反射描述的是，在运行状态中：  1、对于任意一个类，都能够知道这个类的所有属性和方法  2、对于任意一个类，都能够调用它的任意一个属性和方法  之所以强调属性、方法，是因为属性、方法是开发者对于一个类最关注的两个部分。实际上通过反射，不仅仅可以获知类的属性、方法，还可以获知类的父类、接口、包等信息  至于反射的原理，不难，Java类加载机制一文中讲到了，一个类在加载的时候">
+<meta name="keywords" content="java反射">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【java基础】java的泛型">
-<meta property="og:url" content="http://yoursite.com/2015/08/14/java基础 泛型/index.html">
+<meta property="og:title" content="【java】java反射方法与使用">
+<meta property="og:url" content="http://yoursite.com/2015/07/14/java基础反射/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
-<meta property="og:updated_time" content="2018-04-02T10:46:35.286Z">
+<meta property="og:description" content="java的反射方法Java反射描述的是，在运行状态中：  1、对于任意一个类，都能够知道这个类的所有属性和方法  2、对于任意一个类，都能够调用它的任意一个属性和方法  之所以强调属性、方法，是因为属性、方法是开发者对于一个类最关注的两个部分。实际上通过反射，不仅仅可以获知类的属性、方法，还可以获知类的父类、接口、包等信息  至于反射的原理，不难，Java类加载机制一文中讲到了，一个类在加载的时候">
+<meta property="og:image" content="https://i.imgur.com/J9n48rj.png">
+<meta property="og:image" content="https://i.imgur.com/EBxLrIy.png">
+<meta property="og:image" content="https://i.imgur.com/9z9Js5K.png">
+<meta property="og:image" content="https://i.imgur.com/q3Cjgcf.png">
+<meta property="og:image" content="https://i.imgur.com/4x59389.png">
+<meta property="og:image" content="https://i.imgur.com/TdtTD8W.png">
+<meta property="og:image" content="https://i.imgur.com/SLG6gfQ.png">
+<meta property="og:image" content="https://i.imgur.com/0nvUhyd.png">
+<meta property="og:updated_time" content="2018-04-03T02:50:33.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【java基础】java的泛型">
-<meta name="twitter:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
+<meta name="twitter:title" content="【java】java反射方法与使用">
+<meta name="twitter:description" content="java的反射方法Java反射描述的是，在运行状态中：  1、对于任意一个类，都能够知道这个类的所有属性和方法  2、对于任意一个类，都能够调用它的任意一个属性和方法  之所以强调属性、方法，是因为属性、方法是开发者对于一个类最关注的两个部分。实际上通过反射，不仅仅可以获知类的属性、方法，还可以获知类的父类、接口、包等信息  至于反射的原理，不难，Java类加载机制一文中讲到了，一个类在加载的时候">
+<meta name="twitter:image" content="https://i.imgur.com/J9n48rj.png">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +214,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java基础 泛型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java基础反射" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/14/java基础 泛型/" class="article-date">
-      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+      <a href="/2015/07/14/java基础反射/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
 </a>
     </div>
   
@@ -222,7 +231,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【java基础】java的泛型
+      【java】java反射方法与使用
     </h1>
   
 
@@ -233,7 +242,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的泛型/">java的泛型</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java反射/">java反射</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,142 +252,67 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="java的泛型"><a href="#java的泛型" class="headerlink" title="java的泛型"></a>java的泛型</h1><p>泛型初探</p>
-<p>在泛型（Generic type或Generics）出现之前，是这么写代码的：</p>
-<pre><code>public static void main(String[] args)
-{
-List list = new ArrayList();
-list.add(&quot;123&quot;);
-list.add(&quot;456&quot;);
+        <h1 id="java的反射方法"><a href="#java的反射方法" class="headerlink" title="java的反射方法"></a>java的反射方法</h1><p>Java反射描述的是，在运行状态中：  1、对于任意一个类，都能够知道这个类的所有属性和方法  2、对于任意一个类，都能够调用它的任意一个属性和方法  之所以强调属性、方法，是因为属性、方法是开发者对于一个类最关注的两个部分。实际上通过反射，不仅仅可以获知类的属性、方法，还可以获知类的父类、接口、包等信息  至于反射的原理，不难，Java类加载机制一文中讲到了，一个类在加载的时候，会在内存中生成一个代表这个.class文件的java.lang.Class对象，.classs文件里面就包含了描述这个类的信息的一切内容。至于.class文件，是由Java编译器（注意是Java编译器，指的不仅仅是Javac）编译而来的，是编译原理的领域；</p>
+<a id="more"></a>
+<h3 id="本文用到的实体类"><a href="#本文用到的实体类" class="headerlink" title="本文用到的实体类"></a>本文用到的实体类</h3><pre><code>package cn.com.sinosure.biz.claimtrace.indemnity;
 
-System.out.println((String)list.get(0));
-}
-</code></pre><a id="more"></a>
-<p>当然这是完全允许的，因为List里面的内容是Object类型的，自然任何对象类型都可以放入、都可以取出，但是这么写会有两个问题：</p>
-<p>1、当一个对象放入集合时，集合不会记住此对象的类型，当再次从集合中取出此对象时，该对象的编译类型变成了Object</p>
-<p>2、运行时需要人为地强制转换类型到具体目标，实际的程序绝不会这么简单，一个不小心就会出现java.lang.ClassCastException，即类型转换异常</p>
-<p>所以，泛型出现之后，上面的代码就改成了大家都熟知的写法：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;String&gt; list = new ArrayList&lt;String&gt;();
-list.add(&quot;123&quot;);
-list.add(&quot;456&quot;);
+import java.io.Serializable;
+import java.util.List;
 
-System.out.println(list.get(0));
-}
-</code></pre><p>这就是泛型。泛型是对Java语言类型系统的一种扩展，有点类似于C++的模板，可以把类型参数看作是使用参数化类型时指定的类型的一个占位符。引入泛型，是对Java语言一个较大的功能增强，带来了很多的好处：</p>
-<pre><code>1、类型安全。类型错误现在在编译期间就被捕获到了，而不是在运行时当作java.lang.ClassCastException展示出来，将类型检查从运行时挪到编译时有助于开发者更容易找到错误，并提高程序的可靠性
+public class Reflection implements Cloneable ,Serializable{
 
-2、消除了代码中许多的强制类型转换，增强了代码的可读性
+private String str;
 
-3、为较大的优化带来了可能
-</code></pre><p>getClass()相同</p>
-<p>看一段代码：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
-List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
-System.out.println(stringList.getClass() == integerList.getClass());
-}
-运行结果为：
+private double d ;
 
-true
-这意味着，泛型是什么并不会对一个对象实例是什么类型的造成影响，所以，通过改变泛型的方式试图定义不同的重载方法也是不可以的：
-</code></pre><p>尽量使用精确的类型定义泛型</p>
-<p>尽量使用精确的类型定义泛型，除非必要，否则不要写一个接口或者父类上去：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;Number&gt; list = new ArrayList&lt;Number&gt;();
-list.add(4);
-list.add(2.2);
-for (Number number : list)
-    System.out.println(number);
-}
-</code></pre><p>就像这样，list中的是一个Number类型，往里面添加的是Integer与Double，这样导致get出来的元素也都是Number类型的，失去了子类扩展的功能。</p>
-<p>如果要让子类变为Interger和Double也可以，(Integer)list.get(0)和(Double)list.get(1)强转就可以了，但是这样不就失去了泛型的意义了吗？所以，尽量用精确的类型去定义泛型。</p>
-<p>使用类型通配符</p>
-<pre><code>List&lt;Object&gt;不是List&lt;String&gt;的父类型，List&lt;Integer&gt;不是List&lt;Number&gt;的父类型，试图用以下方式赋值是不允许的：
+public boolean b ;
 
-1 public static void main(String[] args)
-2 {
-3     List&lt;Number&gt; numberList = new ArrayList&lt;Number&gt;();
-4     List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
-5     numberList = integerList;
-6 }
-</code></pre><p>第5行将报错”Type mismatch: cannot convert from List<integer> to List<number>“。有人可能觉得这样很不方便：我在一个方法里面只需要循环检索一个List，也不能利用多态放一个父类型进去，也不能重载，那怎么办呢？针对这个问题，Java给开发者提供了通配符”?”，看一下：</number></integer></p>
-<pre><code>public static void main(String[] args)
-{
-    List&lt;String&gt;  stringList = new ArrayList&lt;String&gt;();
-    List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
+public static short s ;
 
-    printList(stringList);
-    printList(integerList);
+public Reflection() {
 }
 
-private static void printList(List&lt;?&gt; l)
-{
-    for (Object o : l)
-        System.out.println(o);
-}
-</code></pre><p>&lt;?&gt;是类型通配符，表示是任何泛型的父类型，这样List<object>、List<string>这些都可以传递进入printList方法中，注意这里的参数不能写成List<e>，这样就报错了，E未定义。当然&lt;?&gt;也可以不加，不过这样会有警告：如果传递一个List<e>给List，相当于传递一个只承诺将它当作List（原始类型）的方法，这将会破坏使用泛型的类型安全。</e></e></string></object></p>
-<p>再注意一点，使用类型通配符，只能从中检索元素，不能添加元素。</p>
-<p>泛型方法</p>
-<pre><code>public static void main(String[] args)
-{
-    System.out.println(ifThenElse(false, &quot;111&quot;, &quot;222&quot;));
+public Reflection(String str) {
+    this.str = str;
 }
 
-private static &lt;T&gt; T ifThenElse(boolean b, T first, T second)
-{
-    return b ? first : second;
+public Reflection(String str, double d, boolean b) {
+    this.str = str;
+    this.d = d;
+    this.b = b;
 }
-</code></pre><p>返回结果为：</p>
-<p>222<br>这说明，方法也可以被泛型化，不管定义在其中的类是不是泛型化的。这意味着不用显式告诉编译器，想要T什么值：编译器只知道这些T都必须相同。</p>
-<p>静态资源不认识泛型</p>
-<p>接上一个话题，如果把<t>去掉，那么：</t></p>
-<p>报错，T未定义。但是如果我们再把static去掉：<br>这并不会有任何问题。两相对比下，可以看出static方法并不认识泛型，所以我们要加上一个<t>，告诉static方法，后面的T是一个泛型。既然static方法不认识泛型，那我们看一下static变量是否认识泛型：<br>这证明了，static变量也不认识泛型，其实不仅仅是static方法、static变量，static块也不认识泛型，可以自己试一下。总结起来就是一句话：静态资源不认识泛型。<br>泛型约束</t></p>
-<p>可以对泛型参数作约束，本来觉得应该有规律，后来发现没有，那就把自己研究的结论发一下，假设有一组类继承关系C继承自B，B继承自A：</p>
-<pre><code>1、定义class的时候只能使用extends关键字且不能用通配符&quot;?&quot;
 
-public class TestMain&lt;T extends B&gt;
-{
-    public static void main(String[] args)
-    {
-        new TestMain&lt;C&gt;();
+private void privateMethod() {
+}
+
+public String publicMethod() {
+    privateMethod();
+    return null;
+}
+
+public String publicMethod(int i) {
+    return null;
+}
+
+public String publicMethod(int i, double d, List&lt;String&gt; l) {
+    return &quot;Reflection.publicMethod(int i, double d), i = &quot; + i + &quot;, d = &quot; + d;
+}
+
+public static int returnOne() {
+    return 1;
+}
+
+public String toString() {
+    return &quot;str = &quot; + str + &quot;, d = &quot; + d + &quot;, b = &quot; + b;
     }
 }
-正确。
-
-TestMain类的泛型只能传B的子类，也就是C。new TestMain&lt;A&gt;()
-public class TestMain&lt;? extends B&gt;&quot;、
-public class TestMain&lt;T super B&gt;&quot;都是错误的写法
-</code></pre><p>2、作为方法的参数，泛型可以使用”? extends B”或者”? super B”，前者表示实际类型只可以是B的子类，后者表示实际类型只可以是B的父类，以下两种写法都是正确的：</p>
-<pre><code>public static void main(String[] args)
-{
-    print(new ArrayList&lt;C&gt;());
-}
-
-public static void print(List&lt;? extends B&gt; list)
-{
-
-}
-public static void main(String[] args)
-{
-    print(new ArrayList&lt;A&gt;());
-    print(new ArrayList&lt;Object&gt;());
-}
-
-public static void print(List&lt;? super B&gt; list)
-{
-
-}
-</code></pre><p>3、作为局部变量的参数，泛型可以使用”? extends B”或者”? super B”，不过前者好像没什么意义，后者表示只可以传以B为父类的对象，所以以下的写法是正确的：</p>
-<pre><code>public static void main(String[] args)
-{
-    List&lt;? super B&gt; list = new ArrayList&lt;B&gt;();
-    list.add(new C());
-}
-</code></pre><p>不要写”list.add(new A())”，JDK将会认为这是类型不匹配的。</p>
+</code></pre><h3 id="Class和ClassLoader"><a href="#Class和ClassLoader" class="headerlink" title="Class和ClassLoader"></a>Class和ClassLoader</h3><p> <img src="https://i.imgur.com/J9n48rj.png" alt=""></p>
+<h3 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h3><p><img src="https://i.imgur.com/EBxLrIy.png" alt=""></p>
+<h3 id="Field"><a href="#Field" class="headerlink" title="Field"></a>Field</h3><p><img src="https://i.imgur.com/9z9Js5K.png" alt=""><br><img src="https://i.imgur.com/q3Cjgcf.png" alt=""></p>
+<h3 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h3><p><img src="https://i.imgur.com/4x59389.png" alt=""></p>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p><img src="https://i.imgur.com/TdtTD8W.png" alt=""><br><img src="https://i.imgur.com/SLG6gfQ.png" alt=""></p>
+<h4 id="Modifier枚举值列表"><a href="#Modifier枚举值列表" class="headerlink" title="Modifier枚举值列表"></a>Modifier枚举值列表</h4><p>Field、Constructor、Method中都有getModifiers()方法，返回的是表示此对象的Java语言修饰符，详细看下每个修饰符对应的枚举值：</p>
+<p><img src="https://i.imgur.com/0nvUhyd.png" alt=""></p>
 
       
       
@@ -388,13 +322,13 @@ public static void print(List&lt;? super B&gt; list)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/08/14/java基础 泛型/">【java基础】java的泛型</a></p>
+        <p><span>本文标题:</span><a href="/2015/07/14/java基础反射/">【java】java反射方法与使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2015年08月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2018年04月02日 - 18时46分</p>
+        <p><span>发布时间:</span>2015年07月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月03日 - 10时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/08/14/java基础 泛型/" title="【java基础】java的泛型">http://yoursite.com/2015/08/14/java基础 泛型/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/08/14/java基础 泛型/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/07/14/java基础反射/" title="【java】java反射方法与使用">http://yoursite.com/2015/07/14/java基础反射/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/07/14/java基础反射/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -407,18 +341,18 @@ public static void print(List&lt;? super B&gt; list)
 
 <nav id="article-nav">
   
-    <a href="/2015/08/14/代码可读性/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/14/Java认识枚举类/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          【代码可读性】代码如何更加可读简洁
+          【java认识】枚举类的使用
         
       </div>
     </a>
   
   
-    <a href="/2015/08/14/java基础 自动装箱和拆箱/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【java基础】自动装箱和拆箱</div>
+    <a href="/2015/07/14/java基础 理解java/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【java基础】理解java</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -429,7 +363,7 @@ public static void print(List&lt;? super B&gt; list)
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的泛型"><span class="toc-number">1.</span> <span class="toc-text">java的泛型</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的反射方法"><span class="toc-number">1.</span> <span class="toc-text">java的反射方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本文用到的实体类"><span class="toc-number">1.0.1.</span> <span class="toc-text">本文用到的实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class和ClassLoader"><span class="toc-number">1.0.2.</span> <span class="toc-text">Class和ClassLoader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Package"><span class="toc-number">1.0.3.</span> <span class="toc-text">Package</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Field"><span class="toc-number">1.0.4.</span> <span class="toc-text">Field</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Constructor"><span class="toc-number">1.0.5.</span> <span class="toc-text">Constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method"><span class="toc-number">1.0.6.</span> <span class="toc-text">Method</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Modifier枚举值列表"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">Modifier枚举值列表</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -468,13 +402,13 @@ public static void print(List&lt;? super B&gt; list)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/08/14/代码可读性/" title="上一篇: 【代码可读性】代码如何更加可读简洁">
+            <a href="/2015/07/14/Java认识枚举类/" title="上一篇: 【java认识】枚举类的使用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/08/14/java基础 自动装箱和拆箱/" title="下一篇: 【java基础】自动装箱和拆箱">
+            <a href="/2015/07/14/java基础 理解java/" title="下一篇: 【java基础】理解java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
