@@ -3,21 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git命令与使用（团队workfolw的分布使用） | GeekQ</title>
+  <title>【java基础】java this和super | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta name="keywords" content="git命令与使用">
+  <meta name="description" content="java的this和super调用###1.this this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。 this的用法在java中大体可以分为3种：">
+<meta name="keywords" content="java this和super">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git命令与使用（团队workfolw的分布使用）">
-<meta property="og:url" content="http://yoursite.com/2018/03/29/git命令与使用/index.html">
+<meta property="og:title" content="【java基础】java this和super">
+<meta property="og:url" content="http://yoursite.com/2015/08/14/java this和super/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
-<meta property="og:updated_time" content="2017-07-19T01:02:10.903Z">
+<meta property="og:description" content="java的this和super调用###1.this this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。 this的用法在java中大体可以分为3种：">
+<meta property="og:updated_time" content="2018-04-04T06:48:44.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git命令与使用（团队workfolw的分布使用）">
-<meta name="twitter:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
+<meta name="twitter:title" content="【java基础】java this和super">
+<meta name="twitter:description" content="java的this和super调用###1.this this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。 this的用法在java中大体可以分为3种：">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -207,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git命令与使用" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java this和super" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/29/git命令与使用/" class="article-date">
-      <time datetime="2018-03-29T01:34:08.158Z" itemprop="datePublished">2018-03-29</time>
+      <a href="/2015/08/14/java this和super/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
 </a>
     </div>
   
@@ -224,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git命令与使用（团队workfolw的分布使用）
+      【java基础】java this和super
     </h1>
   
 
@@ -235,7 +233,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-this和super/">java this和super</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -245,104 +243,290 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><a href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）" class="headerlink" title="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）"></a>git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</h1><h3 id="1-git-添加命令（提交的文件信息进入索引库）"><a href="#1-git-添加命令（提交的文件信息进入索引库）" class="headerlink" title="1.git 添加命令（提交的文件信息进入索引库）"></a>1.git 添加命令（提交的文件信息进入索引库）</h3><pre><code>git add . 将修改的工作文件全部提交到暂存区
-git add -u 把当前目录下的traceked文件修改信息添加到索引库
-git add -i 命令查看&lt;path&gt;中被所有修改过或已删除文件但没有提交的文件，
-并通过其revert子命令可以查看&lt;path&gt;中所有untracted的文件，同时进入一个子命令系统。
-git add -h  查看git add 帮助文档
-</code></pre><a id="more"></a>
-<h3 id="git-提交命令"><a href="#git-提交命令" class="headerlink" title="git 提交命令"></a>git 提交命令</h3><pre><code>git commit -m &quot;fiirst  commit &quot; 提交暂存的文件到本地仓库
-git commit 会提交所有文件但是也会在git bash 输入提交信息
-git commit --amend  修改上一次提交内容或提交说明
-</code></pre><h3 id="git-暂存储藏命令（stash）"><a href="#git-暂存储藏命令（stash）" class="headerlink" title="git 暂存储藏命令（stash）"></a>git 暂存储藏命令（stash）</h3><pre><code>git stash 将自己的工作仓储起来
-git stash list 查看自己的stash（你可能有多个）
-git stash show 查看自己未提交的修改有哪些
-git stash apply stash@&lt;0&gt;等 你可以恢复你想恢复的stash 版本
-git stash clear 清楚git栈stash记录
-</code></pre><font color="red">使用git的时候，我们往往使用branch解决任务切换问题，<br>例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用’git stash’就可以将你当前未提交到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用’git stash apply’将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，’git stash list’命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用’git stash apply stash@{1}’就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’git stash clear’来将栈清空。</font>
+        <h1 id="java的this和super调用"><a href="#java的this和super调用" class="headerlink" title="java的this和super调用"></a>java的this和super调用</h1><p>###1.this</p>
+<p>this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。</p>
+<p>this的用法在java中大体可以分为3种：</p>
+<a id="more"></a>
+<p>1.普通的直接引用</p>
+<p>这种就不用讲了，this相当于是指向当前对象本身。</p>
+<p>2.形参与成员名字重名，用this来区分：</p>
+<pre><code>package com.demo;
 
-<h3 id="git-删除命令"><a href="#git-删除命令" class="headerlink" title="git 删除命令"></a>git 删除命令</h3><pre><code>git rm -f 文件名称  删除commit过的文件
-git rm -r 文件或者文件夹 删除commit过的文件或者文件夹(本地仓库)
-git rm -h 删除帮助文档
-git rm -r -n --cached &quot;bin/&quot; //-n 执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。（本地仓库）
--n, --dry-run 演习（不删除列出列表）
--q, --quiet 不列出删除的文件
---cached 只从索引区删除
--f, --force 忽略文件更新状态检查
--r 允许递归删除
-</code></pre><h3 id="git-推送将本地分支推送至远程主机"><a href="#git-推送将本地分支推送至远程主机" class="headerlink" title="git 推送将本地分支推送至远程主机"></a>git 推送将本地分支推送至远程主机</h3><pre><code>git push origin master 将本地master分支推送至origin主机的master分支如果master 不在则会被重建
-git push origin :master 表示删除origin主机的master 分支
-git push origin --tags 推送tag分支
-git push origin 分支名称 推送你的本地分支到远程
-git push origin :分支名称  删除远程分支 
-</code></pre><h3 id="git-拉分支的命令"><a href="#git-拉分支的命令" class="headerlink" title="git 拉分支的命令"></a>git 拉分支的命令</h3><pre><code>git branch  -a 查看远程分支
-git branch 分支名称 创建一个分支
-git checkout 分支名称  切换一个分支名称
-git fetch origin branchname:branchname 
-远程某各分支拉去到本地的branchname下，如果没有branchname，则会在本地新建branchname 
-git checkout -b 分支名称 创建分支并且切换到分支名称
-git push  origin 本地分支名称：远程分支名称 如果远程分支不在则在远程创建新的分支（中间没有空格）
-</code></pre><h3 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h3><pre><code>git tag#列出现有标签    
-git tag v0.1#新建标签
-git tag -a v0.1 -m &amp;#039;my version 1.4&amp;#039;#新建带注释标签
-git checkout tagname#切换到标签
-git push origin v1.5#推送分支到源上
-git push origin --tags#一次性推送所有分支
-git tag -d v0.1#删除标签
-git push origin :refs/tags/v0.1#删除远程标签
-</code></pre><h3 id="git合并与解决冲突"><a href="#git合并与解决冲突" class="headerlink" title="git合并与解决冲突"></a>git合并与解决冲突</h3><pre><code>如果团队其他成员提交到了远程.首先你要先把你的修改文件提交到本地仓库
-git commit  -m &quot;说明 &quot;
-git pull 更新新的提交
-git status  查看冲突文件
-看下有多少文件冲突。
- 对每个冲突文件：
- 在编辑器中打开文件（比如 IntelliJ 或 Vim ）
- 看看每个被冲突标记（“&gt;&gt;&gt;&gt;”和“&lt;&lt;&lt;&lt;”）围绕的区块。
- 看看（被冲突标记的区块）是否有意义，每个作者的意图是什么，如果能弄清楚就解决掉。
- 如果冲突标记无法理解，通常是这些文件改动很大，运行下面的命令：
- Shell
- git diff HEAD...the/other/branch -- path/to/conflicting/file
- git diff the/other/branch...HEAD -- path/to/conflicting/file
- 这样做是为了看哪边改动较小
- 修改冲突完成后(可以用合并工具一类的.在网上找个就行)
- git  add file 将文件添加索引
- git commit  -m &quot;说明 &quot; 
- git  push  origin master 提交到主干或者git push origin 本地分支名称   提交到分支
+public class Person {
 
- 如果是合并分支
- 1. git  checkout  master 切换到主干
- 2. git status 查看状态
- 3. gitgit merge --no-ff branch（分支名称） 合并分支 --no-ff 会产生一个新的提交节点保证版本清晰
- 4. git status 查看冲突文件
- 5. git diff  文件名称  （冲突发生在哪里）
- 6. 打开文件修改冲突
- 7. git add 文件  将文件提价到索引
- 8. git commit -m “提交说明” 
- 9. git push origin  master 推送到远程分支
-</code></pre><h3 id="git-reset-撤销命令"><a href="#git-reset-撤销命令" class="headerlink" title="git reset 撤销命令"></a>git reset 撤销命令</h3><pre><code>git reset –mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-git reset –soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-git reset –hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容
-#回退所有内容到上一个版本 
-git reset HEAD^ 
-#回退a.py这个文件的版本到上一个版本 
-git reset HEAD^ a.py 
-#向前回退到第3个版本 
-git reset –soft HEAD~3 
-#将本地的状态回退到和远程的一样 
-git reset –hard origin/master 
-#回退到某个版本 
- git reset 057d 
-#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit 
-git revert HEAD 
-</code></pre><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><pre><code>git  reflog 可以查看所有分支的所有操作记录（包括（包括commit和reset的操作），包括已经被删除的commit记录
-(即使你reset错误使用这个命令可以回退版本)
-git log则不能察看已经删除了的commit记录 
-git log --pretty=oneline 这个我比较常用的查看日志命令 
-</code></pre><h3 id="生成一个可供发布的压缩包"><a href="#生成一个可供发布的压缩包" class="headerlink" title="生成一个可供发布的压缩包"></a>生成一个可供发布的压缩包</h3><pre><code>git archive
-</code></pre><h3 id="最后上个图"><a href="#最后上个图" class="headerlink" title="最后上个图"></a>最后上个图</h3><p><img src="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png" alt=""></p>
-<p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
-<p> 下次写下  git工作流的使用！！！  感谢大家指出错误！！可以发我邮箱</p>
+private int age = 10;
 
+public Person(){
+    System.out.println(&quot;初始化年龄：&quot;+age);
+}
+
+public int GetAge(int age){
+    this.age = age;
+    return this.age;
+}
+}
+package com.demo;
+
+public class Test1 {
+
+public static void main(String[] args) {
+    Person Harry = new Person();
+    System.out.println(&quot;Harry&apos;s age is &quot;+Harry.GetAge(12));
+}
+}
+</code></pre><p>运行结果：</p>
+<pre><code>初始化年龄：10
+Harry&apos;s age is 12
+</code></pre><p>3.引用构造函数</p>
+<p>这个和super放在一起讲，见下面。</p>
+<p>###2.super</p>
+<p>super可以理解为是指向自己超（父）类对象的一个指针，而这个超类指的是离自己最近的一个父类。</p>
+<p>super也有三种用法：</p>
+<p>1.普通的直接引用</p>
+<p>与this类似，super相当于是指向当前对象的父类，这样就可以用super.xxx来引用父类的成员。</p>
+<p>2.子类中的成员变量或方法与父类中的成员变量或方法同名</p>
+<pre><code>package com.demo;
+
+public class Country {
+
+String name;
+void value() {
+   name = &quot;China&quot;;
+}
+}
+package com.demo;
+
+public class City extends Country{
+
+String name;
+
+void value() {
+    name = &quot;Shanghai&quot;;
+    super.value(); // 调用父类的方法
+    System.out.println(name);
+    System.out.println(super.name);
+}
+
+public static void main(String[] args) {
+    City c = new City();
+    c.value();
+}
+}
+</code></pre><p>运行结果：</p>
+<p>Shanghai<br>China<br>可以看到，这里既调用了父类的方法，也调用了父类的变量。若不调用父类方法value()，只调用父类变量name的话，则父类name值为默认值null。</p>
+<p>3.引用构造函数</p>
+<p>super（参数）：调用父类中的某一个构造函数（应该为构造函数中的第一条语句）。<br>this（参数）：调用本类中另一种形式的构造函数（应该为构造函数中的第一条语句）。<br>    package com.demo.test;</p>
+<pre><code>public class Person {
+
+public static void prt(String s) {
+    System.out.println(s);
+}
+
+Person() {
+    prt(&quot;父类·无参数构造方法： &quot; + &quot;A Person.&quot;);
+}// 构造方法(1)
+
+Person(String name) {
+    prt(&quot;父类·含一个参数的构造方法： &quot; + &quot;A person&apos;s name is &quot; + name);
+}// 构造方法(2)
+}
+
+package com.demo.test;
+
+public class Chinese extends Person {
+
+Chinese() {
+    super(); // 调用父类构造方法（1）
+    prt(&quot;子类·调用父类“无参数构造方法“： &quot; + &quot;A chinese coder.&quot;);
+}
+
+Chinese(String name) {
+    super(name);// 调用父类具有相同形参的构造方法（2）
+    prt(&quot;子类·调用父类”含一个参数的构造方法“： &quot; + &quot;his name is &quot; + name);
+}
+
+Chinese(String name, int age) {
+    this(name);// 调用具有相同形参的构造方法（3）
+    prt(&quot;子类：调用子类具有相同形参的构造方法：his age is &quot; + age);
+}
+
+public static void main(String[] args) {
+    Chinese cn = new Chinese();
+    cn = new Chinese(&quot;codersai&quot;);
+    cn = new Chinese(&quot;codersai&quot;, 18);
+}
+}
+</code></pre><p>运行结果：</p>
+<pre><code>父类·无参数构造方法： A Person.
+子类·调用父类“无参数构造方法“： A chinese coder.
+父类·含一个参数的构造方法： A person&apos;s name is codersai
+子类·调用父类”含一个参数的构造方法“： his name is codersai
+父类·含一个参数的构造方法： A person&apos;s name is codersai
+子类·调用父类”含一个参数的构造方法“： his name is codersai
+子类：调用子类具有相同形参的构造方法：his age is 18
+</code></pre><p>从本例可以看到，可以用super和this分别调用父类的构造方法和本类中其他形式的构造方法。</p>
+<p>例子中Chinese类第三种构造方法调用的是本类中第二种构造方法，而第二种构造方法是调用父类的，因此也要先调用父类的构造方法，再调用本类中第二种，最后是重写第三种构造方法。</p>
+<p>三、super 和 this 的异同</p>
+<pre><code>super（参数）：调用基类中的某一个构造函数（应该为构造函数中的第一条语句） 
+this（参数）：调用本类中另一种形成的构造函数（应该为构造函数中的第一条语句）
+super：它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时如：super.变量名    super.成员函数据名（实参）
+this：它代表当前对象名（在程序中易产生二义性之处，应使用this来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用this来指明成员变量名）
+调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在编译的时候就会报错。
+super()和this()类似，区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法。
+super()和this()均需放在构造方法内第一行。
+尽管可以用this调用一个构造器，但却不能调用两个。
+this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。
+this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量，static方法，static语句块。
+从本质上讲，this是一个指向本对象的指针， 然而super是一个Java关键字。
+一、this
+
+  Java关键字this只能用于方法体内。当一个对象创建后，Java虚拟机（JVM）就会给这个对象分配一个引用自身的指针，这个指针的名字就是this。因此，this只能在类中的非静态方法中使用，静态方法和静态的代码块中绝对不能出现this。并且this只和特定的对象关联，而不和类关联，同一个类的不同对象有不同的this。下面给出一个使用this的综合实例，以便说明问题：
+
+package com.demo.test;
+
+public class Testthis {
+
+private int number;
+private String username;
+private String password;
+private int x = 100;
+
+public Testthis(int n) {
+    number = n; // 这个还可以写为: this.number=n;
+}
+
+public Testthis(int i, String username, String password) {
+    // 成员变量和参数同名,成员变量被屏蔽,用&quot;this.成员变量&quot;的方式访问成员变量.
+    this.username = username;
+    this.password = password;
+}
+
+// 默认不带参数的构造方法
+public Testthis() {
+    this(0, &quot;未知&quot;, &quot;空&quot;); // 通过this调用另一个构造方法
+}
+
+public Testthis(String name) {
+    this(1, name, &quot;空&quot;); // 通过this调用另一个构造方法
+}
+
+public static void main(String args[]) {
+    Testthis t1 = new Testthis();
+    Testthis t2 = new Testthis(&quot;游客&quot;);
+    t1.outinfo(t1);
+    t2.outinfo(t2);
+}
+
+private void outinfo(Testthis t) {
+    System.out.println(&quot;-----------&quot;);
+    System.out.println(t.number);
+    System.out.println(t.username);
+    System.out.println(t.password);
+    f(); // 这个可以写为: this.f();
+}
+
+private void f() {
+    // 局部变量与成员变量同名,成员变量被屏蔽,用&quot;this.成员变量&quot;的方式访问成员变量.
+    int x;
+    x = this.x++;
+    System.out.println(x);
+    System.out.println(this.x);
+}
+
+// 返回当前实例的引用
+private Testthis getSelf() {
+    return this;
+}
+}
+</code></pre><p>运行结果如下：</p>
+<p>0<br>未知<br>空<br>100<br>101<br>0<br>游客<br>空<br>100<br>101<br>    看着上面的例子，说明在什么情况下需要用到this：</p>
+<pre><code>第一、通过this调用另一个构造方法，用法是this(参数列表)，这个仅仅在类的构造方法中，别的地方不能这么用。
+
+第二、函数参数或者函数中的局部变量和成员变量同名的情况下，成员变量被屏蔽，此时要访问成员变量则需要用“this.成员变量名”的方式来引用成员变量。当然，在没有同名的情况下，可以直接用成员变量的名字，而不用this，用了也不为错，呵呵。
+
+第三、在函数中，需要引用该函数所属类的当前对象的时候，直接用this。其实这些用法总结都是从对“this是指向对象本身的一个指针”这句话的更深入的理解而来的，死记不然容易忘记而且容易搞错，要理解！
+</code></pre><p>2.super</p>
+<pre><code>  super关键字和this作用类似，使被屏蔽的成员变量或者成员方法变为可见，或者说用来引用被屏蔽的成员变量和成员方法。不过super是用在子类中，目的是访问直接父类中被屏蔽的成员，注意是直接父类（就是类之上最近的超类）。下面是一个综合运用super的例子，有两个类：一个Father类，一个Father类的子类Son，通过这两个类完全演示了super的用法，以下是代码：
+package com.demo.test;
+
+public class Father {
+
+public String v = &quot;Father&quot;;
+public String x = &quot;输出了Father类的public成员变量x!!!&quot;;
+
+public Father() {
+    System.out.println(&quot;Father构造方法被调用!&quot;);
+}
+
+public Father(String v) {
+    this.v = &quot;Father类的带参数构造方法!运行了.&quot;;
+}
+
+public void outinfo() {
+    System.out.println(&quot;Father的outinfo方法被调用&quot;);
+}
+
+public static void main(String[] args) {
+    // TODO 自动生成方法存根
+}
+}
+package com.demo.test;
+
+public class Son extends Father {
+
+public String v = &quot;Son&quot;;
+
+public Son() {
+    super(); // 调用超类的构造方法,只能放到第一行.
+    System.out.println(&quot;Son无参数构造方法被调用!&quot;);
+    // super(); //错误的,必须放到构造方法体的最前面.
+}
+
+public Son(String str) {
+    super(str);
+    System.out.println(&quot;Son带参数构造方法被调用!&quot;);
+}
+
+// 覆盖了超类成员方法outinfo()
+public void outinfo() {
+    System.out.println(&quot;Son的outinfo()方法被调用&quot;);
+}
+
+public void test() {
+
+    String v = &quot;哈哈哈哈!&quot;; // 局部变量v覆盖了成员变量v和超类变量v
+
+    System.out.println(&quot;------1-----&quot;);
+    System.out.println(v); // 输出局部变量v
+    System.out.println(this.v); // 输出(子类)成员变量v
+    System.out.println(super.v); // 输出超类成员变量v
+
+    System.out.println(&quot;------2-----&quot;);
+    System.out.println(x); // 输出超类成员变量v,子类继承而来
+    System.out.println(super.x); // 输出超类成员变量v
+
+    System.out.println(&quot;------3-----&quot;);
+    outinfo(); // 调用子类的outinfo()方法
+    this.outinfo(); // 调用子类的outinfo()方法
+    super.outinfo(); // 调用父类的outinfo()方法
+}
+
+public static void main(String[] args) {
+    new Son().test();
+
+}
+}
+</code></pre><p>运行结果：</p>
+<p>Father构造方法被调用!<br>Son无参数构造方法被调用!<br>——1—–<br>哈哈哈哈!<br>Son<br>Father<br>——2—–<br>输出了Father类的public成员变量x!!!<br>输出了Father类的public成员变量x!!!<br>——3—–<br>Son的outinfo()方法被调用<br>Son的outinfo()方法被调用<br>Father的outinfo方法被调用<br>说明：此例子仅仅为了说明super的用法，实际在设计类的时候一般都尽可能私有(private)化。</p>
+<p>通过上面的例子，下面总结一下super的用法：</p>
+<pre><code>  第一、在子类构造方法中要调用父类的构造方法，用“super(参数列表)”的方式调用，参数不是必须的。同时还要注意的一点是：“super(参数列表)”这条语句只能用在子类构造方法体中的第一行。
+
+  第二、当子类方法中的局部变量或者子类的成员变量与父类成员变量同名时，也就是子类局部变量覆盖父类成员变量时，用“super.成员变量名”来引用父类成员变量。当然，如果父类的成员变量没有被覆盖，也可以用“super.成员变量名”来引用父类成员变量，不过这是不必要的。
+
+  第三、当子类的成员方法覆盖了父类的成员方法时，也就是子类和父类有完全相同的方法定义（但方法体可以不同），此时，用“super.方法名(参数列表)”的方式访问父类的方法。
+
+this、super的用法也不过这些，只有理解了其中的原理，才不会跌入陷阱！
+</code></pre>
       
       
     </div>
@@ -351,13 +535,13 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></p>
+        <p><span>本文标题:</span><a href="/2015/08/14/java this和super/">【java基础】java this和super</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2018年03月29日 - 09时34分</p>
-        <p><span>最后更新:</span>2017年07月19日 - 09时02分</p>
+        <p><span>发布时间:</span>2015年08月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月04日 - 14时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/29/git命令与使用/" title="git命令与使用（团队workfolw的分布使用）">http://yoursite.com/2018/03/29/git命令与使用/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/git命令与使用/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/08/14/java this和super/" title="【java基础】java this和super">http://yoursite.com/2015/08/14/java this和super/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/08/14/java this和super/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -370,18 +554,18 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
 <nav id="article-nav">
   
-    <a href="/2018/03/29/rebae与merge/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/14/java基础 泛型/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          git rebase与merge的区别（推荐merge）
+          【java基础】java的泛型
         
       </div>
     </a>
   
   
-    <a href="/2018/03/29/WORKFLOW/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">团队workfolw的分布使用</div>
+    <a href="/2015/08/14/代码可读性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【代码可读性】代码如何更加可读简洁</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -392,7 +576,7 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><span class="toc-number">1.</span> <span class="toc-text">git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-git-添加命令（提交的文件信息进入索引库）"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.git 添加命令（提交的文件信息进入索引库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-提交命令"><span class="toc-number">1.0.2.</span> <span class="toc-text">git 提交命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-暂存储藏命令（stash）"><span class="toc-number">1.0.3.</span> <span class="toc-text">git 暂存储藏命令（stash）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-删除命令"><span class="toc-number">1.0.4.</span> <span class="toc-text">git 删除命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-推送将本地分支推送至远程主机"><span class="toc-number">1.0.5.</span> <span class="toc-text">git 推送将本地分支推送至远程主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-拉分支的命令"><span class="toc-number">1.0.6.</span> <span class="toc-text">git 拉分支的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-标签"><span class="toc-number">1.0.7.</span> <span class="toc-text">git 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git合并与解决冲突"><span class="toc-number">1.0.8.</span> <span class="toc-text">git合并与解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-撤销命令"><span class="toc-number">1.0.9.</span> <span class="toc-text">git reset 撤销命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看日志"><span class="toc-number">1.0.10.</span> <span class="toc-text">查看日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成一个可供发布的压缩包"><span class="toc-number">1.0.11.</span> <span class="toc-text">生成一个可供发布的压缩包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后上个图"><span class="toc-number">1.0.12.</span> <span class="toc-text">最后上个图</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的this和super调用"><span class="toc-number">1.</span> <span class="toc-text">java的this和super调用</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -431,13 +615,13 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/29/rebae与merge/" title="上一篇: git rebase与merge的区别（推荐merge）">
+            <a href="/2015/08/14/java基础 泛型/" title="上一篇: 【java基础】java的泛型">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/03/29/WORKFLOW/" title="下一篇: 团队workfolw的分布使用">
+            <a href="/2015/08/14/代码可读性/" title="下一篇: 【代码可读性】代码如何更加可读简洁">
                 <i class="fa fa-angle-right"></i>
             </a>
         

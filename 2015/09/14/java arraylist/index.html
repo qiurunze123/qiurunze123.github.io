@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git命令与使用（团队workfolw的分布使用） | GeekQ</title>
+  <title>【java基础】java容器Arraylist详解 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta name="keywords" content="git命令与使用">
+  <meta name="description" content="Arraylist详解这个分类中，将会写写Java中的集合。集合是Java中非常重要而且基础的内容，因为任何数据必不可少的就是该数据是如何存储的，集合的作用就是以一定的方式组织、存储数据。这里写的集合，一部分是比较常见的、一部分是不常用但是我个人平时见到过的，一些比较相似的集合（比如HashMap和Hashtable）就只讲一个，突出它们之间的区别即可。">
+<meta name="keywords" content="Arraylist详解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git命令与使用（团队workfolw的分布使用）">
-<meta property="og:url" content="http://yoursite.com/2018/03/29/git命令与使用/index.html">
+<meta property="og:title" content="【java基础】java容器Arraylist详解">
+<meta property="og:url" content="http://yoursite.com/2015/09/14/java arraylist/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta property="og:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
-<meta property="og:updated_time" content="2017-07-19T01:02:10.903Z">
+<meta property="og:description" content="Arraylist详解这个分类中，将会写写Java中的集合。集合是Java中非常重要而且基础的内容，因为任何数据必不可少的就是该数据是如何存储的，集合的作用就是以一定的方式组织、存储数据。这里写的集合，一部分是比较常见的、一部分是不常用但是我个人平时见到过的，一些比较相似的集合（比如HashMap和Hashtable）就只讲一个，突出它们之间的区别即可。">
+<meta property="og:image" content="https://i.imgur.com/oZLiMxt.png">
+<meta property="og:image" content="https://i.imgur.com/JRwLsv9.png">
+<meta property="og:image" content="https://i.imgur.com/NPvHB3k.png">
+<meta property="og:image" content="https://i.imgur.com/1qhTV7D.png">
+<meta property="og:updated_time" content="2018-04-04T07:31:36.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git命令与使用（团队workfolw的分布使用）">
-<meta name="twitter:description" content="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）1.git 添加命令（提交的文件信息进入索引库）git add . 将修改的工作文件全部提交到暂存区 git add -u 把当前目录下的traceked文件修改信息添加到索引库 git add -i 命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件， 并通">
-<meta name="twitter:image" content="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png">
+<meta name="twitter:title" content="【java基础】java容器Arraylist详解">
+<meta name="twitter:description" content="Arraylist详解这个分类中，将会写写Java中的集合。集合是Java中非常重要而且基础的内容，因为任何数据必不可少的就是该数据是如何存储的，集合的作用就是以一定的方式组织、存储数据。这里写的集合，一部分是比较常见的、一部分是不常用但是我个人平时见到过的，一些比较相似的集合（比如HashMap和Hashtable）就只讲一个，突出它们之间的区别即可。">
+<meta name="twitter:image" content="https://i.imgur.com/oZLiMxt.png">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -207,11 +210,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git命令与使用" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java arraylist" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/29/git命令与使用/" class="article-date">
-      <time datetime="2018-03-29T01:34:08.158Z" itemprop="datePublished">2018-03-29</time>
+      <a href="/2015/09/14/java arraylist/" class="article-date">
+      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
   
@@ -224,7 +227,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git命令与使用（团队workfolw的分布使用）
+      【java基础】java容器Arraylist详解
     </h1>
   
 
@@ -235,7 +238,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arraylist详解/">Arraylist详解</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -245,103 +248,172 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><a href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）" class="headerlink" title="git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）"></a>git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</h1><h3 id="1-git-添加命令（提交的文件信息进入索引库）"><a href="#1-git-添加命令（提交的文件信息进入索引库）" class="headerlink" title="1.git 添加命令（提交的文件信息进入索引库）"></a>1.git 添加命令（提交的文件信息进入索引库）</h3><pre><code>git add . 将修改的工作文件全部提交到暂存区
-git add -u 把当前目录下的traceked文件修改信息添加到索引库
-git add -i 命令查看&lt;path&gt;中被所有修改过或已删除文件但没有提交的文件，
-并通过其revert子命令可以查看&lt;path&gt;中所有untracted的文件，同时进入一个子命令系统。
-git add -h  查看git add 帮助文档
-</code></pre><a id="more"></a>
-<h3 id="git-提交命令"><a href="#git-提交命令" class="headerlink" title="git 提交命令"></a>git 提交命令</h3><pre><code>git commit -m &quot;fiirst  commit &quot; 提交暂存的文件到本地仓库
-git commit 会提交所有文件但是也会在git bash 输入提交信息
-git commit --amend  修改上一次提交内容或提交说明
-</code></pre><h3 id="git-暂存储藏命令（stash）"><a href="#git-暂存储藏命令（stash）" class="headerlink" title="git 暂存储藏命令（stash）"></a>git 暂存储藏命令（stash）</h3><pre><code>git stash 将自己的工作仓储起来
-git stash list 查看自己的stash（你可能有多个）
-git stash show 查看自己未提交的修改有哪些
-git stash apply stash@&lt;0&gt;等 你可以恢复你想恢复的stash 版本
-git stash clear 清楚git栈stash记录
-</code></pre><font color="red">使用git的时候，我们往往使用branch解决任务切换问题，<br>例如，我们往往会建一个自己的分支去修改和调试代码, 如果别人或者自己发现原有的分支上有个不得不修改的bug，我们往往会把完成一半的代码 commit提交到本地仓库，然后切换分支去修改bug，改好之后再切换回来。这样的话往往log上会有大量不必要的记录。其实如果我们不想提交完成一半或者不完善的代码，但是却不得不去修改一个紧急Bug，那么使用’git stash’就可以将你当前未提交到本地（和服务器）的代码推入到Git的栈中，这时候你的工作区间和上一次提交的内容是完全一样的，所以你可以放心的修 Bug，等到修完Bug，提交到服务器上后，再使用’git stash apply’将以前一半的工作应用回来。也许有的人会说，那我可不可以多次将未提交的代码压入到栈中？答案是可以的。当你多次使用’git stash’命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，’git stash list’命令可以将当前的Git栈信息打印出来，你只需要将找到对应的版本号，例如使用’git stash apply stash@{1}’就可以将你指定版本号为stash@{1}的工作取出来，当你将所有的栈都应用回来的时候，可以使用’git stash clear’来将栈清空。</font>
+        <h1 id="Arraylist详解"><a href="#Arraylist详解" class="headerlink" title="Arraylist详解"></a>Arraylist详解</h1><p>这个分类中，将会写写Java中的集合。集合是Java中非常重要而且基础的内容，因为任何数据必不可少的就是该数据是如何存储的，集合的作用就是以一定的方式组织、存储数据。这里写的集合，一部分是比较常见的、一部分是不常用但是我个人平时见到过的，一些比较相似的集合（比如HashMap和Hashtable）就只讲一个，突出它们之间的区别即可。</p>
+<a id="more"></a>
+<p>1.ArrayList</p>
+<p>ArrayList是最常见以及每个Java开发者最熟悉的集合类了，顾名思义，ArrayList就是一个以数组形式实现的集合，以一张表格来看一下ArrayList里面有哪些基本的元素：</p>
+<pre><code>| 元素  |  作用 |
+| private transient Object[] elementData  |   ArrayList是基于数组的一个实现，elementData就是底层的数组   |
+| private int size;   | ArrayList里面元素的个数，这里要注意一下，size是按照调用add、remove方法的次数进行自增或者自减的，所以add了一个null进入ArrayList，size也会加1   |
+</code></pre><p>arraylist 关注点</p>
+<pre><code>| 关  注  点 | 结论 |
+| ArrayList是否允许空  |    允许  |
+| ArrayList是否允许重复数据  | 允许  |
+  | ArrayList是否有序  |  有序  |
+  | ArrayList是否线程安全  |  不安全 |
+</code></pre><p>##添加元素</p>
+<pre><code>有这么一段代码：
 
-<h3 id="git-删除命令"><a href="#git-删除命令" class="headerlink" title="git 删除命令"></a>git 删除命令</h3><pre><code>git rm -f 文件名称  删除commit过的文件
-git rm -r 文件或者文件夹 删除commit过的文件或者文件夹(本地仓库)
-git rm -h 删除帮助文档
-git rm -r -n --cached &quot;bin/&quot; //-n 执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。（本地仓库）
--n, --dry-run 演习（不删除列出列表）
--q, --quiet 不列出删除的文件
---cached 只从索引区删除
--f, --force 忽略文件更新状态检查
--r 允许递归删除
-</code></pre><h3 id="git-推送将本地分支推送至远程主机"><a href="#git-推送将本地分支推送至远程主机" class="headerlink" title="git 推送将本地分支推送至远程主机"></a>git 推送将本地分支推送至远程主机</h3><pre><code>git push origin master 将本地master分支推送至origin主机的master分支如果master 不在则会被重建
-git push origin :master 表示删除origin主机的master 分支
-git push origin --tags 推送tag分支
-git push origin 分支名称 推送你的本地分支到远程
-git push origin :分支名称  删除远程分支 
-</code></pre><h3 id="git-拉分支的命令"><a href="#git-拉分支的命令" class="headerlink" title="git 拉分支的命令"></a>git 拉分支的命令</h3><pre><code>git branch  -a 查看远程分支
-git branch 分支名称 创建一个分支
-git checkout 分支名称  切换一个分支名称
-git fetch origin branchname:branchname 
-远程某各分支拉去到本地的branchname下，如果没有branchname，则会在本地新建branchname 
-git checkout -b 分支名称 创建分支并且切换到分支名称
-git push  origin 本地分支名称：远程分支名称 如果远程分支不在则在远程创建新的分支（中间没有空格）
-</code></pre><h3 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h3><pre><code>git tag#列出现有标签    
-git tag v0.1#新建标签
-git tag -a v0.1 -m &amp;#039;my version 1.4&amp;#039;#新建带注释标签
-git checkout tagname#切换到标签
-git push origin v1.5#推送分支到源上
-git push origin --tags#一次性推送所有分支
-git tag -d v0.1#删除标签
-git push origin :refs/tags/v0.1#删除远程标签
-</code></pre><h3 id="git合并与解决冲突"><a href="#git合并与解决冲突" class="headerlink" title="git合并与解决冲突"></a>git合并与解决冲突</h3><pre><code>如果团队其他成员提交到了远程.首先你要先把你的修改文件提交到本地仓库
-git commit  -m &quot;说明 &quot;
-git pull 更新新的提交
-git status  查看冲突文件
-看下有多少文件冲突。
- 对每个冲突文件：
- 在编辑器中打开文件（比如 IntelliJ 或 Vim ）
- 看看每个被冲突标记（“&gt;&gt;&gt;&gt;”和“&lt;&lt;&lt;&lt;”）围绕的区块。
- 看看（被冲突标记的区块）是否有意义，每个作者的意图是什么，如果能弄清楚就解决掉。
- 如果冲突标记无法理解，通常是这些文件改动很大，运行下面的命令：
- Shell
- git diff HEAD...the/other/branch -- path/to/conflicting/file
- git diff the/other/branch...HEAD -- path/to/conflicting/file
- 这样做是为了看哪边改动较小
- 修改冲突完成后(可以用合并工具一类的.在网上找个就行)
- git  add file 将文件添加索引
- git commit  -m &quot;说明 &quot; 
- git  push  origin master 提交到主干或者git push origin 本地分支名称   提交到分支
-
- 如果是合并分支
- 1. git  checkout  master 切换到主干
- 2. git status 查看状态
- 3. gitgit merge --no-ff branch（分支名称） 合并分支 --no-ff 会产生一个新的提交节点保证版本清晰
- 4. git status 查看冲突文件
- 5. git diff  文件名称  （冲突发生在哪里）
- 6. 打开文件修改冲突
- 7. git add 文件  将文件提价到索引
- 8. git commit -m “提交说明” 
- 9. git push origin  master 推送到远程分支
-</code></pre><h3 id="git-reset-撤销命令"><a href="#git-reset-撤销命令" class="headerlink" title="git reset 撤销命令"></a>git reset 撤销命令</h3><pre><code>git reset –mixed：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-git reset –soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-git reset –hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容
-#回退所有内容到上一个版本 
-git reset HEAD^ 
-#回退a.py这个文件的版本到上一个版本 
-git reset HEAD^ a.py 
-#向前回退到第3个版本 
-git reset –soft HEAD~3 
-#将本地的状态回退到和远程的一样 
-git reset –hard origin/master 
-#回退到某个版本 
- git reset 057d 
-#回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit 
-git revert HEAD 
-</code></pre><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><pre><code>git  reflog 可以查看所有分支的所有操作记录（包括（包括commit和reset的操作），包括已经被删除的commit记录
-(即使你reset错误使用这个命令可以回退版本)
-git log则不能察看已经删除了的commit记录 
-git log --pretty=oneline 这个我比较常用的查看日志命令 
-</code></pre><h3 id="生成一个可供发布的压缩包"><a href="#生成一个可供发布的压缩包" class="headerlink" title="生成一个可供发布的压缩包"></a>生成一个可供发布的压缩包</h3><pre><code>git archive
-</code></pre><h3 id="最后上个图"><a href="#最后上个图" class="headerlink" title="最后上个图"></a>最后上个图</h3><p><img src="http://jbcdn2.b0.upaiyun.com/2015/12/e57cf4e67ff5a3cd2a069981e320006f.png" alt=""></p>
-<p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
-<p> 下次写下  git工作流的使用！！！  感谢大家指出错误！！可以发我邮箱</p>
+public static void main(String[] args)
+{
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;000&quot;);
+list.add(&quot;111&quot;);
+}
+</code></pre><p>看下底层会做什么，进入add方法的源码来看一下：</p>
+<pre><code>public boolean add(E e) {
+ensureCapacity(size + 1);  // Increments modCount!!
+elementData[size++] = e;
+return true;
+ }
+</code></pre><p>先不去管第2行的ensureCapacity方法，这个方法是扩容用的，底层实际上在调用add方法的时候只是给elementData的某个位置添加了一个数据而已，用一张图表示的话是这样的：</p>
+<p><img src="https://i.imgur.com/oZLiMxt.png" alt=""></p>
+<p>elementData中存储的应该是堆内存中元素的引用，而不是实际的元素，这么画给人一种感觉就是说elementData数组里面存放的就是实际的元素，这是不太严谨的。不过这么画主要是为了方便起见，只要知道这个问题就好了。</p>
+<p>###扩容</p>
+<p>我们看一下，构造ArrayList的时候，默认的底层数组大小是10：</p>
+<pre><code>public ArrayList() {
+this(10);
+}
+</code></pre><p>那么有一个问题来了，底层数组的大小不够了怎么办？答案就是扩容，这也就是为什么一直说ArrayList的底层是基于动态数组实现的原因，动态数组的意思就是指底层的数组大小并不是固定的，而是根据添加的元素大小进行一个判断，不够的话就动态扩容，扩容的代码就在ensureCapacity里面：</p>
+<pre><code>public void ensureCapacity(int minCapacity) {
+modCount++;
+int oldCapacity = elementData.length;
+if (minCapacity &gt; oldCapacity) {
+    Object oldData[] = elementData;
+    int newCapacity = (oldCapacity * 3)/2 + 1;
+        if (newCapacity &lt; minCapacity)
+    newCapacity = minCapacity;
+           // minCapacity is usually close to size, so this is a win:
+           elementData = Arrays.copyOf(elementData, newCapacity);
+}
+}
+</code></pre><p>看到扩容的时候把元素组大小先乘以3，再除以2，最后加1。可能有些人要问为什么？我们可以想：</p>
+<p>1、如果一次性扩容扩得太大，必然造成内存空间的浪费</p>
+<p>2、如果一次性扩容扩得不够，那么下一次扩容的操作必然比较快地会到来，这会降低程序运行效率，要知道扩容还是比价耗费性能的一个操作</p>
+<p>所以扩容扩多少，是JDK开发人员在时间、空间上做的一个权衡，提供出来的一个比较合理的数值。最后调用到的是Arrays的copyOf方法，将元素组里面的内容复制到新的数组里面去：</p>
+<pre><code>public static &lt;T,U&gt; T[] copyOf(U[] original, int newLength, Class&lt;? extends T[]&gt; newType) {
+   T[] copy = ((Object)newType == (Object)Object[].class)
+       ? (T[]) new Object[newLength]
+       : (T[]) Array.newInstance(newType.getComponentType(), newLength);
+   System.arraycopy(original, 0, copy, 0,
+                    Math.min(original.length, newLength));
+   return copy;
+}
+</code></pre><p>用一张图来表示就是这样的：</p>
+<p><img src="https://i.imgur.com/JRwLsv9.png" alt=""></p>
+<p>###删除元素</p>
+<p>接着我们看一下删除的操作。ArrayList支持两种删除方式：</p>
+<p>1、按照下标删除</p>
+<p>2、按照元素删除，这会删除ArrayList中与指定要删除的元素匹配的第一个元素</p>
+<p>对于ArrayList来说，这两种删除的方法差不多，都是调用的下面一段代码：</p>
+<pre><code>int numMoved = size - index - 1;
+if (numMoved &gt; 0)
+    System.arraycopy(elementData, index+1, elementData, index,
+             numMoved);
+elementData[--size] = null; // Let gc do its work
+</code></pre><p>其实做的事情就是两件:</p>
+<p>1、把指定元素后面位置的所有元素，利用System.arraycopy方法整体向前移动一个位置</p>
+<p>2、最后一个位置的元素指定为null，这样让gc可以去回收它</p>
+<p>比方说有这么一段代码：</p>
+<pre><code>public static void main(String[] args)
+{
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;111&quot;);
+list.add(&quot;222&quot;);
+list.add(&quot;333&quot;);
+list.add(&quot;444&quot;);
+list.add(&quot;555&quot;);
+list.add(&quot;666&quot;);
+list.add(&quot;777&quot;);
+list.add(&quot;888&quot;);
+list.remove(&quot;333&quot;);
+}
+</code></pre><p>用图表示是这样的：</p>
+<p><img src="https://i.imgur.com/NPvHB3k.png" alt=""></p>
+<p>插入元素</p>
+<p>看一下ArrayList的插入操作，插入操作调用的也是add方法，比如：</p>
+<pre><code> public static void main(String[] args)
+  {
+ List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+ list.add(&quot;111&quot;);
+ list.add(&quot;222&quot;);
+ list.add(&quot;333&quot;);
+ list.add(&quot;444&quot;);
+ list.add(&quot;555&quot;);
+ list.add(&quot;666&quot;);
+list.add(&quot;777&quot;);
+list.add(&quot;888&quot;);
+list.add(2, &quot;000&quot;);
+System.out.println(list);
+}
+</code></pre><p>有一个地方不要搞错了，第12行的add方法的意思是，往第几个元素后面插入一个元素，像第12行就是往第二个元素后面插入一个000。看一下运行结果也证明了这一点：</p>
+<p>[111, 222, 000, 333, 444, 555, 666, 777, 888]<br>还是看一下插入的时候做了什么：</p>
+<pre><code> public void add(int index, E element) {
+  if (index &gt; size || index &lt; 0)
+ throw new IndexOutOfBoundsException(
+ &quot;Index: &quot;+index+&quot;, Size: &quot;+size);
+ ensureCapacity(size+1);  // Increments modCount!!
+ System.arraycopy(elementData, index, elementData, index + 1,
+      size - index);
+ elementData[index] = element;
+ size++;
+}
+</code></pre><p>看到插入的时候，按照指定位置，把从指定位置开始的所有元素利用System.arraycopy方法做一个整体的复制，向后移动一个位置（当然先要用ensureCapacity方法进行判断，加了一个元素之后数组会不会不够大），然后指定位置的元素设置为需要插入的元素，完成了一次插入的操作。用图表示这个过程是这样的：</p>
+<p><img src="https://i.imgur.com/1qhTV7D.png" alt=""></p>
+<p>ArrayList的优缺点</p>
+<p>从上面的几个过程总结一下ArrayList的优缺点。ArrayList的优点如下：</p>
+<p>1、ArrayList底层以数组实现，是一种随机访问模式，再加上它实现了RandomAccess接口，因此查找也就是get的时候非常快</p>
+<p>2、ArrayList在顺序添加一个元素的时候非常方便，只是往数组里面添加了一个元素而已</p>
+<p>不过ArrayList的缺点也十分明显：</p>
+<p>1、删除元素的时候，涉及到一次元素复制，如果要复制的元素很多，那么就会比较耗费性能</p>
+<p>2、插入元素的时候，涉及到一次元素复制，如果要复制的元素很多，那么就会比较耗费性能</p>
+<p>因此，ArrayList比较适合顺序添加、随机访问的场景。</p>
+<p>ArrayList和Vector的区别</p>
+<p>ArrayList是线程非安全的，这很明显，因为ArrayList中所有的方法都不是同步的，在并发下一定会出现线程安全问题。那么我们想要使用ArrayList并且让它线程安全怎么办？一个方法是用Collections.synchronizedList方法把你的ArrayList变成一个线程安全的List，比如：</p>
+<pre><code>List&lt;String&gt; synchronizedList = Collections.synchronizedList(list);
+synchronizedList.add(&quot;aaa&quot;);
+synchronizedList.add(&quot;bbb&quot;);
+for (int i = 0; i &lt; synchronizedList.size(); i++)
+{
+    System.out.println(synchronizedList.get(i));
+}
+</code></pre><p>另一个方法就是Vector，它是ArrayList的线程安全版本，其实现90%和ArrayList都完全一样，区别在于：</p>
+<p>1、Vector是线程安全的，ArrayList是线程非安全的</p>
+<p>2、Vector可以指定增长因子，如果该增长因子指定了，那么扩容的时候会每次新的数组大小会在原数组的大小基础上加上增长因子；如果不指定增长因子，那么就给原数组大小*2，源代码是这样的：</p>
+<p>int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?<br>                                 capacityIncrement : oldCapacity);</p>
+<p>为什么ArrayList的elementData是用transient修饰的？</p>
+<p>最后一个问题，我们看一下ArrayList中的数组，是这么定义的：</p>
+<p>private transient Object[] elementData;<br>不知道大家有没有想过，为什么elementData是使用transient修饰的呢？关于这个问题，说说我的看法。我们看一下ArrayList的定义：</p>
+<pre><code>public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;
+implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable
+</code></pre><p>看到ArrayList实现了Serializable接口，这意味着ArrayList是可以被序列化的，用transient修饰elementData意味着我不希望elementData数组被序列化。这是为什么？因为序列化ArrayList的时候，ArrayList里面的elementData未必是满的，比方说elementData有10的大小，但是我只用了其中的3个，那么是否有必要序列化整个elementData呢？显然没有这个必要，因此ArrayList中重写了writeObject方法：</p>
+<pre><code>private void writeObject(java.io.ObjectOutputStream s)
+        throws java.io.IOException{
+// Write out element count, and any hidden stuff
+int expectedModCount = modCount;
+s.defaultWriteObject();
+        // Write out array length
+       s.writeInt(elementData.length);
+    // Write out all elements in the proper order.
+for (int i=0; i&lt;size; i++)
+           s.writeObject(elementData[i]);
+    if (modCount != expectedModCount) {
+           throw new ConcurrentModificationException();
+    }
+}
+</code></pre><p>每次序列化的时候调用这个方法，先调用defaultWriteObject()方法序列化ArrayList中的非transient元素，elementData不去序列化它，然后遍历elementData，只序列化那些有的元素，这样：</p>
+<p>1、加快了序列化的速度</p>
+<p>2、减小了序列化之后的文件大小</p>
 
       
       
@@ -351,13 +423,13 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></p>
+        <p><span>本文标题:</span><a href="/2015/09/14/java arraylist/">【java基础】java容器Arraylist详解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2018年03月29日 - 09时34分</p>
-        <p><span>最后更新:</span>2017年07月19日 - 09时02分</p>
+        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月04日 - 15时31分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/29/git命令与使用/" title="git命令与使用（团队workfolw的分布使用）">http://yoursite.com/2018/03/29/git命令与使用/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/git命令与使用/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java arraylist/" title="【java基础】java容器Arraylist详解">http://yoursite.com/2015/09/14/java arraylist/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java arraylist/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -370,18 +442,18 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
 <nav id="article-nav">
   
-    <a href="/2018/03/29/rebae与merge/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/29/WORKFLOW/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          git rebase与merge的区别（推荐merge）
+          团队workfolw的分布使用
         
       </div>
     </a>
   
   
-    <a href="/2018/03/29/WORKFLOW/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">团队workfolw的分布使用</div>
+    <a href="/2015/08/14/java基础 自动装箱和拆箱/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【java基础】自动装箱和拆箱</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -392,7 +464,7 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git命令与使用（添加-提交-暂存储藏-删除-推送-拉分支-标签-合并-处理冲突-reset-查看日志-等常用命令）"><span class="toc-number">1.</span> <span class="toc-text">git命令与使用（添加.提交.暂存储藏.删除.推送.拉分支.标签.合并.处理冲突.reset.查看日志.等常用命令）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-git-添加命令（提交的文件信息进入索引库）"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.git 添加命令（提交的文件信息进入索引库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-提交命令"><span class="toc-number">1.0.2.</span> <span class="toc-text">git 提交命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-暂存储藏命令（stash）"><span class="toc-number">1.0.3.</span> <span class="toc-text">git 暂存储藏命令（stash）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-删除命令"><span class="toc-number">1.0.4.</span> <span class="toc-text">git 删除命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-推送将本地分支推送至远程主机"><span class="toc-number">1.0.5.</span> <span class="toc-text">git 推送将本地分支推送至远程主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-拉分支的命令"><span class="toc-number">1.0.6.</span> <span class="toc-text">git 拉分支的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-标签"><span class="toc-number">1.0.7.</span> <span class="toc-text">git 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git合并与解决冲突"><span class="toc-number">1.0.8.</span> <span class="toc-text">git合并与解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reset-撤销命令"><span class="toc-number">1.0.9.</span> <span class="toc-text">git reset 撤销命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看日志"><span class="toc-number">1.0.10.</span> <span class="toc-text">查看日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成一个可供发布的压缩包"><span class="toc-number">1.0.11.</span> <span class="toc-text">生成一个可供发布的压缩包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后上个图"><span class="toc-number">1.0.12.</span> <span class="toc-text">最后上个图</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Arraylist详解"><span class="toc-number">1.</span> <span class="toc-text">Arraylist详解</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -431,13 +503,13 @@ git log --pretty=oneline 这个我比较常用的查看日志命令
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/29/rebae与merge/" title="上一篇: git rebase与merge的区别（推荐merge）">
+            <a href="/2018/03/29/WORKFLOW/" title="上一篇: 团队workfolw的分布使用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/03/29/WORKFLOW/" title="下一篇: 团队workfolw的分布使用">
+            <a href="/2015/08/14/java基础 自动装箱和拆箱/" title="下一篇: 【java基础】自动装箱和拆箱">
                 <i class="fa fa-angle-right"></i>
             </a>
         

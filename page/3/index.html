@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 游览器. http | GeekQ</title>
+  <title>GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="黑龙江八一农垦大学">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GeekQ">
-<meta property="og:url" content="http://yoursite.com/tags/游览器-http/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="GeekQ">
 <meta property="og:description" content="黑龙江八一农垦大学">
 <meta name="twitter:card" content="summary">
@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
+    
+    
+  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -38,10 +41,10 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: false,
+          isHome: true,
           isPost: false,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false
       }
@@ -205,52 +208,166 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jquery 面向对象写法" class="article article-type-post" itemscope itemprop="blogPost">
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/20187" class="archive-year">20187</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/20187/01/28/http状态码/" class="archive-article-date">
-      <time datetime="+020187-01-28T08:00:00.000Z" itemprop="datePublished">01-28</time>
+    <div class="article-meta">
+      <a href="/2015/07/14/jquery 面向对象写法/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/20187/01/28/http状态码/">http学习之状态码</a>
+      <a class="article-title" href="/2015/07/14/jquery 面向对象写法/">【jquery】面向对象写法</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <h1 id="上代码-jquery对象写法"><a href="#上代码-jquery对象写法" class="headerlink" title="上代码 jquery对象写法"></a>上代码 jquery对象写法</h1><pre><code>    $(function() {
+    //可以初始化 属性值
+    var pi;
+    var Run = function (){
+       pi= &quot;3.1415&quot;;
+      //可以赋值属性
+    }
+    //new 出一个新的jquery的对象
+   $.run = new Run();
+   //定义一个按钮
+   Run.prototype.start = function (){
+    alert(&quot;测试成功！&quot;);
+   }
+    });
+&lt;body&gt;
+  &lt;button  onclick=&quot;$.run.start()&quot;&gt;Run&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>面向对象写法可以减少以及避免id或者name冲突的概率，而且写起来很方便好看！</p>
 
-          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/游览器-http/">游览器. http</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery面向对象写法/">jquery面向对象写法</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      
+      <div class="clearfix"></div>
+    </div>
     
+  </div>
+  
+</article>
 
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础 理解java" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础 理解java/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/java基础 理解java/">【java基础】理解java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="理解java"><a href="#理解java" class="headerlink" title="理解java"></a>理解java</h1><p>1、字符串不变性</p>
+<p>下面这张图展示了这段代码做了什么</p>
+<pre><code>String s = &quot;abcd&quot;;
+s = s.concat(&quot;ef&quot;);
+</code></pre><p><img src="https://i.imgur.com/gE5s3Xp.jpg" alt=""></p>
+<p>2.equals()方法、hashCode()方法的区别</p>
+<p>HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：</p>
+<p>如果两个对象相等(equal)，那么他们一定有相同的哈希值。<br>如果两个对象的哈希值相同，但他们未必相等(equal)。<br><img src="https://i.imgur.com/dTnskMv.jpg" alt=""><br>3.Java异常类的层次结构</p>
+<p>图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。<br><img src="https://i.imgur.com/0S0UM1r.jpg" alt=""><br>4.集合类的层次结构</p>
+<p>注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方法）<br><img src="https://i.imgur.com/fbv3Mys.jpg" alt=""></p>
+<p>5.Java同步</p>
+<p>Java同步机制可通过类比建筑物来阐明。<br><img src="https://i.imgur.com/OeKjKjw.jpg" alt=""></p>
+<p>6.别名</p>
+<p>别名意味着有多个变量指向同一可被更新的内存块，这些别名分别是不同的对象类型。</p>
+<p><img src="https://i.imgur.com/U51yrMV.jpg" alt=""></p>
+<p>7.堆和栈</p>
+<p>图解表明了方法和对象在运行时内存中的位置。</p>
+<p><img src="https://i.imgur.com/vU5OtcA.png" alt=""></p>
+<p>8.Java虚拟机运行时数据区域</p>
+<p>图解展示了整个虚拟机运行时数据区域的情况。<br><img src="https://i.imgur.com/E6E3dPW.jpg" alt=""></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理解java/">理解java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
@@ -295,17 +412,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
