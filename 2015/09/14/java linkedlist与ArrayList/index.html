@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【java基础】java的泛型 | GeekQ</title>
+  <title>【java基础】java的linkedist与ArrayList对比 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
-<meta name="keywords" content="java的泛型">
+  <meta name="description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
+<meta name="keywords" content="java的linkedist与ArrayList对比">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【java基础】java的泛型">
-<meta property="og:url" content="http://yoursite.com/2015/08/14/java基础 泛型/index.html">
+<meta property="og:title" content="【java基础】java的linkedist与ArrayList对比">
+<meta property="og:url" content="http://yoursite.com/2015/09/14/java linkedlist与ArrayList/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
-<meta property="og:updated_time" content="2018-04-02T10:46:35.286Z">
+<meta property="og:description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
+<meta property="og:updated_time" content="2018-04-08T01:38:00.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【java基础】java的泛型">
-<meta name="twitter:description" content="java的泛型泛型初探 在泛型（Generic type或Generics）出现之前，是这么写代码的： public static void main(String[] args) { List list = new ArrayList(); list.add(&amp;quot;123&amp;quot;); list.add(&amp;quot;456&amp;quot;);  System.out.println((Str">
+<meta name="twitter:title" content="【java基础】java的linkedist与ArrayList对比">
+<meta name="twitter:description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java基础 泛型" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java linkedlist与ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/14/java基础 泛型/" class="article-date">
-      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+      <a href="/2015/09/14/java linkedlist与ArrayList/" class="article-date">
+      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【java基础】java的泛型
+      【java基础】java的linkedist与ArrayList对比
     </h1>
   
 
@@ -233,7 +233,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的泛型/">java的泛型</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的linkedist与ArrayList对比/">java的linkedist与ArrayList对比</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,142 +243,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="java的泛型"><a href="#java的泛型" class="headerlink" title="java的泛型"></a>java的泛型</h1><p>泛型初探</p>
-<p>在泛型（Generic type或Generics）出现之前，是这么写代码的：</p>
-<pre><code>public static void main(String[] args)
-{
-List list = new ArrayList();
-list.add(&quot;123&quot;);
-list.add(&quot;456&quot;);
-
-System.out.println((String)list.get(0));
-}
-</code></pre><a id="more"></a>
-<p>当然这是完全允许的，因为List里面的内容是Object类型的，自然任何对象类型都可以放入、都可以取出，但是这么写会有两个问题：</p>
-<p>1、当一个对象放入集合时，集合不会记住此对象的类型，当再次从集合中取出此对象时，该对象的编译类型变成了Object</p>
-<p>2、运行时需要人为地强制转换类型到具体目标，实际的程序绝不会这么简单，一个不小心就会出现java.lang.ClassCastException，即类型转换异常</p>
-<p>所以，泛型出现之后，上面的代码就改成了大家都熟知的写法：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;String&gt; list = new ArrayList&lt;String&gt;();
-list.add(&quot;123&quot;);
-list.add(&quot;456&quot;);
-
-System.out.println(list.get(0));
-}
-</code></pre><p>这就是泛型。泛型是对Java语言类型系统的一种扩展，有点类似于C++的模板，可以把类型参数看作是使用参数化类型时指定的类型的一个占位符。引入泛型，是对Java语言一个较大的功能增强，带来了很多的好处：</p>
-<pre><code>1、类型安全。类型错误现在在编译期间就被捕获到了，而不是在运行时当作java.lang.ClassCastException展示出来，将类型检查从运行时挪到编译时有助于开发者更容易找到错误，并提高程序的可靠性
-
-2、消除了代码中许多的强制类型转换，增强了代码的可读性
-
-3、为较大的优化带来了可能
-</code></pre><p>getClass()相同</p>
-<p>看一段代码：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;String&gt; stringList = new ArrayList&lt;String&gt;();
-List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
-System.out.println(stringList.getClass() == integerList.getClass());
-}
-运行结果为：
-
-true
-这意味着，泛型是什么并不会对一个对象实例是什么类型的造成影响，所以，通过改变泛型的方式试图定义不同的重载方法也是不可以的：
-</code></pre><p>尽量使用精确的类型定义泛型</p>
-<p>尽量使用精确的类型定义泛型，除非必要，否则不要写一个接口或者父类上去：</p>
-<pre><code>public static void main(String[] args)
-{
-List&lt;Number&gt; list = new ArrayList&lt;Number&gt;();
-list.add(4);
-list.add(2.2);
-for (Number number : list)
-    System.out.println(number);
-}
-</code></pre><p>就像这样，list中的是一个Number类型，往里面添加的是Integer与Double，这样导致get出来的元素也都是Number类型的，失去了子类扩展的功能。</p>
-<p>如果要让子类变为Interger和Double也可以，(Integer)list.get(0)和(Double)list.get(1)强转就可以了，但是这样不就失去了泛型的意义了吗？所以，尽量用精确的类型去定义泛型。</p>
-<p>使用类型通配符</p>
-<pre><code>List&lt;Object&gt;不是List&lt;String&gt;的父类型，List&lt;Integer&gt;不是List&lt;Number&gt;的父类型，试图用以下方式赋值是不允许的：
-
-1 public static void main(String[] args)
-2 {
-3     List&lt;Number&gt; numberList = new ArrayList&lt;Number&gt;();
-4     List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
-5     numberList = integerList;
-6 }
-</code></pre><p>第5行将报错”Type mismatch: cannot convert from List<integer> to List<number>“。有人可能觉得这样很不方便：我在一个方法里面只需要循环检索一个List，也不能利用多态放一个父类型进去，也不能重载，那怎么办呢？针对这个问题，Java给开发者提供了通配符”?”，看一下：</number></integer></p>
-<pre><code>public static void main(String[] args)
-{
-    List&lt;String&gt;  stringList = new ArrayList&lt;String&gt;();
-    List&lt;Integer&gt; integerList = new ArrayList&lt;Integer&gt;();
-
-    printList(stringList);
-    printList(integerList);
-}
-
-private static void printList(List&lt;?&gt; l)
-{
-    for (Object o : l)
-        System.out.println(o);
-}
-</code></pre><p>&lt;?&gt;是类型通配符，表示是任何泛型的父类型，这样List<object>、List<string>这些都可以传递进入printList方法中，注意这里的参数不能写成List<e>，这样就报错了，E未定义。当然&lt;?&gt;也可以不加，不过这样会有警告：如果传递一个List<e>给List，相当于传递一个只承诺将它当作List（原始类型）的方法，这将会破坏使用泛型的类型安全。</e></e></string></object></p>
-<p>再注意一点，使用类型通配符，只能从中检索元素，不能添加元素。</p>
-<p>泛型方法</p>
-<pre><code>public static void main(String[] args)
-{
-    System.out.println(ifThenElse(false, &quot;111&quot;, &quot;222&quot;));
-}
-
-private static &lt;T&gt; T ifThenElse(boolean b, T first, T second)
-{
-    return b ? first : second;
-}
-</code></pre><p>返回结果为：</p>
-<p>222<br>这说明，方法也可以被泛型化，不管定义在其中的类是不是泛型化的。这意味着不用显式告诉编译器，想要T什么值：编译器只知道这些T都必须相同。</p>
-<p>静态资源不认识泛型</p>
-<p>接上一个话题，如果把<t>去掉，那么：</t></p>
-<p>报错，T未定义。但是如果我们再把static去掉：<br>这并不会有任何问题。两相对比下，可以看出static方法并不认识泛型，所以我们要加上一个<t>，告诉static方法，后面的T是一个泛型。既然static方法不认识泛型，那我们看一下static变量是否认识泛型：<br>这证明了，static变量也不认识泛型，其实不仅仅是static方法、static变量，static块也不认识泛型，可以自己试一下。总结起来就是一句话：静态资源不认识泛型。<br>泛型约束</t></p>
-<p>可以对泛型参数作约束，本来觉得应该有规律，后来发现没有，那就把自己研究的结论发一下，假设有一组类继承关系C继承自B，B继承自A：</p>
-<pre><code>1、定义class的时候只能使用extends关键字且不能用通配符&quot;?&quot;
-
-public class TestMain&lt;T extends B&gt;
-{
-    public static void main(String[] args)
-    {
-        new TestMain&lt;C&gt;();
-    }
-}
-正确。
-
-TestMain类的泛型只能传B的子类，也就是C。new TestMain&lt;A&gt;()
-public class TestMain&lt;? extends B&gt;&quot;、
-public class TestMain&lt;T super B&gt;&quot;都是错误的写法
-</code></pre><p>2、作为方法的参数，泛型可以使用”? extends B”或者”? super B”，前者表示实际类型只可以是B的子类，后者表示实际类型只可以是B的父类，以下两种写法都是正确的：</p>
-<pre><code>public static void main(String[] args)
-{
-    print(new ArrayList&lt;C&gt;());
-}
-
-public static void print(List&lt;? extends B&gt; list)
-{
-
-}
-public static void main(String[] args)
-{
-    print(new ArrayList&lt;A&gt;());
-    print(new ArrayList&lt;Object&gt;());
-}
-
-public static void print(List&lt;? super B&gt; list)
-{
-
-}
-</code></pre><p>3、作为局部变量的参数，泛型可以使用”? extends B”或者”? super B”，不过前者好像没什么意义，后者表示只可以传以B为父类的对象，所以以下的写法是正确的：</p>
-<pre><code>public static void main(String[] args)
-{
-    List&lt;? super B&gt; list = new ArrayList&lt;B&gt;();
-    list.add(new C());
-}
-</code></pre><p>不要写”list.add(new A())”，JDK将会认为这是类型不匹配的。</p>
+        <h1 id="java的linkedist与ArrayList对比"><a href="#java的linkedist与ArrayList对比" class="headerlink" title="java的linkedist与ArrayList对比"></a>java的linkedist与ArrayList对比</h1><p>LinkedList和ArrayList的对比</p>
+<p>老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。</p>
+<a id="more"></a>
+<p>1、顺序插入速度ArrayList会比较快，因为ArrayList是基于数组实现的，数组是事先new好的，只要往指定位置塞一个数据就好了；LinkedList则不同，每次顺序插入的时候LinkedList将new一个对象出来，如果对象比较大，那么new的时间势必会长一点，再加上一些引用赋值的操作，所以顺序插入LinkedList必然慢于ArrayList</p>
+<p>2、基于上一点，因为LinkedList里面不仅维护了待插入的元素，还维护了Entry的前置Entry和后继Entry，如果一个LinkedList中的Entry非常多，那么LinkedList将比ArrayList更耗费一些内存</p>
+<p>3、数据遍历的速度，看最后一部分，这里就不细讲了，结论是：使用各自遍历效率最高的方式，ArrayList的遍历效率会比LinkedList的遍历效率高一些</p>
+<p>4、有些说法认为LinkedList做插入和删除更快，这种说法其实是不准确的：</p>
+<p>（1）LinkedList做插入、删除的时候，慢在寻址，快在只需要改变前后Entry的引用地址</p>
+<p>（2）ArrayList做插入、删除的时候，慢在数组元素的批量copy，快在寻址</p>
+<p>所以，如果待插入、删除的元素是在数据结构的前半段尤其是非常靠前的位置的时候，LinkedList的效率将大大快过ArrayList，因为ArrayList将批量copy大量的元素；越往后，对于LinkedList来说，因为它是双向链表，所以在第2个元素后面插入一个数据和在倒数第2个元素后面插入一个元素在效率上基本没有差别，但是ArrayList由于要批量copy的元素越来越少，操作速度必然追上乃至超过LinkedList。</p>
+<p>从这个分析看出，如果你十分确定你插入、删除的元素是在前半段，那么就使用LinkedList；如果你十分确定你删除、删除的元素在比较靠后的位置，那么可以考虑使用ArrayList。如果你不能确定你要做的插入、删除是在哪儿呢？那还是建议你使用LinkedList吧，因为一来LinkedList整体插入、删除的执行效率比较稳定，没有ArrayList这种越往后越快的情况；二来插入元素的时候，弄得不好ArrayList就要进行一次扩容，记住，ArrayList底层数组扩容是一个既消耗时间又消耗空间的操作</p>
 
       
       
@@ -388,13 +263,13 @@ public static void print(List&lt;? super B&gt; list)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/08/14/java基础 泛型/">【java基础】java的泛型</a></p>
+        <p><span>本文标题:</span><a href="/2015/09/14/java linkedlist与ArrayList/">【java基础】java的linkedist与ArrayList对比</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2015年08月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2018年04月02日 - 18时46分</p>
+        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月08日 - 09时38分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/08/14/java基础 泛型/" title="【java基础】java的泛型">http://yoursite.com/2015/08/14/java基础 泛型/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/08/14/java基础 泛型/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java linkedlist与ArrayList/" title="【java基础】java的linkedist与ArrayList对比">http://yoursite.com/2015/09/14/java linkedlist与ArrayList/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java linkedlist与ArrayList/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -407,18 +282,18 @@ public static void print(List&lt;? super B&gt; list)
 
 <nav id="article-nav">
   
-    <a href="/2015/08/14/java基础 自动装箱和拆箱/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/14/java arraylist/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          【java基础】自动装箱和拆箱
+          【java基础】java容器Arraylist详解
         
       </div>
     </a>
   
   
-    <a href="/2015/07/15/java异常处理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【java基础】异常原理</div>
+    <a href="/2015/08/14/代码可读性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【代码可读性】代码如何更加可读简洁</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -429,7 +304,7 @@ public static void print(List&lt;? super B&gt; list)
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的泛型"><span class="toc-number">1.</span> <span class="toc-text">java的泛型</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的linkedist与ArrayList对比"><span class="toc-number">1.</span> <span class="toc-text">java的linkedist与ArrayList对比</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -468,13 +343,13 @@ public static void print(List&lt;? super B&gt; list)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/08/14/java基础 自动装箱和拆箱/" title="上一篇: 【java基础】自动装箱和拆箱">
+            <a href="/2015/09/14/java arraylist/" title="上一篇: 【java基础】java容器Arraylist详解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/07/15/java异常处理/" title="下一篇: 【java基础】异常原理">
+            <a href="/2015/08/14/代码可读性/" title="下一篇: 【代码可读性】代码如何更加可读简洁">
                 <i class="fa fa-angle-right"></i>
             </a>
         
