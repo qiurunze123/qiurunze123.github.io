@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【java基础】string,stringbugger,stringbuilder | GeekQ</title>
+  <title>【JVM内存】JVM内存分布 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#string,stringbuffer,stringbuilder概述这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。">
-<meta name="keywords" content="【java基础】string,stringbugger,stringbuilder">
+  <meta name="description" content="JVM内存分布工欲善其事，必先利其器。曾经的我经常害怕处理内存溢出的问题，因为不知道他为什么会出现这个问题，当我在看了这本书以后明白了垃圾回收算法，以及JVM是如何帮助我们处理GC的，这个时候当出现这个问题的时候我就明白需要查找GC Root，或者查看GC日志，去查找这个问题的根源，这样就能处理这些问题。还有以前的在理解重载和重构的时候只是在表面去理解，当我看完这本书明白，原来在方法调用时候这些东">
+<meta name="keywords" content="JVM内存分布">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【java基础】string,stringbugger,stringbuilder">
-<meta property="og:url" content="http://yoursite.com/2015/07/14/java基础string.stringbuffer,stringbuilder/index.html">
+<meta property="og:title" content="【JVM内存】JVM内存分布">
+<meta property="og:url" content="http://yoursite.com/2015/09/14/java jvm内存/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="#string,stringbuffer,stringbuilder概述这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。">
-<meta property="og:updated_time" content="2018-04-03T02:46:55.068Z">
+<meta property="og:description" content="JVM内存分布工欲善其事，必先利其器。曾经的我经常害怕处理内存溢出的问题，因为不知道他为什么会出现这个问题，当我在看了这本书以后明白了垃圾回收算法，以及JVM是如何帮助我们处理GC的，这个时候当出现这个问题的时候我就明白需要查找GC Root，或者查看GC日志，去查找这个问题的根源，这样就能处理这些问题。还有以前的在理解重载和重构的时候只是在表面去理解，当我看完这本书明白，原来在方法调用时候这些东">
+<meta property="og:image" content="https://i.imgur.com/tEZop1t.png">
+<meta property="og:image" content="https://i.imgur.com/RDQTsIp.png">
+<meta property="og:image" content="https://i.imgur.com/PUsFkDq.png">
+<meta property="og:updated_time" content="2018-04-08T03:00:55.457Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【java基础】string,stringbugger,stringbuilder">
-<meta name="twitter:description" content="#string,stringbuffer,stringbuilder概述这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。">
+<meta name="twitter:title" content="【JVM内存】JVM内存分布">
+<meta name="twitter:description" content="JVM内存分布工欲善其事，必先利其器。曾经的我经常害怕处理内存溢出的问题，因为不知道他为什么会出现这个问题，当我在看了这本书以后明白了垃圾回收算法，以及JVM是如何帮助我们处理GC的，这个时候当出现这个问题的时候我就明白需要查找GC Root，或者查看GC日志，去查找这个问题的根源，这样就能处理这些问题。还有以前的在理解重载和重构的时候只是在表面去理解，当我看完这本书明白，原来在方法调用时候这些东">
+<meta name="twitter:image" content="https://i.imgur.com/tEZop1t.png">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +209,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java基础string.stringbuffer,stringbuilder" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java jvm内存" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/14/java基础string.stringbuffer,stringbuilder/" class="article-date">
-      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+      <a href="/2015/09/14/java jvm内存/" class="article-date">
+      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
 </a>
     </div>
   
@@ -222,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【java基础】string,stringbugger,stringbuilder
+      【JVM内存】JVM内存分布
     </h1>
   
 
@@ -233,7 +237,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/【java基础】string-stringbugger-stringbuilder/">【java基础】string,stringbugger,stringbuilder</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM内存分布/">JVM内存分布</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,33 +247,38 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#string,stringbuffer,stringbuilder概述<br>这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。</p>
+        <h1 id="JVM内存分布"><a href="#JVM内存分布" class="headerlink" title="JVM内存分布"></a>JVM内存分布</h1><p>工欲善其事，必先利其器。曾经的我经常害怕处理内存溢出的问题，因为不知道他为什么会出现这个问题，当我在看了这本书以后明白了垃圾回收算法，以及JVM是如何帮助我们处理GC的，这个时候当出现这个问题的时候我就明白需要查找GC Root，或者查看GC日志，去查找这个问题的根源，这样就能处理这些问题。还有以前的在理解重载和重构的时候只是在表面去理解，当我看完这本书明白，原来在方法调用时候这些东西就生成处理，另外还有一个new到底经历那些事情等等一序列问题，如果你还在就纠结一些问题为什么是这么处理的时候那你就去看Java虚拟机吧！</p>
 <a id="more"></a>
-<p>首先说运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder &gt; StringBuffer &gt; String<br> &gt;<br>String最慢的原因：<br>String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。以下面一段代码为例：</p>
-<pre><code>1 String str=&quot;abc&quot;;
-2 System.out.println(str);
-3 str=str+&quot;de&quot;;
-4 System.out.println(str);
-</code></pre><p>　　如果运行这段代码会发现先输出“abc”，然后又输出“abcde”，好像是str这个对象被更改了，其实，这只是一种假象罢了，JVM对于这几行代码是这样处理的，首先创建一个String对象str，并把“abc”赋值给str，然后在第三行中，其实JVM又创建了一个新的对象也名为str，然后再把原来的str的值和“de”加起来再赋值给新的str，而原来的str就会被JVM的垃圾回收机制（GC）给回收掉了，所以，str实际上并没有被更改，也就是前面说的String对象一旦创建之后就不可更改了。所以，Java中对String对象进行的操作实际上是一个不断创建新的对象并且将旧的对象回收的一个过程，所以执行速度很慢。</p>
-<p>　　而StringBuilder和StringBuffer的对象是变量，对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作，所以速度要比String快很多。</p>
-<p>　　另外，有时候我们会这样对字符串进行赋值</p>
-<pre><code>1 String str=&quot;abc&quot;+&quot;de&quot;;
-2 StringBuilder stringBuilder=new StringBuilder().append(&quot;abc&quot;).append(&quot;de&quot;);
-3 System.out.println(str);
-4 System.out.println(stringBuilder.toString());
-这样输出结果也是“abcde”和“abcde”，但是String的速度却比StringBuilder的反应速度要快很多，这是因为第1行中的操作和
-String str=&quot;abcde&quot;
-是完全一样的，所以会很快，而如果写成下面这种形式
-1 String str1=&quot;abc&quot;;
-2 String str2=&quot;de&quot;;
-3 String str=str1+str2;
-</code></pre><p>　　那么JVM就会像上面说的那样，不断的创建、回收对象来进行这个操作了。速度就会很慢。</p>
-<p>###2. 再来说线程安全</p>
-<p>在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的</p>
-<p>如果一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字，所以可以保证线程是安全的，但StringBuilder的方法则没有该关键字，所以不能保证线程安全，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
-<p>###3. 总结一下<br>　　String：适用于少量的字符串操作的情况</p>
-<p>　　StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
-<p>　　StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
+<p>内存大致分布：</p>
+<p><img src="https://i.imgur.com/tEZop1t.png" alt=""></p>
+<p>1.线程独有的内存区域</p>
+<p>###①程序计数器</p>
+<p>是一块较小的内存空间，用来指定当前线程执行字节码的行数，每个线程计数器都是私有的，因为每个线程都需要记录执行的行数；这里解释一下为什么每个线程都需要一个线程计数器，JVM的多线程是通过线程轮流切换分配执行时间来实现的，在任何时刻，每个处理器都只会执行一个线程中的指令，当线程进行切换的时，为了线程能恢复当正确的位置，所以每个线程必须有个独立的线程计数器，这样才能保证线程之间不互相影响。</p>
+<p>###②虚拟机栈<br>生命周期和线程相同，每个方法执行的时候都会创建一个栈帧，用于存储局部变量表，操作数栈，动态链接，方法出口等信息，每一个方法从调用直至执行完毕的过程，就对应着一个栈帧的入栈到出栈的过程，栈的大小和具体的JVM实现有关，通常在256K~756K之间。</p>
+<pre><code>这里解释一下局部变量表，局部变量表存储方法相关的局部变量，包括基本数据，对象引用和返回地址等。在局部变量表中，只有long和double类型会占用2个局部变量空间（Slot，对于32位机器，一个Slot就是32个bit），
+其它都是1个Slot。需要注意的是，局部变量表是在编译时就已经确定好的，
+方法运行所需要分配的空间在栈帧中是完全确定的，在方法的生命周期内都不会改变。
+这部分东西我还想等下一篇博客的时候我想仔细说一下字节码的执行过程；
+
+虚拟机栈规定了２种异常情况，一种是线程请求栈的深度大于虚拟机栈所允许的深度，这时候将会抛出StackOverflowError异常，如果当Java虚拟机允许动态扩展虚拟机栈的时候，
+当扩展的时候没办法分配到内存的时候就会报OutOfMemoryError异常；
+</code></pre><p>###③NATIVE METHOD STACK，方法栈</p>
+<p>和虚拟机栈起的作用一样，只不过方法栈为虚拟机使用到的Native方法服务。虚拟机规范并没有对这个区域有什么强制规定，因此我们使用的HotSpot虚拟机，就干脆没有这块区域了，它和虚拟机栈是一起的。</p>
+<p>##2.线程之间的共享的内存区域</p>
+<p>###① HEAP，堆</p>
+<p>大多数应用，堆都是Java虚拟机所管理的内存中最大的一块，它在虚拟机启动时创建，此内存唯一的目的就是存放对象实例。由于现在垃圾收集器采用的基本都是分代收集算法，所以堆还可以细分为新生代和老年代，再细致一点还有Eden区、From Survivior区、To Survivor区，这个后面都会讲到的。</p>
+<p>② METHOD AREA，方法区</p>
+<p>这块区域用于存储虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据，虚拟机规范是把这块区域描述为堆的一个逻辑部分的，但实际它应该是要和堆区分开的。从上面提到的分代收集算法的角度看，HotSpot中，方法区≈永久代。不过JDK 7之后，我们使用的HotSpot应该就没有永久代这个概念了，会采用Native Memory来实现方法区的规划了。</p>
+<p>###③ RUNTIME CONSTANT POOL，运行时常量池</p>
+<p>上面的图中没有画出来，因为它是方法区的一部分。Class文件中除了有类的版本信息、字段、方法、接口等描述信息外，还有一项信息就是常量池，用于存放编译期间生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中，另外翻译出来的直接引用也会存储在这个区域中。这个区域另外一个特点就是动态性，Java并不要求常量就一定要在编译期间才能产生，运行期间也可以在这个区域放入新的内容，String.intern()方法就是这个特性的应用。</p>
+<p>###④ 直接内存<br>不是虚拟机运行时的一部分，可以直接访问堆外的内存；所以当内存空间无法动态扩展的时候就会出现OutOfMemoryError异常</p>
+<p>  以上基本是JVM内存分布的内容，简单的理解水满则溢出就是这个道理，系统的整个空间是一个大的容器，分不同的部分或者桶去分担整个容量，当那个桶不够的时候自然会溢出。明白内存区域的分布我们看下对象是如何分配在内存空间里面的?</p>
+<p>  Java对象这里指的是引用类型的对象，这里用Student stu=new Student()为例子访问，Student stu作为引用对象，存在与Java虚拟机栈上，new Student()保存在Java堆中，堆中记录Student类型的信息包括方法，接口，对象类型等地址，这些类型的执行的数据存储在方法区中</p>
+<p>###对象访问方式：</p>
+<p>###①句柄访问<br>主要是Java堆中划分一块句柄池，虚拟机栈中存放句柄池中的地址，句柄池中包括对象的实例数据和对象类型的数据的地址，基本分布如下图：<br><img src="https://i.imgur.com/RDQTsIp.png" alt=""></p>
+<p>###②直接指针访问，</p>
+<p>就是虚拟机栈直接指向Java堆中的对象类型指针和对象的实例数据，然后对象类型指针在指向方法区中对象类型的实例数据，分布如下图：<br><img src="https://i.imgur.com/PUsFkDq.png" alt=""></p>
+<p> HotSpot就是第二种访问方式，优点在于访问速度快，省去一次指针开销时间</p>
 
       
       
@@ -279,13 +288,13 @@ String str=&quot;abcde&quot;
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/07/14/java基础string.stringbuffer,stringbuilder/">【java基础】string,stringbugger,stringbuilder</a></p>
+        <p><span>本文标题:</span><a href="/2015/09/14/java jvm内存/">【JVM内存】JVM内存分布</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2015年07月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2018年04月03日 - 10时46分</p>
+        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月08日 - 11时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/07/14/java基础string.stringbuffer,stringbuilder/" title="【java基础】string,stringbugger,stringbuilder">http://yoursite.com/2015/07/14/java基础string.stringbuffer,stringbuilder/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/07/14/java基础string.stringbuffer,stringbuilder/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java jvm内存/" title="【JVM内存】JVM内存分布">http://yoursite.com/2015/09/14/java jvm内存/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java jvm内存/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -298,18 +307,18 @@ String str=&quot;abcde&quot;
 
 <nav id="article-nav">
   
-    <a href="/2015/07/14/java基础反射/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/09/14/java linkedlist与ArrayList/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          【java】java反射方法与使用
+          【java基础】java的linkedist与ArrayList对比
         
       </div>
     </a>
   
   
-    <a href="/2015/07/14/java基础 理解java/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【java基础】理解java</div>
+    <a href="/2015/09/14/java arraylist/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【java基础】java容器Arraylist详解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -320,7 +329,7 @@ String str=&quot;abcde&quot;
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM内存分布"><span class="toc-number">1.</span> <span class="toc-text">JVM内存分布</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -359,13 +368,13 @@ String str=&quot;abcde&quot;
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/07/14/java基础反射/" title="上一篇: 【java】java反射方法与使用">
+            <a href="/2015/09/14/java linkedlist与ArrayList/" title="上一篇: 【java基础】java的linkedist与ArrayList对比">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/07/14/java基础 理解java/" title="下一篇: 【java基础】理解java">
+            <a href="/2015/09/14/java arraylist/" title="下一篇: 【java基础】java容器Arraylist详解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
