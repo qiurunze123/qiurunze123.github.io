@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【java-AOP】 aop注解类使用方法AspectJ | GeekQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="aop注解类使用方法AspectJ###aop注解类使用方法AspectJ 1.AOP的作用 　　在OOP中，正是这种分散在各处且与对象核心功能无关的代码（横切代码）的存在，使得模块复用难度增加。AOP则将封装好的对象剖开，找出其中对多个对象产生影响的公共行为，并将其封装为一个可重用的模块，这个模块被命名为“切面”（Aspect），切面将那些与业务无关，却被业务模块共同调用的逻辑提取并封装起来，减">
+<meta name="keywords" content="aop注解类使用方法AspectJ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【java-AOP】 aop注解类使用方法AspectJ">
+<meta property="og:url" content="http://yoursite.com/2015/09/14/java aop切面/index.html">
+<meta property="og:site_name" content="GeekQ">
+<meta property="og:description" content="aop注解类使用方法AspectJ###aop注解类使用方法AspectJ 1.AOP的作用 　　在OOP中，正是这种分散在各处且与对象核心功能无关的代码（横切代码）的存在，使得模块复用难度增加。AOP则将封装好的对象剖开，找出其中对多个对象产生影响的公共行为，并将其封装为一个可重用的模块，这个模块被命名为“切面”（Aspect），切面将那些与业务无关，却被业务模块共同调用的逻辑提取并封装起来，减">
+<meta property="og:image" content="https://i.imgur.com/J7SuNaE.png">
+<meta property="og:image" content="https://i.imgur.com/hJRDeMh.png">
+<meta property="og:updated_time" content="2018-04-09T03:33:30.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【java-AOP】 aop注解类使用方法AspectJ">
+<meta name="twitter:description" content="aop注解类使用方法AspectJ###aop注解类使用方法AspectJ 1.AOP的作用 　　在OOP中，正是这种分散在各处且与对象核心功能无关的代码（横切代码）的存在，使得模块复用难度增加。AOP则将封装好的对象剖开，找出其中对多个对象产生影响的公共行为，并将其封装为一个可重用的模块，这个模块被命名为“切面”（Aspect），切面将那些与业务无关，却被业务模块共同调用的逻辑提取并封装起来，减">
+<meta name="twitter:image" content="https://i.imgur.com/J7SuNaE.png">
+  
+    <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head2.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">GeekQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://qiurunze123.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Arraylist详解/" style="font-size: 10px;">Arraylist详解</a> <a href="/tags/Bean的生命周期/" style="font-size: 10px;">Bean的生命周期</a> <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/JVM内存分布/" style="font-size: 10px;">JVM内存分布</a> <a href="/tags/JVM内存溢出/" style="font-size: 10px;">JVM内存溢出</a> <a href="/tags/JVM参数使用/" style="font-size: 10px;">JVM参数使用</a> <a href="/tags/aop注解类使用方法AspectJ/" style="font-size: 10px;">aop注解类使用方法AspectJ</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java-this和super/" style="font-size: 10px;">java this和super</a> <a href="/tags/java反射/" style="font-size: 10px;">java反射</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/java异常原理/" style="font-size: 10px;">java异常原理</a> <a href="/tags/java的linkedist与ArrayList对比/" style="font-size: 10px;">java的linkedist与ArrayList对比</a> <a href="/tags/java的泛型/" style="font-size: 10px;">java的泛型</a> <a href="/tags/java虚拟机类加载机制/" style="font-size: 10px;">java虚拟机类加载机制</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/【java基础】string-stringbugger-stringbuilder/" style="font-size: 10px;">【java基础】string,stringbugger,stringbuilder</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a> <a href="/tags/源码-Bean的加载流程/" style="font-size: 10px;">源码-Bean的加载流程</a> <a href="/tags/理解java/" style="font-size: 10px;">理解java</a> <a href="/tags/自动装箱和拆箱/" style="font-size: 10px;">自动装箱和拆箱</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N">有事请发邮件</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">邱家门前三千客.润泽城南五尺天.繁华落寞无须有.心装天地路自宽.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">GeekQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head2.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">GeekQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">城南五尺.年轻无为.砍柴为生</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://qiurunze123.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://github.com/qiurunze123/">gitub地址</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YFFSVVZYUFhWWFIgERFOAw8N" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/qiurunze123/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-java aop切面" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/14/java aop切面/" class="article-date">
+      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【java-AOP】 aop注解类使用方法AspectJ
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aop注解类使用方法AspectJ/">aop注解类使用方法AspectJ</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="aop注解类使用方法AspectJ"><a href="#aop注解类使用方法AspectJ" class="headerlink" title="aop注解类使用方法AspectJ"></a>aop注解类使用方法AspectJ</h1><p>###aop注解类使用方法AspectJ</p>
+<p>1.AOP的作用</p>
+<p>　　在OOP中，正是这种分散在各处且与对象核心功能无关的代码（横切代码）的存在，使得模块复用难度增加。AOP则将封装好的对象剖开，找出其中对多个对象产生影响的公共行为，并将其封装为一个可重用的模块，这个模块被命名为“切面”（Aspect），切面将那些与业务无关，却被业务模块共同调用的逻辑提取并封装起来，减少了系统中的重复代码，降低了模块间的耦合度，同时提高了系统的可维护性。</p>
+<a id="more"></a>
+<p>###BeanFactory与ApplicationContext</p>
+<p>　　ApplicationContext是BeanFactory的子接口，也被称为应用上下文。BeanFactory提供了Spring的配置框架和基本功能。</p>
+<p>  ApplicationContext则添加了更多企业级功能（如国际化的支持），他另一重要优势在于当ApplicationContext容器初始化完成后，容器中所有的 singleton Bean 也都被实例化了，也就是说当你需要使用singleton Bean 是在应用中无需等待就可以用而其他BeanFactory接口的实现类，则会延迟到调用 getBean（）方法时构造。</p>
+<p>  ApplicationContext的初始化时间会稍长些，调用getBean（）是由于Bean已经构造完毕，速度会更快。因此大部分系统都使用ApplicationContext，而只在资源较少的情况下，才考虑使用BeanFactory。</p>
+<p>###AOP的实现策略</p>
+<pre><code>（1）Java SE动态代理：
+使用动态代理可以为一个或多个接口在运行期动态生成实现对象，生成的对象中实现接口的方法时可以添加增强代码，从而实现AOP。缺点是只能针对接口进行代理，另外由于动态代理是通过反射实现的，有时可能要考虑反射调用的开销。
+（2）字节码生成（CGLib 动态代理）
+动态字节码生成技术是指在运行时动态生成指定类的一个子类对象，并覆盖其中特定方法，覆盖方法时可以添加增强代码，从而实现AOP。其常用工具是cglib。
+（3）定制的类加载器
+当需要对类的所有对象都添加增强，动态代理和字节码生成本质上都需要动态构造代理对象，即最终被增强的对象是由AOP框架生成，不是开发者new出来的。解决的办法就是实现自定义的类加载器，在一个类被加载时对其进行增强。JBoss就是采用这种方式实现AOP功能。
+（4）代码生成
+利用工具在已有代码基础上生成新的代码，其中可以添加任何横切代码来实现AOP。
+（5）语言扩展
+可以对构造方法和属性的赋值操作进行增强，AspectJ是采用这种方式实现AOP的一个常见Java语言扩展。
+</code></pre><p>这种异常很常见，也很好发现，因为都提示了“Java heap space”了，定位问题的话，根据异常堆栈分析就好了，行号都有指示。解决方案的话，可以调大堆的大小或者从代码上检视是否存在某些对象生命周期过长、持有状态时间过长的情况，长时间少程序运行期间的内存消耗。</p>
+<p>###注解方式实现</p>
+<pre><code>(1):先引入aop相关的jar文件
+spring-aop-3.2.5.RELEASE.jar【去spring3.2源码里面找】
+aopalliance.jar【去spring2.5源码/lib/aopalliance文件里面找】
+aspectjweaver.jar【去spring2.5源码/lib/aspectj文件里面找】或者【aspectj-1.8.2/lib/aspectjweaver.jar】
+aspectjrt.jar【去spring2.5源码/lib/aspectj文件里面找】或者【aspectj-1.8.2/lib/aspectjrt.jar】
+注意：用到的spring2.5版本的jar本舰，如果用jd1.7版本可能会出现问题，
+ 需要升级以下aspectj组件，即使用aspectj-1.8.2版本中提供的jar文件aspectjweaver.jar和aspectjrt.jar  
+ (2)bean.xml中引入aop名称空间
+</code></pre><p>　　 技巧：找到文件spring-framework-3.2.5.RELEASE/docs/spring-framework-reference/htmlsingle</p>
+<p>　　 打开index.html搜索xmlns:aop然后找到下面红色三句话，分别拷贝到bean.xml中</p>
+<p>###xml配置</p>
+<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+  &lt;/beans&gt;
+</code></pre><h3 id="开启扫描配置"><a href="#开启扫描配置" class="headerlink" title="开启扫描配置"></a>开启扫描配置</h3><pre><code>:bean.xml中开启aop注解扫描，如下配置所示：
+
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xsi:schemaLocation=&quot;
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+
+  &lt;!-- 开启注解扫描 --&gt;
+  &lt;context:component-scan base-package=&quot;com.bie.aop&quot;&gt;&lt;/context:component-scan&gt;   
+
+  &lt;!-- 开启aop注解方式,默认为false --&gt;    
+  &lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+
+ &lt;/beans&gt;
+</code></pre><p>###编写切面类：<br>此处的save ， delete啥的方法名称 自己定义<br><img src="https://i.imgur.com/J7SuNaE.png" alt=""></p>
+<p>在这里调用：<br><img src="https://i.imgur.com/hJRDeMh.png" alt=""></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2015/09/14/java aop切面/">【java-AOP】 aop注解类使用方法AspectJ</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
+        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月09日 - 11时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java aop切面/" title="【java-AOP】 aop注解类使用方法AspectJ">http://yoursite.com/2015/09/14/java aop切面/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java aop切面/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2015/09/14/java arraylist/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【java基础】java容器Arraylist详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/14/java jvm内存溢出/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【JVM内存】JVM内存溢出</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#aop注解类使用方法AspectJ"><span class="toc-number">1.</span> <span class="toc-text">aop注解类使用方法AspectJ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开启扫描配置"><span class="toc-number">1.0.1.</span> <span class="toc-text">开启扫描配置</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/09/14/java arraylist/" title="上一篇: 【java基础】java容器Arraylist详解">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2015/09/14/java jvm内存溢出/" title="下一篇: 【JVM内存】JVM内存溢出">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20187/01/28/http状态码/">http学习之状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础final/">java基础（final使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础static/">java基础（static使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/JDK 中的设计模式/">JDK 中的设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 虚拟机/">Java 虚拟机</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/Java 基础string/">java基础（String）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/通过github和hexo学习写个人博客/">通过github和hexo学习写个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/spring实战/">java  spring的世界</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/rebae与merge/">git rebase与merge的区别（推荐merge）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/git命令与使用/">git命令与使用（团队workfolw的分布使用）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/14/spring bean的加载流程/">【spring源码】 Bean的加载流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/14/spring bean生命周期/">【spring源码】 Bean的生命周期</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/14/spring jvm类加载机制/">【JVM】java虚拟机类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java linkedlist与ArrayList/">【java基础】java的linkedist与ArrayList对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java arraylist/">【java基础】java容器Arraylist详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java aop切面/">【java-AOP】 aop注解类使用方法AspectJ</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java jvm内存溢出/">【JVM内存】JVM内存溢出</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java jvm内存/">【JVM内存】JVM内存分布</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/09/14/java jvm参数使用/">【JVM内存】JVM参数使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/java基础 泛型/">【java基础】java的泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/java this和super/">【java基础】java this和super</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/java基础 自动装箱和拆箱/">【java基础】自动装箱和拆箱</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/15/java异常处理/">【java基础】异常原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/jquery 面向对象写法/">【jquery】面向对象写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/java基础string.stringbuffer,stringbuilder/">【java基础】string,stringbugger,stringbuilder</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/java基础 理解java/">【java基础】理解java</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/Java认识枚举类/">【java认识】枚举类的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/07/14/java基础反射/">【java】java反射方法与使用</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 GeekQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

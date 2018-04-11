@@ -138,7 +138,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Arraylist详解/" style="font-size: 10px;">Arraylist详解</a> <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/JVM内存分布/" style="font-size: 10px;">JVM内存分布</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java-this和super/" style="font-size: 10px;">java this和super</a> <a href="/tags/java反射/" style="font-size: 10px;">java反射</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/java异常原理/" style="font-size: 10px;">java异常原理</a> <a href="/tags/java的linkedist与ArrayList对比/" style="font-size: 10px;">java的linkedist与ArrayList对比</a> <a href="/tags/java的泛型/" style="font-size: 10px;">java的泛型</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/【java基础】string-stringbugger-stringbuilder/" style="font-size: 10px;">【java基础】string,stringbugger,stringbuilder</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a> <a href="/tags/理解java/" style="font-size: 10px;">理解java</a> <a href="/tags/自动装箱和拆箱/" style="font-size: 10px;">自动装箱和拆箱</a>
+                        <a href="/tags/Arraylist详解/" style="font-size: 10px;">Arraylist详解</a> <a href="/tags/Bean的生命周期/" style="font-size: 10px;">Bean的生命周期</a> <a href="/tags/GitHub-Hexo使用/" style="font-size: 10px;">GitHub+Hexo使用</a> <a href="/tags/JVM内存分布/" style="font-size: 10px;">JVM内存分布</a> <a href="/tags/JVM内存溢出/" style="font-size: 10px;">JVM内存溢出</a> <a href="/tags/JVM参数使用/" style="font-size: 10px;">JVM参数使用</a> <a href="/tags/aop注解类使用方法AspectJ/" style="font-size: 10px;">aop注解类使用方法AspectJ</a> <a href="/tags/git命令与使用/" style="font-size: 20px;">git命令与使用</a> <a href="/tags/hashmap的实现原理/" style="font-size: 10px;">hashmap的实现原理</a> <a href="/tags/java-spring/" style="font-size: 10px;">java . spring</a> <a href="/tags/java-this和super/" style="font-size: 10px;">java this和super</a> <a href="/tags/java反射/" style="font-size: 10px;">java反射</a> <a href="/tags/java基础（String）/" style="font-size: 10px;">java基础（String）</a> <a href="/tags/java基础（final使用）/" style="font-size: 10px;">java基础（final使用）</a> <a href="/tags/java基础（static使用）/" style="font-size: 10px;">java基础（static使用）</a> <a href="/tags/java异常原理/" style="font-size: 10px;">java异常原理</a> <a href="/tags/java的linkedist与ArrayList对比/" style="font-size: 10px;">java的linkedist与ArrayList对比</a> <a href="/tags/java的泛型/" style="font-size: 10px;">java的泛型</a> <a href="/tags/java虚拟机类加载机制/" style="font-size: 10px;">java虚拟机类加载机制</a> <a href="/tags/jquery面向对象写法/" style="font-size: 10px;">jquery面向对象写法</a> <a href="/tags/【java基础】string-stringbugger-stringbuilder/" style="font-size: 10px;">【java基础】string,stringbugger,stringbuilder</a> <a href="/tags/代码如何优雅/" style="font-size: 10px;">代码如何优雅</a> <a href="/tags/枚举类的使用/" style="font-size: 10px;">枚举类的使用</a> <a href="/tags/游览器-http/" style="font-size: 10px;">游览器. http</a> <a href="/tags/源码-Bean的加载流程/" style="font-size: 10px;">源码-Bean的加载流程</a> <a href="/tags/理解java/" style="font-size: 10px;">理解java</a> <a href="/tags/自动装箱和拆箱/" style="font-size: 10px;">自动装箱和拆箱</a>
                     </div>
                 </section>
                 
@@ -208,10 +208,431 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-java基础反射" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-代码可读性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/14/java基础反射/" class="article-date">
+      <a href="/2015/08/14/代码可读性/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/代码可读性/">【代码可读性】代码如何更加可读简洁</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="可读性的重要"><a href="#可读性的重要" class="headerlink" title="可读性的重要"></a>可读性的重要</h1><p>编程有很大一部分时间是在阅读代码，不仅要阅读自己的代码，而且要阅读别人的代码。因此，可读性良好的代码能够大大提高编程效率。<br>可读性良好的代码往往会让代码架构更好，因为程序员更愿意去修改这部分代码，而且也更容易修改。如何能够做到更加简洁与扩散，我虽然度过许多设计模式但是许许多多的真正工作是用不到的，如何保持整洁的代码！</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码如何优雅/">代码如何优雅</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/14/代码可读性/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础 泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/14/java基础 泛型/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/java基础 泛型/">【java基础】java的泛型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="java的泛型"><a href="#java的泛型" class="headerlink" title="java的泛型"></a>java的泛型</h1><p>泛型初探</p>
+<p>在泛型（Generic type或Generics）出现之前，是这么写代码的：</p>
+<pre><code>public static void main(String[] args)
+{
+List list = new ArrayList();
+list.add(&quot;123&quot;);
+list.add(&quot;456&quot;);
+
+System.out.println((String)list.get(0));
+}
+</code></pre>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的泛型/">java的泛型</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/14/java基础 泛型/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java this和super" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/14/java this和super/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/java this和super/">【java基础】java this和super</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="java的this和super调用"><a href="#java的this和super调用" class="headerlink" title="java的this和super调用"></a>java的this和super调用</h1><p>###1.this</p>
+<p>this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。</p>
+<p>this的用法在java中大体可以分为3种：</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-this和super/">java this和super</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/14/java this和super/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础 自动装箱和拆箱" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/14/java基础 自动装箱和拆箱/" class="article-date">
+      <time datetime="2015-08-14T08:42:20.000Z" itemprop="datePublished">2015-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/14/java基础 自动装箱和拆箱/">【java基础】自动装箱和拆箱</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="自动装箱和拆箱"><a href="#自动装箱和拆箱" class="headerlink" title="自动装箱和拆箱"></a>自动装箱和拆箱</h1><p>Java为每种基本数据类型都提供了对应的包装器类型。举个例子：</p>
+<pre><code>public class TestMain
+{
+public static void main(String[] args)
+{
+    Integer i = 10;
+}
+}
+</code></pre><p>这个过程中会自动根据数值创建对应的Integer对象，这就是自动装箱。再看另外一段代码：</p>
+<pre><code>public class TestMain
+{
+public static void main(String[] args)
+{
+    Integer integer = 10;
+    int i = integer;
+}
+}
+</code></pre><p>这个过程中会根据包装器类型自动将数据转换为基本类型，这就是自动拆箱。</p>
+<p>至于自动装箱和自动拆箱的原理也很简单。通过命令行程序，进入CLASSPATH（也就是bin目录下.class文件所在的路径），javap反编译查看一下生成的字节码：</p>
+<p>反编译出来的内容有很多，我们只关注重点部分：</p>
+<pre><code> 1   public static void main(java.lang.String[]);
+ 2     flags: ACC_PUBLIC, ACC_STATIC
+ 3     Code:
+ 4       stack=1, locals=3, args_size=1
+ 5          0: iconst_1
+ 6          1: invokestatic  #16                 // Method java/lang/Integer.valueO
+ 7 f:(I)Ljava/lang/Integer;
+ 8          4: astore_1
+ 9          5: aload_1
+10          6: invokevirtual #22                 // Method java/lang/Integer.intVal
+11 ue:()I
+12          9: istore_2
+13         10: return
+</code></pre><p>看到在自动装箱的时候，也就是第6行，Java虚拟机会自动调用Integer的valueOf方法；在自动拆箱的时候，也就是第10行，Java虚拟机会自动调用Integer的intValue方法。这就是自动拆箱和自动装箱的原理。</p>
+<p>小心空指针异常</p>
+<p>有这么一段代码：</p>
+<pre><code>public static void main(String[] args) throws Exception
+{
+Object obj = getObj(null);
+int i = (Integer)obj;
+}
+
+public static Object getObj(Object obj)
+{
+return obj;
+}
+</code></pre><p>如果运行的话：</p>
+<pre><code>Exception in thread &quot;main&quot; java.lang.NullPointerException
+at main.Test7.main(Test7.java:8)
+</code></pre><p>这种使用场景很常见，我们把一个int数值放在session或者request中，取出来的时候就是一个类似上面的场景了。所以，小心自动拆箱时候的空指针异常。</p>
+<p>看两段代码，第一段代码为：</p>
+<pre><code>public class TestMain
+{
+public static void main(String[] args)
+{
+    Integer i1 = 100;
+    Integer i2 = 100;
+    Integer i3 = 200;
+    Integer i4 = 200;
+
+    System.out.println(i1 == i2);
+    System.out.println(i3 == i4);
+}
+}
+运行结果为：
+
+true
+false
+</code></pre><p>第二段代码为：</p>
+<pre><code>public class TestMain
+{
+public static void main(String[] args)
+{
+    Double d1 = 100.0;
+    Double d2 = 100.0;
+    Double d3 = 200.0;
+    Double d4 = 200.0;
+
+    System.out.println(d1 == d2);
+    System.out.println(d3 == d4);
+}
+}
+
+运行结果为：
+
+false
+false
+</code></pre><p>产生这样的结果的原因是：Byte、Short、Integer、Long、Char这几个装箱类的valueOf()方法是以128位分界线做了缓存的，假如是128以下且-128以上的值是会取缓存里面的引用的，以Integer为例，其valueOf(int i)的源代码为：</p>
+<pre><code>public static Integer valueOf(int i) {
+final int offset = 128;
+if (i &gt;= -128 &amp;&amp; i &lt;= 127) { // must cache 
+    return IntegerCache.cache[i + offset];
+}
+    return new Integer(i);
+}
+</code></pre><p>而Float、Double则不会，原因也很简单，因为byte、Short、integer、long、char在某个范围内的整数个数是有限的，但是float、double这两个浮点数却不是</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动装箱和拆箱/">自动装箱和拆箱</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java异常处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/15/java异常处理/" class="article-date">
+      <time datetime="2015-07-15T08:42:20.000Z" itemprop="datePublished">2015-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/15/java异常处理/">【java基础】异常原理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="异常概述"><a href="#异常概述" class="headerlink" title="异常概述"></a>异常概述</h1><p>异常是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。</p>
+<p>比如说，你的代码少了一个分号，那么运行出来结果是提示是错误java.lang.Error；如果你用System.out.println(11/0)，那么你是因为你用0做了除数，会抛出java.lang.ArithmeticException的异常。</p>
+<p>异常发生的原因有很多，通常包含以下几大类：</p>
+<p>用户输入了非法数据。<br>要打开的文件不存在。<br>网络通信时连接中断，或者JVM内存溢出。<br>这些异常有的是因为用户错误引起，有的是程序错误引起的，还有其它一些是因为物理错误引起的。-<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java异常原理/">java异常原理</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/15/java异常处理/#more">小学生 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-jquery 面向对象写法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/jquery 面向对象写法/" class="article-date">
       <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
 </a>
     </div>
@@ -225,7 +646,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/14/java基础反射/">【java】java反射方法与使用</a>
+      <a class="article-title" href="/2015/07/14/jquery 面向对象写法/">【jquery】面向对象写法</a>
     </h1>
   
 
@@ -235,7 +656,84 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="java的反射方法"><a href="#java的反射方法" class="headerlink" title="java的反射方法"></a>java的反射方法</h1><p>Java反射描述的是，在运行状态中：  1、对于任意一个类，都能够知道这个类的所有属性和方法  2、对于任意一个类，都能够调用它的任意一个属性和方法  之所以强调属性、方法，是因为属性、方法是开发者对于一个类最关注的两个部分。实际上通过反射，不仅仅可以获知类的属性、方法，还可以获知类的父类、接口、包等信息  至于反射的原理，不难，Java类加载机制一文中讲到了，一个类在加载的时候，会在内存中生成一个代表这个.class文件的java.lang.Class对象，.classs文件里面就包含了描述这个类的信息的一切内容。至于.class文件，是由Java编译器（注意是Java编译器，指的不仅仅是Javac）编译而来的，是编译原理的领域；</p>
+        <h1 id="上代码-jquery对象写法"><a href="#上代码-jquery对象写法" class="headerlink" title="上代码 jquery对象写法"></a>上代码 jquery对象写法</h1><pre><code>    $(function() {
+    //可以初始化 属性值
+    var pi;
+    var Run = function (){
+       pi= &quot;3.1415&quot;;
+      //可以赋值属性
+    }
+    //new 出一个新的jquery的对象
+   $.run = new Run();
+   //定义一个按钮
+   Run.prototype.start = function (){
+    alert(&quot;测试成功！&quot;);
+   }
+    });
+&lt;body&gt;
+  &lt;button  onclick=&quot;$.run.start()&quot;&gt;Run&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>面向对象写法可以减少以及避免id或者name冲突的概率，而且写起来很方便好看！</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery面向对象写法/">jquery面向对象写法</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
+      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
           
       
       
@@ -247,12 +745,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java反射/">java反射</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2015/07/14/java基础反射/#more">小学生 >></a>
+          <a  href="/2015/07/14/java基础hashmap的使用/#more">小学生 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -412,69 +910,6 @@ s = s.concat(&quot;ef&quot;);
 
 
   
-    <article id="post-java基础hashmap的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/14/java基础hashmap的使用/" class="article-date">
-      <time datetime="2015-07-14T08:42:20.000Z" itemprop="datePublished">2015-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/14/java基础hashmap的使用/">【java基础】hashmap的实现原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="HashMap概述"><a href="#HashMap概述" class="headerlink" title="HashMap概述"></a>HashMap概述</h1><p>HashMap是基于哈希表的Map接口的非同步实现。此实现提供所有可选的映射操作，并允许使用null值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashmap的实现原理/">hashmap的实现原理</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/14/java基础hashmap的使用/#more">小学生 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Java认识枚举类" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -540,7 +975,7 @@ s = s.concat(&quot;ef&quot;);
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
