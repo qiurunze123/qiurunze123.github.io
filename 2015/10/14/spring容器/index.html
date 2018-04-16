@@ -3,25 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>团队workfolw的分布使用 | GeekQ</title>
+  <title>【spring】spring基础 初始化属性值 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
-<meta name="keywords" content="git命令与使用">
+  <meta name="description" content="###属性方法对比 Spring InitializingBean和BeanPostProcessor与init-method">
+<meta name="keywords" content="spring基础-初始化属性值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="团队workfolw的分布使用">
-<meta property="og:url" content="http://yoursite.com/2018/03/29/WORKFLOW/index.html">
+<meta property="og:title" content="【spring】spring基础 初始化属性值">
+<meta property="og:url" content="http://yoursite.com/2015/10/14/spring容器/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/main-branch.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/feature-branch.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/merge-no-ff.png">
-<meta property="og:image" content="http://legendtkl.com/img/uploads/2016/hotfix-branch.png">
-<meta property="og:updated_time" content="2017-07-18T00:58:23.164Z">
+<meta property="og:description" content="###属性方法对比 Spring InitializingBean和BeanPostProcessor与init-method">
+<meta property="og:image" content="https://i.imgur.com/Gt6WF8W.jpg">
+<meta property="og:updated_time" content="2018-04-16T01:21:02.988Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="团队workfolw的分布使用">
-<meta name="twitter:description" content="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章">
-<meta name="twitter:image" content="http://legendtkl.com/img/uploads/2016/git-model.png">
+<meta name="twitter:title" content="【spring】spring基础 初始化属性值">
+<meta name="twitter:description" content="###属性方法对比 Spring InitializingBean和BeanPostProcessor与init-method">
+<meta name="twitter:image" content="https://i.imgur.com/Gt6WF8W.jpg">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -211,11 +207,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-WORKFLOW" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-spring容器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/03/29/WORKFLOW/" class="article-date">
-      <time datetime="2018-03-29T01:34:08.155Z" itemprop="datePublished">2018-03-29</time>
+      <a href="/2015/10/14/spring容器/" class="article-date">
+      <time datetime="2015-10-14T08:42:20.000Z" itemprop="datePublished">2015-10-14</time>
 </a>
     </div>
   
@@ -228,7 +224,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      团队workfolw的分布使用
+      【spring】spring基础 初始化属性值
     </h1>
   
 
@@ -239,7 +235,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git命令与使用/">git命令与使用</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring基础-初始化属性值/">spring基础-初始化属性值</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -249,100 +245,67 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><a href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章" class="headerlink" title="1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章"></a>1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.<a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">地址</a>。引用此人文章</h3><a id="more"></a>
-<p><img src="http://legendtkl.com/img/uploads/2016/git-model.png" alt=""></p>
-<h3 id="从上图可以看到主要包含下面几个分支："><a href="#从上图可以看到主要包含下面几个分支：" class="headerlink" title="从上图可以看到主要包含下面几个分支："></a>从上图可以看到主要包含下面几个分支：</h3><pre><code>master: 主分支，主要用来版本发布。
-develop：日常开发分支，该分支正常保存了开发的最新代码。
-feature：具体的功能开发分支，只与 develop 分支交互。
-release：release 分支可以认为是 master 分支的未测试版。比如说某一期的功能全部开发完成，那么就将 develop 分支合并到 release 分支，
-测试没有问题并且到了发布日期就合并到 master 分支，进行发布。
-hotfix：线上 bug 修复分支。
-除此之后还可以有 fast-track 等分支。
-</code></pre><h3 id="主分支"><a href="#主分支" class="headerlink" title="主分支"></a>主分支</h3><pre><code>主分支包括 master 分支和 develop 分支。master 分支用来发布，
-HEAD 就是当前线上的运行代码。develop 分支就是我们的日常开发。
-使用这两个分支就具有了最简单的开发模式：develop 分支用来开发功能，
-开发完成并且测试没有问题则将 develop 分支的代码合并到 master 分支并发布。
-</code></pre><p><img src="http://legendtkl.com/img/uploads/2016/main-branch.png" alt=""></p>
-<p>这引入了几个问题：</p>
-<p>develop 分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。<br>线上代码出现 bug 如何进行 bug 修复。<br>带着这两个问题往下看。</p>
-<h3 id="辅助分支"><a href="#辅助分支" class="headerlink" title="辅助分支"></a>辅助分支</h3><ul>
-<li>feature 分支</li>
-<li>release 分支</li>
-<li>hotfix 分支</li>
-<li>通过这些分支，我们可以做到：团队成员之间并行开发，feature track 更加容易，开发和发布并行以及线上问题修复。</li>
-</ul>
-<h3 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h3><pre><code> feature 分支用来开发具体的功能，一般 fork 自 develop 分支，
- 最终可能会合并到 develop 分支。比如我们要在下一个版本增加功能1、功能2、功能3。
- 那么我们就可以起三个feature 分支：feature1，feature2，feature3。
-（feature 分支命名最好能够自解释，这并不是一种好的命名。）
- 随着我们开发，功能1和功能2都被完成了，而功能3因为某些原因完成不了，
- 那么最终 feature1 和 feature2 分支将被合并到 develop 分支，而 feature3 分支将被干掉。
-</code></pre><p><img src="http://legendtkl.com/img/uploads/2016/feature-branch.png" alt=""></p>
-<p>我们来看几个相关的命令。</p>
-<p>从 develop 分支建一个 feature 分支，并切换到 feature 分支</p>
-<pre><code>git checkout -b myfeature develop
-git checkout -b myfeature develop
+        <p>###属性方法对比</p>
+<p>Spring InitializingBean和BeanPostProcessor与init-method</p>
+<a id="more"></a>
+<p>###springbean的实例化过程如下：</p>
+<p>   <img src="https://i.imgur.com/Gt6WF8W.jpg" alt=""></p>
+<p>大概的bean初始化流程图就是这样，从接口的名字其实我们也可以发现点什么？？</p>
+<p>initialzingbean 的作用就是在bean初始化后执行定制化的操作。</p>
+<p>其实spring中的容器都有生命周期：</p>
+<p>Spring 允许在 Bean 在初始化完成后以及 Bean 销毁前执行特定的操作，常用的设定方式有以下三种：</p>
+<pre><code>1.通过实现 InitializingBean/DisposableBean 接口来定制初始化之后/销毁之前的操作方法；
 
-* 合并feature 分支到 develop
+2.通过 &lt;bean&gt; 元素的 init-method/destroy-method 属性指定初始化之后 /销毁之前调用的操作方法；
 
+3.在指定方法上加上@PostConstruct 或@PreDestroy注解来制定该方法是在初始化之后还是销毁之前调用。
+</code></pre><p>总结：</p>
+<p>spring为bean提供了两种初始化bean的方式，实现InitializingBean接口，实现afterPropertiesSet方法，或者在配置文件中通过init-method指定，两种方式可以同时使用<br>实现InitializingBean接口是直接调用afterPropertiesSet方法，比通过反射调用init-method指定的方法效率相对来说要高点。</p>
+<p>但是init-method方式消除了对spring的依赖<br>先调用afterPropertiesSet，再执行 init-method 方法，如果调用afterPropertiesSet方法时出错，则不调用init-method指定的方法。</p>
+<h3 id="3-BeanPostProcessor"><a href="#3-BeanPostProcessor" class="headerlink" title="3.BeanPostProcessor"></a>3.BeanPostProcessor</h3><pre><code>针对所有Spring上下文中所有的bean，可以在配置文档applicationContext.xml中配置一个BeanPostProcessor
 
-git checkout develop  
-git merge --no-ff myfeature
-git branch -d myfeature
-Deleted branch myfeature
-git push origin develop
-</code></pre><p>上面我们 merge 分支的时候使用了参数 –no-ff<br>ff 是fast-forward 的意思，–no-ff就是禁用fast-forward。<br>关于这两种模式的区别如下图。（可以使用 sourceTree 或者命令git log –graph查看。）</p>
-<p><img src="http://legendtkl.com/img/uploads/2016/merge-no-ff.png" alt=""></p>
-<p>看了上面的图，那么使用非fast-forward模式来 merge 的好处就不言而喻了：<br>我们知道哪些 commit 是某些 feature 相关的。<br>虽然 git merge 的时候会自动判断是否使用fast-farward模式，<br>但是有时候为了更明确，我们还是要加参数–no-ff或者–ff。</p>
-<h3 id="git-Release-分支"><a href="#git-Release-分支" class="headerlink" title="git Release 分支"></a>git Release 分支</h3><p>git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好，地址在参考[1]。我这里主要就是参考他的文章。</p>
-<ol>
-<li>总览<br>git 的分支整体预览图如下。<br>从上图可以看到主要包含下面几个分支：</li>
-</ol>
-<p>master: 主分支，主要用来版本发布。<br>develop：日常开发分支，该分支正常保存了开发的最新代码。<br>feature：具体的功能开发分支，只与 develop 分支交互。<br>release：release 分支可以认为是 master 分支的未测试版。比如说某一期的功能全部开发完成，那么就将 develop 分支合并到 release 分支，测试没有问题并且到了发布日期就合并到 master 分支，进行发布。<br>hotfix：线上 bug 修复分支。<br>除此之后还可以有 fast-track 等分支。</p>
-<ol>
-<li>主分支</li>
-</ol>
-<p>主分支包括 master 分支和 develop 分支。master 分支用来发布，HEAD 就是当前线上的运行代码。develop 分支就是我们的日常开发。使用这两个分支就具有了最简单的开发模式：develop 分支用来开发功能，开发完成并且测试没有问题则将 develop 分支的代码合并到 master 分支并发布。</p>
-<p>这引入了几个问题：</p>
-<p>develop 分支只有发布完了才能进行下一个版本开发，开发会比较缓慢。<br>线上代码出现 bug 如何进行 bug 修复。<br>带着这两个问题往下看。</p>
-<ol>
-<li>辅助分支</li>
-</ol>
-<p>主要介绍的辅助分支如下：</p>
-<p>feature 分支<br>release 分支<br>hotfix 分支<br>通过这些分支，我们可以做到：团队成员之间并行开发，feature track 更加容易，开发和发布并行以及线上问题修复。</p>
-<p>4.1 Feature 分支</p>
-<p>feature 分支用来开发具体的功能，一般 fork 自 develop 分支，最终可能会合并到 develop 分支。比如我们要在下一个版本增加功能1、功能2、功能3。那么我们就可以起三个feature 分支：feature1，feature2，feature3。（feature 分支命名最好能够自解释，这并不是一种好的命名。）随着我们开发，功能1和功能2都被完成了，而功能3因为某些原因完成不了，那么最终 feature1 和 feature2 分支将被合并到 develop 分支，而 feature3 分支将被干掉。</p>
-<p>我们来看几个相关的命令。</p>
-<p>从 develop 分支建一个 feature 分支，并切换到 feature 分支<br>    git checkout -b myfeature develop<br>    git checkout -b myfeature develop<br>    合并feature 分支到 develop<br>    git checkout develop<br>    git merge –no-ff myfeature<br>    git branch -d myfeature<br>    git push origin develop<br>    git checkout develop<br>    git merge –no-ff myfeature<br>    git branch -d myfeature<br>    git push origin develop<br>上面我们 merge 分支的时候使用了参数 –no-ff，ff 是fast-forward 的意思，–no-ff就是禁用fast-forward。关于这两种模式的区别如下图。（可以使用 sourceTree 或者命令git log –graph查看。）</p>
-<p>看了上面的图，那么使用非fast-forward模式来 merge 的好处就不言而喻了：我们知道哪些 commit 是某些 feature 相关的。虽然 git merge 的时候会自动判断是否使用fast-farward模式，但是有时候为了更明确，我们还是要加参数–no-ff或者–ff。</p>
-<p>4.2 Release 分支</p>
-<p>release 分支在我看来是 pre-master。release 分支从 develop 分支 fork 出来，最终会合并到 develop 分支和 master 分支。合并到 master 分支上就是可以发布的代码了。有人可能会问那为什么合并回 develop 分支呢？很简单，有了 release 分支，那么相关的代码修复就只会在 release 分支上改动了，最后必然要合并到 develop 分支。下面细说。</p>
-<p>我们最初所有的开发工作都在 develop 分支上，当我们这一期的功能开发完毕的时候，我们基于 develop 分支开一个新的 release 分支。这个时候我们就可以对 release 分支做统一的测试了，另外做一些发布准备工作：比如版本号之类的。</p>
-<p>如果测试工作或者发布准备工作和具体的开发工作由不同人来做，比如国内的 RD 和 QA，这个 RD 就可以继续基于 develop 分支继续开发了。再或者说公司对于发布有严格的时间控制，开发工作提前并且完美的完成了，这个时候我们就可以在 develop 分支上继续我们下一期的开发了。同时如果测试有问题的话，我们将直接在 release 分支上修改，然后将修改合并到 develop 分支上。</p>
-<p>待所有的测试和准备工作做完之后，我们就可以将 release 分支合并到 master 分支上，并进行发布了。</p>
-<p>一些相关命令如下。</p>
-<h3 id="新建-release-分支"><a href="#新建-release-分支" class="headerlink" title="新建 release 分支"></a>新建 release 分支</h3><pre><code> 新建 release 分支
+然后对所有的bean进行一个初始化之前和之后的代理。BeanPostProcessor接口中有两个方法： 
 
-git checkout -b release-1.2 develop
-git commit -a -m &quot;Bumped version number to 1.2&quot;
-</code></pre><h3 id="release-分支合并到-master-分支"><a href="#release-分支合并到-master-分支" class="headerlink" title="release 分支合并到 master 分支"></a>release 分支合并到 master 分支</h3><pre><code>git checkout master
-git merge --no-ff release-1.2
-git tag -a 1.2
-</code></pre><h3 id="release-分支合并到-develop-分支"><a href="#release-分支合并到-develop-分支" class="headerlink" title="release 分支合并到 develop 分支"></a>release 分支合并到 develop 分支</h3><pre><code>git checkout develop
-git merge --no-ff release-1.
-</code></pre><h3 id="最后，删除-release-分支"><a href="#最后，删除-release-分支" class="headerlink" title="最后，删除 release 分支"></a>最后，删除 release 分支</h3><pre><code>git branch -d release-1.2
-</code></pre><h2 id="Hotfix-分支"><a href="#Hotfix-分支" class="headerlink" title="Hotfix 分支"></a>Hotfix 分支</h2><p>顾名思义，hotfix 分支用来修复线上 bug。当线上代码出现 bug 时，我们基于 master 分支开一个 hotfix 分支，修复 bug 之后再将 hotfix 分支合并到 master 分支并进行发布，同时 develop 分支作为最新最全的代码分支，hotfix 分支也需要合并到 develop 分支上去。仔细想一想，其实 hotfix 分支和 release 分支功能类似。hotfix 的好处是不打断 develop 分支正常进行，同时对于现实代码的修复貌似也没有更好的方法了（总不能直接修改 master 代码吧:D）。</p>
-<p><img src="http://legendtkl.com/img/uploads/2016/hotfix-branch.png" alt=""></p>
-<h3 id="新建-hotfix-分支"><a href="#新建-hotfix-分支" class="headerlink" title="新建 hotfix 分支"></a>新建 hotfix 分支</h3><pre><code>git checkout -b hotfix-1.2.1 master
-git commit -a -m &quot;Bumped version number to 1.2.1&quot;
-</code></pre><h3 id="新建-Fix-bug"><a href="#新建-Fix-bug" class="headerlink" title="新建 Fix bug"></a>新建 Fix bug</h3><pre><code>git commit -m &quot;Fixed severe production problem&quot;
-</code></pre><h3 id="新建-buf-fix-之后，hotfix-合并到-master"><a href="#新建-buf-fix-之后，hotfix-合并到-master" class="headerlink" title="新建 buf fix 之后，hotfix 合并到 master"></a>新建 buf fix 之后，hotfix 合并到 master</h3><pre><code>git checkout master
-git merge --no-ff hotfix-1.2.1 
-git tag -a 1.2.1
-</code></pre><h3 id="新建-hotfix-合并到-develop-分支"><a href="#新建-hotfix-合并到-develop-分支" class="headerlink" title="新建 hotfix 合并到 develop 分支"></a>新建 hotfix 合并到 develop 分支</h3><pre><code>git checkout develop
-git merge --no-ff hotfix-1.2.1
-</code></pre><h3 id="删除-hotfix-分支"><a href="#删除-hotfix-分支" class="headerlink" title="删除 hotfix 分支"></a>删除 hotfix 分支</h3><pre><code>git branch -d hotfix-1.2.1
-</code></pre>
+ postProcessBeforeInitialization和postProcessAfterInitialization。 postProcessBeforeInitialization方法在bean初始化之前执行， postProcessAfterInitialization方法在bean初始化之后执行。
+</code></pre><h3 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h3><p>###1.initialzingbean</p>
+<pre><code>/**
+ * 测试 InitializingBean
+ * @author QRZ
+ *
+ */
+public class TestInitialzingbean implements InitializingBean {
+
+String name;
+
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+private static Logger log = LoggerFactory.getLogger(TestInitialzingbean.class);
+@Override
+public void afterPropertiesSet() throws Exception {
+    System.out.println(&quot;222222&quot;);
+    log.warn(&quot;测试InitializingBean！！ 我已经被初始化了&quot;);
+
+}
+</code></pre><h3 id="BeanPostProcessor"><a href="#BeanPostProcessor" class="headerlink" title="BeanPostProcessor"></a>BeanPostProcessor</h3><pre><code>public class TestBeanPostProcessor implements BeanPostProcessor {
+
+@Override
+public Object postProcessAfterInitialization(Object arg0, String arg1)
+        throws BeansException {
+    System.out.println(&quot;实例化完成后！&quot;);
+    return null;
+}
+
+@Override
+public Object postProcessBeforeInitialization(Object arg0, String arg1)
+        throws BeansException {
+    System.out.println(&quot;实例化之前！&quot;);
+    return null;
+}
+</code></pre><h3 id="总之，afterPropertiesSet-和init-method之间的执行顺序是afterPropertiesSet-先执行，init-method-后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。"><a href="#总之，afterPropertiesSet-和init-method之间的执行顺序是afterPropertiesSet-先执行，init-method-后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。" class="headerlink" title="总之，afterPropertiesSet 和init-method之间的执行顺序是afterPropertiesSet 先执行，init-method 后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。"></a>总之，afterPropertiesSet 和init-method之间的执行顺序是afterPropertiesSet 先执行，init-method 后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。</h3>
       
       
     </div>
@@ -351,13 +314,13 @@ git merge --no-ff hotfix-1.2.1
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/29/WORKFLOW/">团队workfolw的分布使用</a></p>
+        <p><span>本文标题:</span><a href="/2015/10/14/spring容器/">【spring】spring基础 初始化属性值</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2018年03月29日 - 09时34分</p>
-        <p><span>最后更新:</span>2017年07月18日 - 08时58分</p>
+        <p><span>发布时间:</span>2015年10月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月16日 - 09时21分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/29/WORKFLOW/" title="团队workfolw的分布使用">http://yoursite.com/2018/03/29/WORKFLOW/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/03/29/WORKFLOW/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/14/spring容器/" title="【spring】spring基础 初始化属性值">http://yoursite.com/2015/10/14/spring容器/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/10/14/spring容器/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -370,18 +333,18 @@ git merge --no-ff hotfix-1.2.1
 
 <nav id="article-nav">
   
-    <a href="/2018/03/29/git命令与使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/14/spring bean生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          git命令与使用（团队workfolw的分布使用）
+          【spring源码】 Bean的生命周期
         
       </div>
     </a>
   
   
-    <a href="/2018/01/28/http状态码/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">http学习之状态码</div>
+    <a href="/2015/10/14/java基础转发与重定向/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【java基础】java转发和重定向的区别</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -392,7 +355,7 @@ git merge --no-ff hotfix-1.2.1
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-git-和-svn-的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于-git-的分支管理，Vincent-Driessen-有一篇文章说的非常好-地址。引用此人文章"><span class="toc-number">1.</span> <span class="toc-text">1.git 和 svn 的一个显著区别就是提供更丰富的分支特性，我们今天就要说一下如何管理这些分支。关于 git 的分支管理，Vincent Driessen 有一篇文章说的非常好.地址。引用此人文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从上图可以看到主要包含下面几个分支："><span class="toc-number">2.</span> <span class="toc-text">从上图可以看到主要包含下面几个分支：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主分支"><span class="toc-number">3.</span> <span class="toc-text">主分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助分支"><span class="toc-number">4.</span> <span class="toc-text">辅助分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature-分支"><span class="toc-number">5.</span> <span class="toc-text">Feature 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-Release-分支"><span class="toc-number">6.</span> <span class="toc-text">git Release 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-release-分支"><span class="toc-number">7.</span> <span class="toc-text">新建 release 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release-分支合并到-master-分支"><span class="toc-number">8.</span> <span class="toc-text">release 分支合并到 master 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release-分支合并到-develop-分支"><span class="toc-number">9.</span> <span class="toc-text">release 分支合并到 develop 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后，删除-release-分支"><span class="toc-number">10.</span> <span class="toc-text">最后，删除 release 分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hotfix-分支"><span class="toc-number"></span> <span class="toc-text">Hotfix 分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-hotfix-分支"><span class="toc-number">1.</span> <span class="toc-text">新建 hotfix 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-Fix-bug"><span class="toc-number">2.</span> <span class="toc-text">新建 Fix bug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-buf-fix-之后，hotfix-合并到-master"><span class="toc-number">3.</span> <span class="toc-text">新建 buf fix 之后，hotfix 合并到 master</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建-hotfix-合并到-develop-分支"><span class="toc-number">4.</span> <span class="toc-text">新建 hotfix 合并到 develop 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除-hotfix-分支"><span class="toc-number">5.</span> <span class="toc-text">删除 hotfix 分支</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-BeanPostProcessor"><span class="toc-number">1.</span> <span class="toc-text">3.BeanPostProcessor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上代码"><span class="toc-number">2.</span> <span class="toc-text">上代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanPostProcessor"><span class="toc-number">3.</span> <span class="toc-text">BeanPostProcessor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总之，afterPropertiesSet-和init-method之间的执行顺序是afterPropertiesSet-先执行，init-method-后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。"><span class="toc-number">4.</span> <span class="toc-text">总之，afterPropertiesSet 和init-method之间的执行顺序是afterPropertiesSet 先执行，init-method 后执行。从BeanPostProcessor的作用，可以看出最先执行的是postProcessBeforeInitialization，然后是afterPropertiesSet，然后是init-method，然后是postProcessAfterInitialization。</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -431,13 +394,13 @@ git merge --no-ff hotfix-1.2.1
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/03/29/git命令与使用/" title="上一篇: git命令与使用（团队workfolw的分布使用）">
+            <a href="/2015/10/14/spring bean生命周期/" title="上一篇: 【spring源码】 Bean的生命周期">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2018/01/28/http状态码/" title="下一篇: http学习之状态码">
+            <a href="/2015/10/14/java基础转发与重定向/" title="下一篇: 【java基础】java转发和重定向的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         
