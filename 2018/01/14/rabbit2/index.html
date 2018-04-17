@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【JVM内存】JVM内存溢出 | GeekQ</title>
+  <title>【rabbitmq】rabbitmq之事务与确认机制 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JVM内存溢出###堆溢出 Java堆唯一的作用就是存储对象实例，只要保证不断创建对象并且对象不被回收，那么对象数量达到最大堆容量限制后就会产生内存溢出异常了。所以测试的时候把堆的大小固定住并且让堆不可扩展即可。测试代码如下">
-<meta name="keywords" content="JVM内存溢出">
+  <meta name="description" content="基础概念rabbitmq的事务机制是为了什么产生的？ ① 发送的消息到底是否正确的到达了代理服务器 ②如果在到达代理服务器之前就出现了问题那么持久化也就无法弥补损失 我们如何处理？？">
+<meta name="keywords" content="搞一波rabbitmq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【JVM内存】JVM内存溢出">
-<meta property="og:url" content="http://yoursite.com/2015/09/14/java jvm内存溢出/index.html">
+<meta property="og:title" content="【rabbitmq】rabbitmq之事务与确认机制">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/rabbit2/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="JVM内存溢出###堆溢出 Java堆唯一的作用就是存储对象实例，只要保证不断创建对象并且对象不被回收，那么对象数量达到最大堆容量限制后就会产生内存溢出异常了。所以测试的时候把堆的大小固定住并且让堆不可扩展即可。测试代码如下">
-<meta property="og:updated_time" content="2018-04-08T10:24:24.036Z">
+<meta property="og:description" content="基础概念rabbitmq的事务机制是为了什么产生的？ ① 发送的消息到底是否正确的到达了代理服务器 ②如果在到达代理服务器之前就出现了问题那么持久化也就无法弥补损失 我们如何处理？？">
+<meta property="og:updated_time" content="2018-04-17T01:59:18.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【JVM内存】JVM内存溢出">
-<meta name="twitter:description" content="JVM内存溢出###堆溢出 Java堆唯一的作用就是存储对象实例，只要保证不断创建对象并且对象不被回收，那么对象数量达到最大堆容量限制后就会产生内存溢出异常了。所以测试的时候把堆的大小固定住并且让堆不可扩展即可。测试代码如下">
+<meta name="twitter:title" content="【rabbitmq】rabbitmq之事务与确认机制">
+<meta name="twitter:description" content="基础概念rabbitmq的事务机制是为了什么产生的？ ① 发送的消息到底是否正确的到达了代理服务器 ②如果在到达代理服务器之前就出现了问题那么持久化也就无法弥补损失 我们如何处理？？">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java jvm内存溢出" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-rabbit2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/14/java jvm内存溢出/" class="article-date">
-      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
+      <a href="/2018/01/14/rabbit2/" class="article-date">
+      <time datetime="2018-01-14T08:42:20.000Z" itemprop="datePublished">2018-01-14</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【JVM内存】JVM内存溢出
+      【rabbitmq】rabbitmq之事务与确认机制
     </h1>
   
 
@@ -233,7 +233,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM内存溢出/">JVM内存溢出</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搞一波rabbitmq/">搞一波rabbitmq</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,79 +243,61 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="JVM内存溢出"><a href="#JVM内存溢出" class="headerlink" title="JVM内存溢出"></a>JVM内存溢出</h1><p>###堆溢出</p>
-<p>Java堆唯一的作用就是存储对象实例，只要保证不断创建对象并且对象不被回收，那么对象数量达到最大堆容量限制后就会产生内存溢出异常了。所以测试的时候把堆的大小固定住并且让堆不可扩展即可。测试代码如下</p>
+        <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>rabbitmq的事务机制是为了什么产生的？</p>
+<p>① 发送的消息到底是否正确的到达了代理服务器</p>
+<p>②如果在到达代理服务器之前就出现了问题那么持久化也就无法弥补损失</p>
+<p>我们如何处理？？</p>
 <a id="more"></a>
-<pre><code>public class HeapOverflowTest
-{
-public static void main(String[] args)
-{
-    List&lt;HeapOverflowTest&gt; list = new ArrayList&lt;HeapOverflowTest&gt;();
-    while (true)
-    {
-        list.add(new HeapOverflowTest());
+<h3 id="rabbitmq的事务机制"><a href="#rabbitmq的事务机制" class="headerlink" title="rabbitmq的事务机制"></a>rabbitmq的事务机制</h3><p>与rabbitmq相关的事务处理方法有三个：</p>
+<pre><code>① amqp channel.txselect  作用 ： 开启事务
+
+② channel.txcommit 作用 ：提交事务
+
+③ channel.rollback 作用： 回滚事务
+</code></pre><p>通过txselect开始事务后，便可以交换机发送消息，如果txcommit提交成功则消息一定可以到达broker ， 如果在txcommit执行之前崩溃或者其他原因抛出异常，我们便可以捕捉异常回滚！</p>
+<p>完整代码：</p>
+<pre><code>try {
+channel.txSelect();
+channel.basicPublish(exchange, routingKey, MessageProperties.PERSISTENT_TEXT_PLAIN, msg.getBytes());
+int result = 1 / 0;
+channel.txCommit();
+} catch (Exception e) {
+e.printStackTrace();
+channel.txRollback();
+}
+</code></pre><p>步骤：</p>
+<pre><code>可以看到带事务的多了四个步骤：
+client发送Tx.Select
+broker发送Tx.Select-Ok(之后publish)
+client发送Tx.Commit
+broker发送Tx.Commit-Ok
+</code></pre><p>如果发生异常事务就会滚，解决了在未到达交换机之前就出现错误，只有消息被成功接收事务才能提交成功否则我们便可以在捕捉异常后进行回滚重发，但是使用事务机制的话会降低rabbit的性能所有mq提供了一个更好的方案！</p>
+<h3 id="confirm机制"><a href="#confirm机制" class="headerlink" title="confirm机制"></a>confirm机制</h3><p>生产者将信息通道设置成confirm 的模式，该信息在上面发布的消息都会被指派一个唯一的ID，一旦消息被投递到所有匹配的队列之后，broker就会发送一个确认给生产者(包含消息的唯一id） 这就使得生产者已经正确的到了目的地，如果消息和队列是可持久化的，那么确认消息会将消息写入磁盘之后发出，broker回传给生产者的确认消息中deliver-tag域包含了确认消息的序列号，此外broker也可以设置basic.ack的multiple域，表示到这个序列号之前的所有消息都已经得到了处理。</p>
+<p>最大的好处就是异步：</p>
+<p> 如果RabbitMQ因为自身内部错误导致消息丢失，就会发送一条nack消息，生产者应用程序同样可以在回调方法中处理该nack消息。</p>
+<pre><code>try {
+        channel = this.createChannel();
+
+        channel.confirmSelect();
+        String messageId = this.sendMessage(routingKey,messageBody,channel);
+        channel.waitForConfirmsOrDie();
+        RabbitLOG.log(this.businessType.getRabbitKey(), messageId, true, messageBody);
+    } catch (InterruptedException e) {
+        RabbitLOG.log(this.businessType.getRabbitKey(), &quot;&quot;, false, messageBody);
+        throw new MQException(&quot;发送后,等待确认消息时报错&quot;, e);
+    } catch (IOException e) {
+        throw new MQException(&quot;发送前，设置confirm监听器时出错&quot;, e);
+    } finally {
+        try {
+            channel.close();
+        } catch (IOException e) {
+            LOGGER.error(&quot;关闭channel时出现错误&quot;, e);
+        }
     }
-}
-}
-
-java.lang.OutOfMemoryError: Java heap space
-Dumping heap to java_pid8876.hprof ...
-Heap dump file created [15782068 bytes in 0.217 secs]
-Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space
-at java.util.Arrays.copyOf(Arrays.java:2760)
-at java.util.Arrays.copyOf(Arrays.java:2734)
-at java.util.ArrayList.ensureCapacity(ArrayList.java:167)
-at java.util.ArrayList.add(ArrayList.java:351)
-at com.xrq.test.HeapOverflowTest.main(HeapOverflowTest.java:18)
-</code></pre><p>这种异常很常见，也很好发现，因为都提示了“Java heap space”了，定位问题的话，根据异常堆栈分析就好了，行号都有指示。解决方案的话，可以调大堆的大小或者从代码上检视是否存在某些对象生命周期过长、持有状态时间过长的情况，长时间少程序运行期间的内存消耗。</p>
-<p>###栈溢出</p>
-<pre><code>/**
- * 测试内容：栈溢出测试（递归调用导致栈深度不断增加）
- * 
- * 虚拟机参数：-Xss128k
- */
-public class StackOverflowTest
-{
-private int stackLength = 1;
-
-public void stackLeak()
-{
-    stackLength++;
-    stackLeak();
-}
-
-public static void main(String[] args) throws Throwable
-{
-    StackOverflowTest stackOverflow = new StackOverflowTest();
-    try
-    {
-        stackOverflow.stackLeak();
-    }
-    catch (Throwable e)
-    {
-        System.out.println(&quot;stack length:&quot; + stackOverflow.stackLength);
-        throw e;
-    }        
-}
-}
-
-stack length:1006
-Exception in thread &quot;main&quot; java.lang.StackOverflowError
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:14)
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
-at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
-</code></pre><p>　　后面都是一样的，忽略。通过不断创建线程的方式可以产生OutOfMemoryError，因为每个线程都有自己的栈空间。不过这个操作有危险就不做了，原因是Windows平台下，Java的线程是直接映射到操作系统的内核线程上的，如果写个死循环无限产生线程，那么可能会造成操作系统的假死。</p>
-<p>上面无限产生线程的场景，从另外一个角度说，就是为每个线程的栈分配的内存空间越大，反而越容易产生内存溢出。其实这也很好理解，操作系统分配给进程的内存是有限制的，比如32位的Windows限制为2GB。虚拟机提供了了参数来控制Java堆和方法区这两部分内存的最大值，剩余内存为2GB-最大堆容量-最大方法区容量，程序计数器很小就忽略了，虚拟机进程本身的耗费也不算，剩下的内存就是栈的了。每个线程分配到的栈容量越大，可建立的线程数自然就越少，建立线程时就越容易把剩下的内存耗尽。</p>
-<p>StackOverFlowError这个异常，有错误堆栈可以阅读，比较好定位。而且如果使用虚拟机默认参数，栈深度在大多数情况下，达到1000~2000完全没有问题，正常方法的调用这个深度应该是完全够了。但是如果建立过多线程导致的OutOfMemoryError，在不能减少线程数或者更换64位虚拟机的情况下，就只能通过减小最大堆容量和减小栈容量来换取更多的线程了。</p>
-<p>###方法区和运行时常量池溢出</p>
-<p>运行时常量池也是方法区的一部分，所以这两个区域一起看就可以了。这个区域的OutOfMemoryError可以利用String.intern()方法来产生。这是一个Native方法，意思是如果常量池中有一个String对象的字符串就返回池中的这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中去，并且返回此String对象的引用。测试代码如下</p>
-<p>常量池溢出，因为JDK1.7之后溢出了永久代并采用Native Memory来实现方法区的规划了。</p>
-<pre><code>参数-XX:PermSize=1M -XX:MaxPermSize=1M，
-实体报错。java.lang.OutOfMemoryError: Java heap space
-</code></pre><p>JDK1.7以及之后的版本常量池移到了堆中，JDK1.8彻底废除了持久代</p>
+</code></pre><p>消费者还有一个确认机制：</p>
+<p>消费者在声明队列时，可以指定noAck参数，当noAck=false时，RabbitMQ会等待消费者显式发回ack信号后才从内存(和磁盘，如果是持久化消息的话)中移去消息。否则，RabbitMQ会在队列中消息被消费后立即删除它。</p>
+<p>如果noack=false 的话那么，队列中的消息分成了两部分：一部分是等待投递给消费者的消息；一部分是已经投递给消费者，但是还没有收到消费者ack信号的消息。如果服务器端一直没有收到消费者的ack信号，并且消费此消息的消费者已经断开连接，则服务器端会安排该消息重新进入队列，等待投递给下一个消费者（也可能还是原来的那个消费者）</p>
+<p>有些时候我们应该把它设置为true 这样就不会报错后一直等待然后打印日志导致内存饱满，可以写一个邮件提醒挥着直接记录日志然后找到错误的原因！</p>
 
       
       
@@ -325,13 +307,13 @@ at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/09/14/java jvm内存溢出/">【JVM内存】JVM内存溢出</a></p>
+        <p><span>本文标题:</span><a href="/2018/01/14/rabbit2/">【rabbitmq】rabbitmq之事务与确认机制</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2018年04月08日 - 18时24分</p>
+        <p><span>发布时间:</span>2018年01月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月17日 - 09时59分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java jvm内存溢出/" title="【JVM内存】JVM内存溢出">http://yoursite.com/2015/09/14/java jvm内存溢出/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java jvm内存溢出/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/01/14/rabbit2/" title="【rabbitmq】rabbitmq之事务与确认机制">http://yoursite.com/2018/01/14/rabbit2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/01/14/rabbit2/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -344,18 +326,18 @@ at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
 
 <nav id="article-nav">
   
-    <a href="/2015/09/14/java arraylist/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/14/rabbit1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          【java基础】java容器Arraylist详解
+          【rabbitmq】rabbitmq之路由讲解
         
       </div>
     </a>
   
   
-    <a href="/2015/09/14/java linkedlist与ArrayList/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【java基础】java的linkedist与ArrayList对比</div>
+    <a href="/2015/10/14/spring容器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【spring】spring基础 初始化属性值</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -366,7 +348,7 @@ at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM内存溢出"><span class="toc-number">1.</span> <span class="toc-text">JVM内存溢出</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础概念"><span class="toc-number">1.</span> <span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rabbitmq的事务机制"><span class="toc-number">1.0.1.</span> <span class="toc-text">rabbitmq的事务机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#confirm机制"><span class="toc-number">1.0.2.</span> <span class="toc-text">confirm机制</span></a></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -405,13 +387,13 @@ at com.xrq.test.StackOverflowTest.stackLeak(StackOverflowTest.java:15)
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/09/14/java arraylist/" title="上一篇: 【java基础】java容器Arraylist详解">
+            <a href="/2018/01/14/rabbit1/" title="上一篇: 【rabbitmq】rabbitmq之路由讲解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/09/14/java linkedlist与ArrayList/" title="下一篇: 【java基础】java的linkedist与ArrayList对比">
+            <a href="/2015/10/14/spring容器/" title="下一篇: 【spring】spring基础 初始化属性值">
                 <i class="fa fa-angle-right"></i>
             </a>
         
