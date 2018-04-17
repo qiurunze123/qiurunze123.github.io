@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>【java基础】java的linkedist与ArrayList对比 | GeekQ</title>
+  <title>maven jar 冲突解决 | GeekQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
-<meta name="keywords" content="java的linkedist与ArrayList对比">
+  <meta name="description" content="冲突原因A依赖于B及C，而B又依赖于X、Y，而C依赖于X、M，则A除引B及C的依赖包下，还会引入X，Y，M的依赖包（一般情况下了，Maven可通过等若干种方式控制传递依赖）。这里有一个需要特别注意的，即B和C同时依赖于X，假设B依赖于X的1.0版本，而C依赖于X的2.0版本，A究竟依赖于X的1.0还是2.0版本呢？这就看Classloader的加载顺序了，假设Classloader先加载X_1.0">
+<meta name="keywords" content="maven">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【java基础】java的linkedist与ArrayList对比">
-<meta property="og:url" content="http://yoursite.com/2015/09/14/java linkedlist与ArrayList/index.html">
+<meta property="og:title" content="maven jar 冲突解决">
+<meta property="og:url" content="http://yoursite.com/2015/10/14/maven1/index.html">
 <meta property="og:site_name" content="GeekQ">
-<meta property="og:description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
-<meta property="og:updated_time" content="2018-04-08T01:38:00.312Z">
+<meta property="og:description" content="冲突原因A依赖于B及C，而B又依赖于X、Y，而C依赖于X、M，则A除引B及C的依赖包下，还会引入X，Y，M的依赖包（一般情况下了，Maven可通过等若干种方式控制传递依赖）。这里有一个需要特别注意的，即B和C同时依赖于X，假设B依赖于X的1.0版本，而C依赖于X的2.0版本，A究竟依赖于X的1.0还是2.0版本呢？这就看Classloader的加载顺序了，假设Classloader先加载X_1.0">
+<meta property="og:updated_time" content="2018-04-17T03:15:43.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【java基础】java的linkedist与ArrayList对比">
-<meta name="twitter:description" content="java的linkedist与ArrayList对比LinkedList和ArrayList的对比 老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。">
+<meta name="twitter:title" content="maven jar 冲突解决">
+<meta name="twitter:description" content="冲突原因A依赖于B及C，而B又依赖于X、Y，而C依赖于X、M，则A除引B及C的依赖包下，还会引入X，Y，M的依赖包（一般情况下了，Maven可通过等若干种方式控制传递依赖）。这里有一个需要特别注意的，即B和C同时依赖于X，假设B依赖于X的1.0版本，而C依赖于X的2.0版本，A究竟依赖于X的1.0还是2.0版本呢？这就看Classloader的加载顺序了，假设Classloader先加载X_1.0">
   
     <link rel="alternative" href="/atom.xml" title="GeekQ" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-java linkedlist与ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-maven1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/14/java linkedlist与ArrayList/" class="article-date">
-      <time datetime="2015-09-14T08:42:20.000Z" itemprop="datePublished">2015-09-14</time>
+      <a href="/2015/10/14/maven1/" class="article-date">
+      <time datetime="2015-10-14T08:42:20.000Z" itemprop="datePublished">2015-10-14</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      【java基础】java的linkedist与ArrayList对比
+      maven jar 冲突解决
     </h1>
   
 
@@ -233,7 +233,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java的linkedist与ArrayList对比/">java的linkedist与ArrayList对比</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -243,17 +243,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="java的linkedist与ArrayList对比"><a href="#java的linkedist与ArrayList对比" class="headerlink" title="java的linkedist与ArrayList对比"></a>java的linkedist与ArrayList对比</h1><p>LinkedList和ArrayList的对比</p>
-<p>老生常谈的问题了，这里我尝试以自己的理解尽量说清楚这个问题，顺便在这里就把LinkedList的优缺点也给讲了。</p>
+        <h3 id="冲突原因"><a href="#冲突原因" class="headerlink" title="冲突原因"></a>冲突原因</h3><p>A依赖于B及C，而B又依赖于X、Y，而C依赖于X、M，则A除引B及C的依赖包下，还会引入X，Y，M的依赖包（一般情况下了，Maven可通过<scope>等若干种方式控制传递依赖）。<br>这里有一个需要特别注意的，即B和C同时依赖于X，假设B依赖于X的1.0版本，而C依赖于X的2.0版本，A究竟依赖于X的1.0还是2.0版本呢？<br>这就看Classloader的加载顺序了，假设Classloader先加载X_1.0，而它就不会再加载X_2.0了，如果A恰恰希望使用X_2.0呢，血案就这样不期而遇了。</scope></p>
 <a id="more"></a>
-<p>1、顺序插入速度ArrayList会比较快，因为ArrayList是基于数组实现的，数组是事先new好的，只要往指定位置塞一个数据就好了；LinkedList则不同，每次顺序插入的时候LinkedList将new一个对象出来，如果对象比较大，那么new的时间势必会长一点，再加上一些引用赋值的操作，所以顺序插入LinkedList必然慢于ArrayList</p>
-<p>2、基于上一点，因为LinkedList里面不仅维护了待插入的元素，还维护了Entry的前置Entry和后继Entry，如果一个LinkedList中的Entry非常多，那么LinkedList将比ArrayList更耗费一些内存</p>
-<p>3、数据遍历的速度，看最后一部分，这里就不细讲了，结论是：使用各自遍历效率最高的方式，ArrayList的遍历效率会比LinkedList的遍历效率高一些</p>
-<p>4、有些说法认为LinkedList做插入和删除更快，这种说法其实是不准确的：</p>
-<p>（1）LinkedList做插入、删除的时候，慢在寻址，快在只需要改变前后Entry的引用地址</p>
-<p>（2）ArrayList做插入、删除的时候，慢在数组元素的批量copy，快在寻址</p>
-<p>所以，如果待插入、删除的元素是在数据结构的前半段尤其是非常靠前的位置的时候，LinkedList的效率将大大快过ArrayList，因为ArrayList将批量copy大量的元素；越往后，对于LinkedList来说，因为它是双向链表，所以在第2个元素后面插入一个数据和在倒数第2个元素后面插入一个元素在效率上基本没有差别，但是ArrayList由于要批量copy的元素越来越少，操作速度必然追上乃至超过LinkedList。</p>
-<p>从这个分析看出，如果你十分确定你插入、删除的元素是在前半段，那么就使用LinkedList；如果你十分确定你删除、删除的元素在比较靠后的位置，那么可以考虑使用ArrayList。如果你不能确定你要做的插入、删除是在哪儿呢？那还是建议你使用LinkedList吧，因为一来LinkedList整体插入、删除的执行效率比较稳定，没有ArrayList这种越往后越快的情况；二来插入元素的时候，弄得不好ArrayList就要进行一次扩容，记住，ArrayList底层数组扩容是一个既消耗时间又消耗空间的操作</p>
+<p>###三个方法找出问题：</p>
+<ol>
+<li>mvn dependency:tree -Dverbose -Dincludes=asm:asm<br>[INFO] — maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test —<br>[INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT<br>[INFO] +- asm:asm:jar:3.2:compile<br>[INFO] - org.unitils:unitils-dbmaintainer:jar:3.3:compile<br>[INFO]    - org.hibernate:hibernate:jar:3.2.5.ga:compile<br>[INFO]       +- cglib:cglib:jar:2.1_3:compile<br>[INFO]       |  - (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)<br>[INFO]       - (asm:asm:jar:1.5.3:compile - omitted for conflict with 3.2)<br>[INFO] ————————————————————————</li>
+</ol>
+<p>对asm有依赖有一个直接的依赖(asm:asm:jar:3.2)还有一个传递进入的依赖(asm:asm:jar:1.5.3)</p>
+<p>2.将不想要的传递依赖剪除掉</p>
+<p>承上，假设我们不希望asm:asm:jar:1.5.3出现，根据分析，我们知道它是经由org.unitils:unitils-dbmaintainer:jar:3.3引入的，那么在pom.xml中找到这个依赖，做其它的调整：</p>
+<pre><code>&lt;dependency&gt;  
+    &lt;groupId&gt;org.unitils&lt;/groupId&gt;  
+    &lt;artifactId&gt;unitils-dbmaintainer&lt;/artifactId&gt;  
+    &lt;version&gt;${unitils.version}&lt;/version&gt;  
+    &lt;exclusions&gt;  
+        &lt;exclusion&gt;  
+            &lt;artifactId&gt;dbunit&lt;/artifactId&gt;  
+            &lt;groupId&gt;org.dbunit&lt;/groupId&gt;  
+        &lt;/exclusion&gt;  
+        &lt;!-- 这个就是我们要加的片断 --&gt;  
+        &lt;exclusion&gt;  
+            &lt;artifactId&gt;asm&lt;/artifactId&gt;  
+            &lt;groupId&gt;asm&lt;/groupId&gt;  
+        &lt;/exclusion&gt;  
+    &lt;/exclusions&gt;  
+&lt;/dependency&gt;  
+</code></pre><p>再分析一下，你可以看到传递依赖没有了：</p>
+<pre><code>[INFO]  
+[INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ ridge-test ---  
+[INFO] com.ridge:ridge-test:jar:1.0.2-SNAPSHOT  
+[INFO] \- asm:asm:jar:3.2:compile  
+[INFO] ------------------------------------------------------------------------  
+[INFO] BUILD SUCCESS
+</code></pre><p>3.要是还不好使就 清一下缓存哈哈</p>
 
       
       
@@ -263,13 +285,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/09/14/java linkedlist与ArrayList/">【java基础】java的linkedist与ArrayList对比</a></p>
+        <p><span>本文标题:</span><a href="/2015/10/14/maven1/">maven jar 冲突解决</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 GeekQ 的个人博客">GeekQ</a></p>
-        <p><span>发布时间:</span>2015年09月14日 - 16时42分</p>
-        <p><span>最后更新:</span>2018年04月08日 - 09时38分</p>
+        <p><span>发布时间:</span>2015年10月14日 - 16时42分</p>
+        <p><span>最后更新:</span>2018年04月17日 - 11时15分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/09/14/java linkedlist与ArrayList/" title="【java基础】java的linkedist与ArrayList对比">http://yoursite.com/2015/09/14/java linkedlist与ArrayList/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/09/14/java linkedlist与ArrayList/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/14/maven1/" title="maven jar 冲突解决">http://yoursite.com/2015/10/14/maven1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/10/14/maven1/　　作者: GeekQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -282,18 +304,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/10/14/spring bean的加载流程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/14/java基础转发与重定向/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          【spring源码】 Bean的加载流程
+          【java基础】java转发和重定向的区别
         
       </div>
     </a>
   
   
-    <a href="/2015/09/14/java jvm内存/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【JVM内存】JVM内存分布</div>
+    <a href="/2015/10/14/spring jvm类加载机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【JVM】java虚拟机类加载机制</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -304,7 +326,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java的linkedist与ArrayList对比"><span class="toc-number">1.</span> <span class="toc-text">java的linkedist与ArrayList对比</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冲突原因"><span class="toc-number">1.</span> <span class="toc-text">冲突原因</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -343,13 +365,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/10/14/spring bean的加载流程/" title="上一篇: 【spring源码】 Bean的加载流程">
+            <a href="/2015/10/14/java基础转发与重定向/" title="上一篇: 【java基础】java转发和重定向的区别">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2015/09/14/java jvm内存/" title="下一篇: 【JVM内存】JVM内存分布">
+            <a href="/2015/10/14/spring jvm类加载机制/" title="下一篇: 【JVM】java虚拟机类加载机制">
                 <i class="fa fa-angle-right"></i>
             </a>
         
